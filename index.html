@@ -84,16 +84,29 @@
   .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--blue);color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700;font-size:14px}
   .skip:focus{left:0}
 
-  /* nav — premium frosted glass */
-  header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(24,26,30,.9),rgba(20,22,25,.8));backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.12);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 12px 34px -12px rgba(0,0,0,.6)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
-  .logo{display:flex;align-items:center;gap:11px;font-weight:900;letter-spacing:-.03em;font-size:20px;color:var(--off)}
-  .logo .mk{width:34px;height:34px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:8px;font-size:15px;font-weight:900}
-  nav.links{display:flex;gap:28px}
-  nav.links a{position:relative;font-size:14px;font-weight:500;color:#aab0b8;transition:color .2s;padding:6px 0}
-  nav.links a::after{content:"";position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .26s cubic-bezier(.2,.7,.2,1)}
-  nav.links a:hover{color:#fff}
-  nav.links a:hover::after{transform:scaleX(1)}
+  /* ===== NAV — editorial command bar ===== */
+  header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(22,24,28,.82),rgba(18,20,23,.7));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 34px -16px rgba(0,0,0,.6);transition:background .35s,box-shadow .35s}
+  header.nav.scrolled{background:linear-gradient(180deg,rgba(17,19,22,.96),rgba(14,16,19,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 16px 40px -18px rgba(0,0,0,.75)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:74px;transition:height .35s}
+  header.nav.scrolled .wrap{height:64px}
+  /* scroll-progress hairline */
+  .nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),#7aa0ff);box-shadow:0 0 12px rgba(47,107,255,.7);will-change:transform}
+  /* logo lockup */
+  .logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em;font-size:20px;color:var(--off)}
+  .logo .mk{position:relative;width:38px;height:38px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:10px;font-size:17px;font-weight:900;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+  .logo .mk::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transition:left .6s cubic-bezier(.4,0,.2,1)}
+  .logo:hover .mk{transform:rotate(-7deg) scale(1.06);box-shadow:0 8px 22px -6px rgba(47,107,255,.7)}
+  .logo:hover .mk::after{left:130%}
+  .logo .lk{display:flex;flex-direction:column;line-height:1}
+  .logo .lk b{font-weight:900;letter-spacing:-.045em;font-size:21px}
+  .logo .lk .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:#828a94;margin-top:4px}
+  /* primary links */
+  nav.links{display:flex;gap:3px}
+  nav.links a{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
+  nav.links a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  nav.links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+  nav.links a:hover::after,nav.links a.active::after{transform:scaleX(1)}
+  nav.links a.active{color:#fff}
   .nav-cta{display:flex;gap:10px;align-items:center}
   .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;border-radius:10px;padding:12px 20px;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:transform .18s,background .2s,color .2s}
   .btn:hover{transform:translateY(-2px)}
@@ -105,19 +118,35 @@
   .btn-ghost-l{background:transparent;border-color:rgba(244,242,238,.4);color:var(--off)}
   .btn svg{width:15px;height:15px}
 
-  /* mobile menu */
-  .menu-btn{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;border:1px solid rgba(255,255,255,.18);border-radius:10px;background:transparent;cursor:pointer;padding:0 11px}
+  /* mobile menu button */
+  .menu-btn{display:none;position:relative;z-index:120;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.04);cursor:pointer;padding:0 12px}
   .menu-btn span{display:block;height:2px;width:100%;background:var(--off);border-radius:2px;transition:transform .3s,opacity .2s}
   .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
   .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-panel{display:none;border-top:1px solid rgba(255,255,255,.1);background:rgba(18,20,23,.96);backdrop-filter:blur(22px) saturate(180%);-webkit-backdrop-filter:blur(22px) saturate(180%)}
-  .mobile-panel.open{display:block}
-  .mobile-panel .wrap{padding-top:18px;padding-bottom:26px}
-  .mobile-panel a.m-link{display:block;color:#cfd4da;font-size:16px;font-weight:600;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07)}
-  .mobile-panel a.m-link:hover{color:#fff}
-  .mobile-panel .m-cta{display:flex;flex-direction:column;gap:10px;margin-top:20px}
-  .mobile-panel .m-cta .btn{justify-content:center}
+  /* full-screen overlay */
+  .mobile-panel{position:fixed;inset:0;z-index:110;background:linear-gradient(180deg,#16181b,#0d0f12);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;display:flex;flex-direction:column;justify-content:center;padding:96px 30px 44px;overflow-y:auto}
+  .mobile-panel.open{opacity:1;visibility:visible}
+  .mobile-panel::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:54px 54px;opacity:.4;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);pointer-events:none}
+  .mobile-panel .m-inner{position:relative;width:100%;max-width:520px;margin:0 auto}
+  .mobile-panel a.m-link{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),color .2s}
+  .mobile-panel.open a.m-link{opacity:1;transform:none}
+  .mobile-panel.open a.m-link:nth-child(1){transition-delay:.05s}
+  .mobile-panel.open a.m-link:nth-child(2){transition-delay:.10s}
+  .mobile-panel.open a.m-link:nth-child(3){transition-delay:.15s}
+  .mobile-panel.open a.m-link:nth-child(4){transition-delay:.20s}
+  .mobile-panel.open a.m-link:nth-child(5){transition-delay:.25s}
+  .mobile-panel.open a.m-link:nth-child(6){transition-delay:.30s}
+  .mobile-panel.open a.m-link:nth-child(7){transition-delay:.35s}
+  .mobile-panel a.m-link .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue)}
+  .mobile-panel a.m-link:hover,.mobile-panel a.m-link:active{color:#fff}
+  .mobile-panel .m-cta{display:flex;flex-direction:column;gap:11px;margin-top:32px;opacity:0;transform:translateY(20px);transition:opacity .5s .4s,transform .5s .4s}
+  .mobile-panel.open .m-cta{opacity:1;transform:none}
+  .mobile-panel .m-cta .btn{justify-content:center;padding:15px}
+  @media (prefers-reduced-motion: reduce){
+    .mobile-panel a.m-link,.mobile-panel .m-cta{transition:opacity .2s !important;transform:none !important;transition-delay:0s !important}
+    .logo .mk,.logo .mk::after{transition:none !important}
+  }
 
   /* HERO centred (dark) */
   .hero{position:relative;overflow:hidden;background:var(--char);color:var(--off)}
@@ -377,29 +406,33 @@
 
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="nav">
+<header class="nav" id="siteNav">
   <div class="wrap">
-    <a class="logo" href="/" aria-label="RFT Recruitment home"><span class="mk" aria-hidden="true">R</span>RFT</a>
+    <a class="logo" href="/" aria-label="RFT Recruitment home">
+      <span class="mk" aria-hidden="true">R</span>
+      <span class="lk"><b>RFT</b><span class="tag">Right First Time</span></span>
+    </a>
     <nav class="links" aria-label="Primary">
       <a href="/">Home</a><a href="/about">About</a><a href="#spec">Services</a><a href="#jobs">Jobs</a><a href="/employers">Employers</a><a href="/submit-cv">Submit CV</a><a href="/contact">Contact</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost-l" href="/submit-cv">Submit CV</a>
-      <a class="btn btn-primary" href="/employers">Hire Talent</a>
+      <a class="btn btn-primary" href="/employers">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
   </div>
+  <span class="nav-progress" id="navProgress" aria-hidden="true"></span>
   <div class="mobile-panel" id="mobilePanel">
-    <div class="wrap">
-      <a class="m-link" href="/">Home</a>
-      <a class="m-link" href="/about">About</a>
-      <a class="m-link" href="#spec">Services</a>
-      <a class="m-link" href="#jobs">Jobs</a>
-      <a class="m-link" href="/employers">Employers</a>
-      <a class="m-link" href="/submit-cv">Submit CV</a>
-      <a class="m-link" href="/contact">Contact</a>
+    <div class="m-inner">
+      <a class="m-link" href="/"><span>Home</span><span class="ix">01</span></a>
+      <a class="m-link" href="/about"><span>About</span><span class="ix">02</span></a>
+      <a class="m-link" href="#spec"><span>Services</span><span class="ix">03</span></a>
+      <a class="m-link" href="#jobs"><span>Jobs</span><span class="ix">04</span></a>
+      <a class="m-link" href="/employers"><span>Employers</span><span class="ix">05</span></a>
+      <a class="m-link" href="/submit-cv"><span>Submit CV</span><span class="ix">06</span></a>
+      <a class="m-link" href="/contact"><span>Contact</span><span class="ix">07</span></a>
       <div class="m-cta">
         <a class="btn btn-primary" href="/employers">Hire Talent</a>
         <a class="btn btn-ghost-l" href="/submit-cv">Submit Your CV</a>
@@ -807,18 +840,57 @@
     });
   })();
 
-  // mobile menu
+  // mobile menu — full-screen overlay (scroll-lock + Escape)
   (function(){
     var btn=document.getElementById('menuBtn');
     var panel=document.getElementById('mobilePanel');
     if(!btn||!panel) return;
-    function close(){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');btn.setAttribute('aria-label','Open menu');}
-    btn.addEventListener('click',function(){
-      var open=panel.classList.toggle('open');
+    function set(open){
+      panel.classList.toggle('open',open);
       btn.setAttribute('aria-expanded',open?'true':'false');
       btn.setAttribute('aria-label',open?'Close menu':'Open menu');
+      document.body.style.overflow=open?'hidden':'';
+    }
+    btn.addEventListener('click',function(){set(!panel.classList.contains('open'));});
+    panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape'&&panel.classList.contains('open'))set(false);});
+  })();
+
+  // nav: scroll-progress hairline + condensed-on-scroll + scroll-spy active link
+  (function(){
+    var nav=document.getElementById('siteNav');
+    var bar=document.getElementById('navProgress');
+    var links=Array.prototype.slice.call(document.querySelectorAll('nav.links a'));
+    var doc=document.documentElement;
+    var ticking=false;
+    function update(){
+      ticking=false;
+      var max=(doc.scrollHeight-doc.clientHeight)||1;
+      var p=Math.min(1,Math.max(0,doc.scrollTop/max));
+      if(bar) bar.style.transform='scaleX('+p.toFixed(4)+')';
+      if(nav) nav.classList.toggle('scrolled',doc.scrollTop>8);
+    }
+    update();
+    window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+    // scroll-spy: light up the link for the section crossing mid-viewport
+    var spy=[];
+    var home=links.filter(function(a){return a.getAttribute('href')==='/';})[0];
+    var hero=document.getElementById('hero');
+    if(home&&hero) spy.push({el:hero,link:home});
+    links.forEach(function(a){
+      var h=a.getAttribute('href');
+      if(h&&h.charAt(0)==='#'){var t=document.querySelector(h); if(t) spy.push({el:t,link:a});}
     });
-    panel.querySelectorAll('a').forEach(function(a){a.addEventListener('click',close);});
+    if('IntersectionObserver' in window && spy.length){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(e){
+          if(!e.isIntersecting) return;
+          var hit=spy.filter(function(s){return s.el===e.target;})[0];
+          if(hit){links.forEach(function(a){a.classList.remove('active');}); hit.link.classList.add('active');}
+        });
+      },{rootMargin:'-45% 0px -50% 0px'});
+      spy.forEach(function(s){io.observe(s.el);});
+    }
   })();
 
   // reveal on scroll
