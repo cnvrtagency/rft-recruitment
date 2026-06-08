@@ -184,7 +184,7 @@
   .col-left{position:sticky;top:100px;align-self:start;background:var(--char);border:1px solid var(--lineD);border-radius:18px;padding:34px 30px;color:var(--off);box-shadow:0 16px 40px rgba(22,24,27,.14)}
   .col-left .k{color:#9aa3ad;margin-bottom:16px}
   .col-left h2{font-size:clamp(28px,3.1vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.02;color:var(--off)}
-  .col-left h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue)}
+  .col-left h2 em{font-style:normal;color:var(--blue)}
   .col-left p{color:#aab0b8;max-width:36ch;font-size:15.5px;line-height:1.62;margin-top:18px}
   .col-left .cta{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
   .col-right{min-width:0}
@@ -217,7 +217,7 @@
   .intro-inner{max-width:560px}
   .intro-inner .k{color:var(--muted);margin-bottom:18px}
   .intro-inner h2{font-size:clamp(28px,3.2vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.05;max-width:18ch}
-  .intro-inner h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue)}
+  .intro-inner h2 em{font-style:normal;color:var(--blue)}
   .intro-inner p{color:#3f454c;font-size:16px;line-height:1.7;margin-top:20px;max-width:60ch}
   .intro-inner .acts{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
 
@@ -288,7 +288,7 @@
   .faq-media{position:sticky;top:100px;align-self:start;width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--off2);box-shadow:0 22px 60px -24px rgba(22,24,27,.35)}
   .faq-head .k{color:var(--muted);margin-bottom:16px}
   .faq-head h2{font-size:clamp(28px,3.1vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.02}
-  .faq-head h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--blue)}
+  .faq-head h2 em{font-style:normal;color:var(--blue)}
   .faq-head p{color:var(--muted);font-size:15.5px;line-height:1.62;margin-top:16px;max-width:54ch}
   .faq-list{border-top:1px solid var(--line);margin-top:30px}
   .faq-item{border-bottom:1px solid var(--line)}
@@ -307,7 +307,7 @@
   /* final CTA */
   .final{background:var(--blue);color:#fff;text-align:center}
   .final h2{font-size:clamp(34px,5vw,68px);font-weight:800;letter-spacing:-.035em;line-height:1;max-width:18ch;margin:0 auto}
-  .final h2 em{font-family:var(--serif);font-style:italic;font-weight:400;color:#fff}
+  .final h2 em{font-style:normal;color:#fff}
   .final .acts{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
   .final .note{margin-top:34px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
   .final .btn-dark{background:var(--ink);color:#fff}
@@ -467,7 +467,7 @@
       <a class="btn btn-primary" href="/employers">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn-light" href="#jobs">Browse Jobs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-  <!-- marquee attached to hero bottom -->
+  </div><!-- /.inner -->
   <div class="hero-marquee" aria-hidden="true">
     <div class="marquee-track">
       <span class="ml-item">Peak Digital</span><span class="ml-sep">◆</span>
@@ -478,7 +478,6 @@
       <span class="ml-item">Meridian</span><span class="ml-sep">◆</span>
       <span class="ml-item">Foxfield</span><span class="ml-sep">◆</span>
       <span class="ml-item">Atlas Works</span><span class="ml-sep">◆</span>
-      <!-- duplicate set for seamless loop -->
       <span class="ml-item">Peak Digital</span><span class="ml-sep">◆</span>
       <span class="ml-item">Salford Group</span><span class="ml-sep">◆</span>
       <span class="ml-item">Northline Co.</span><span class="ml-sep">◆</span>
@@ -488,8 +487,8 @@
       <span class="ml-item">Foxfield</span><span class="ml-sep">◆</span>
       <span class="ml-item">Atlas Works</span><span class="ml-sep">◆</span>
     </div>
-  </div>
-</div>
+  </div><!-- /.hero-marquee -->
+</div><!-- /.hero -->
 
 <div class="trust-strip">
   <div class="wrap">
@@ -526,7 +525,7 @@
   <div class="wrap split">
     <div class="col-left reveal">
       <p class="k mono">What We Recruit</p>
-      <h2>The Sectors We <em>Know</em> Best.</h2>
+      <h2>The Sectors <em>We Know Best</em>.</h2>
       <p>These are the sectors we recruit for most often. We cover plenty of others too, so if your role isn't listed here, just ask.</p>
       <div class="cta"><a class="btn btn-primary" href="/employers">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
@@ -548,7 +547,7 @@
   <div class="wrap split">
     <div class="col-left reveal">
       <p class="k mono">Why RFT</p>
-      <h2>No Waffle. <em>Just</em> the Right People.</h2>
+      <h2>No Waffle. <em>Just the Right People</em>.</h2>
       <p>We run sharp, sector-specific teams and tell you straight what's realistic on salary, timeline and talent.</p>
       <div class="cta"><a class="btn btn-primary" href="/employers">Send Hiring Brief <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
     </div>
@@ -634,7 +633,7 @@
   <div class="wrap split">
     <div class="col-left reveal">
       <p class="k mono">How It Works</p>
-      <h2>A Clear Path, <em>Both</em> Ways.</h2>
+      <h2>A Clear Path, <em>Both Ways</em>.</h2>
       <p>Same standard whether you're hiring or job-hunting, you always know the next step.</p>
       <div class="proc-tabs" role="tablist" aria-label="Process audience">
         <button class="on" data-tab="emp" role="tab" aria-selected="true">For Employers</button>
@@ -662,6 +661,10 @@
         <p class="k mono">Common Questions</p>
         <h2>Answers, Before You <em>Ask</em>.</h2>
         <p>The things employers and candidates ask us most. If your question isn't here, just speak to RFT.</p>
+        <div class="proc-tabs faq-tabs" role="tablist" aria-label="FAQ audience" style="margin-top:22px">
+          <button class="on" data-faq="clients" role="tab" aria-selected="true">For Clients</button>
+          <button data-faq="candidates" role="tab" aria-selected="false">For Candidates</button>
+        </div>
       </div>
       <div class="faq-list reveal" id="faqList"></div>
     </div>
@@ -762,36 +765,57 @@
   }
   renderSteps('emp');
 
-  // FAQ accordion + FAQPage structured data
-  var faqs = [
-    {q:"Which sectors does RFT recruit for in Manchester?",a:"We focus on Digital &amp; Marketing, Office Support, Sales, Commercial, Rec2Rec and White Collar Construction. We place roles outside these areas too, so it is always worth asking if your vacancy sits elsewhere."},
-    {q:"Do you cover permanent and contract roles?",a:"Yes. We recruit on a permanent and contract basis, across short and long-term assignments, and we will advise on which approach best suits the role and your timelines."},
-    {q:"How quickly can you provide a shortlist?",a:"For most roles we come back with a focused shortlist within a few working days. Timing depends on the brief, the salary and how niche the skill set is, and we tell you what is realistic up front."},
-    {q:"Do you only work in Manchester, or across the UK?",a:"We are Manchester-based and know the local market well, but we recruit for clients and candidates across the wider UK, including hybrid and remote positions."},
-    {q:"How are your recruitment fees structured?",a:"Fees are agreed clearly before we start, with no surprises. They vary by role type and seniority, and we are happy to talk the options through on an introductory call."},
-    {q:"I'm a candidate. How do I submit my CV?",a:"Use the Submit Your CV form and tell us the sort of role, sector and salary you are after. A consultant will be in touch if we have something suitable, or as soon as a good fit comes up."},
-    {q:"What happens to my details after I apply?",a:"Your information is kept secure and only used to discuss relevant opportunities with you. We will never share your details with a client without your say-so."},
-    {q:"What if my role isn't one of your core sectors?",a:"Get in touch anyway. Our core sectors are where we are strongest, but our network runs wider and we would rather point you in the right direction than turn you away."}
-  ];
+  // FAQ accordion — client / candidate toggle
+  var faqSets = {
+    clients:[
+      {q:"Which sectors do you recruit for?",a:"We focus on Digital &amp; Marketing, Office Support, Sales, Commercial, Rec2Rec and White Collar Construction. We place roles outside these areas too, so it is always worth asking if your vacancy sits elsewhere."},
+      {q:"How quickly can you provide a shortlist?",a:"For most roles we come back with a focused shortlist within a few working days. Timing depends on the brief, the salary and how niche the skill set is, and we tell you what is realistic up front."},
+      {q:"How are your fees structured?",a:"Fees are agreed clearly before we start, with no surprises. They vary by role type and seniority, and we are happy to talk the options through on an introductory call."},
+      {q:"Do you cover permanent and contract roles?",a:"Yes. We recruit on a permanent and contract basis, across short and long-term assignments, and we will advise on which approach best suits the role and your timelines."},
+      {q:"Do you only work in Manchester, or across the UK?",a:"We are Manchester-based and know the local market well, but we recruit for clients across the wider UK, including hybrid and remote positions."},
+      {q:"What if the role isn't in one of your core sectors?",a:"Get in touch anyway. Our core sectors are where we are strongest, but our network runs wider and we would rather point you in the right direction than turn you away."}
+    ],
+    candidates:[
+      {q:"How do I submit my CV?",a:"Use the Submit Your CV form and tell us the sort of role, sector and salary you are after. A consultant will be in touch if we have something suitable, or as soon as a good fit comes up."},
+      {q:"What sectors do you place candidates in?",a:"We place candidates across Digital &amp; Marketing, Office Support, Sales, Commercial, Rec2Rec and White Collar Construction. If your background sits outside these, get in touch and we will point you in the right direction."},
+      {q:"Do you have permanent and contract roles?",a:"Yes. We work across permanent and contract assignments of all lengths. Let us know your preference and we will focus on opportunities that suit your situation."},
+      {q:"What happens to my details after I apply?",a:"Your information is kept secure and only used to discuss relevant opportunities with you. We will never share your details with a client without your say-so."},
+      {q:"Do you cover roles outside Manchester?",a:"We are Manchester-based and know the local market well, but we place candidates across the wider UK, including hybrid and fully remote roles."},
+      {q:"What if my sector isn't listed?",a:"Get in touch anyway. Our listed sectors are where we are most active, but our network runs wider and we would rather have a conversation than leave you without a next step."}
+    ]
+  };
   (function(){
     var list=document.getElementById('faqList');
     if(!list) return;
-    list.innerHTML = faqs.map(function(f,i){
-      return '<div class="faq-item'+(i===0?' open':'')+'">'
-        +'<h3><button class="faq-q" aria-expanded="'+(i===0?'true':'false')+'">'+f.q+'<span class="faq-ic" aria-hidden="true"></span></button></h3>'
-        +'<div class="faq-a"><div class="inner">'+f.a+'</div></div></div>';
-    }).join('');
-    list.querySelectorAll('.faq-q').forEach(function(btn){
-      btn.addEventListener('click',function(){
-        var item=btn.closest('.faq-item');
-        var wasOpen=item.classList.contains('open');
-        list.querySelectorAll('.faq-item').forEach(function(it){it.classList.remove('open');it.querySelector('.faq-q').setAttribute('aria-expanded','false');});
-        if(!wasOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+    function renderFaqs(key){
+      var set=faqSets[key];
+      list.innerHTML=set.map(function(f,i){
+        return '<div class="faq-item'+(i===0?' open':'')+'">'
+          +'<h3><button class="faq-q" aria-expanded="'+(i===0?'true':'false')+'">'+f.q+'<span class="faq-ic" aria-hidden="true"></span></button></h3>'
+          +'<div class="faq-a"><div class="inner">'+f.a+'</div></div></div>';
+      }).join('');
+      list.querySelectorAll('.faq-q').forEach(function(btn){
+        btn.addEventListener('click',function(){
+          var item=btn.closest('.faq-item');
+          var wasOpen=item.classList.contains('open');
+          list.querySelectorAll('.faq-item').forEach(function(it){it.classList.remove('open');it.querySelector('.faq-q').setAttribute('aria-expanded','false');});
+          if(!wasOpen){item.classList.add('open');btn.setAttribute('aria-expanded','true');}
+        });
+      });
+    }
+    renderFaqs('clients');
+    // tab toggle
+    document.querySelectorAll('.faq-tabs button').forEach(function(b){
+      b.addEventListener('click',function(){
+        document.querySelectorAll('.faq-tabs button').forEach(function(x){x.classList.remove('on');x.setAttribute('aria-selected','false');});
+        b.classList.add('on'); b.setAttribute('aria-selected','true');
+        renderFaqs(b.dataset.faq);
       });
     });
-    // FAQPage JSON-LD (text mirrors the visible answers)
+    // FAQPage JSON-LD (all questions combined)
+    var allFaqs=faqSets.clients.concat(faqSets.candidates);
     var tmp=document.createElement('div');
-    var schema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":faqs.map(function(f){
+    var schema={"@context":"https://schema.org","@type":"FAQPage","mainEntity":allFaqs.map(function(f){
       tmp.innerHTML=f.a; var plain=tmp.textContent||tmp.innerText||'';
       tmp.innerHTML=f.q; var q=tmp.textContent||tmp.innerText||'';
       return {"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":plain}};
