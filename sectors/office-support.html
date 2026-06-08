@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Office Support Recruitment Manchester | RFT Recruitment</title>
+<meta name="description" content="Specialist office support and administration recruitment across Manchester and the North West. PA, EA, Office Manager, receptionist and admin roles. RFT Recruitment.">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6bff'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Archivo,sans-serif' font-weight='900' font-size='20' fill='white'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@0;1&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --char:#16181b; --char2:#1f2227; --off:#f4f2ee; --off2:#eceae4;
+    --blue:#2f6bff; --ink:#16181b; --muted:#6c727a; --line:#dad7d0; --lineD:#2c3036;
+    --sans:"Archivo",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);color:var(--ink);background:var(--off);-webkit-font-smoothing:antialiased;line-height:1.5}
+  h1,h2,h3{text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+  .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+  .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--blue);color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700;font-size:14px}
+  .skip:focus{left:0}
+
+  /* NAV */
+  header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(22,24,28,.82),rgba(18,20,23,.7));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 34px -16px rgba(0,0,0,.6);transition:background .35s,box-shadow .35s}
+  header.nav.scrolled{background:linear-gradient(180deg,rgba(17,19,22,.96),rgba(14,16,19,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 16px 40px -18px rgba(0,0,0,.75)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:74px;transition:height .35s}
+  header.nav.scrolled .wrap{height:64px}
+  .nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),#7aa0ff);box-shadow:0 0 12px rgba(47,107,255,.7);will-change:transform}
+  .logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em;font-size:20px;color:var(--off)}
+  .logo .mk{position:relative;width:38px;height:38px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:10px;font-size:17px;font-weight:900;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+  .logo .mk::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transition:left .6s cubic-bezier(.4,0,.2,1)}
+  .logo:hover .mk{transform:rotate(-7deg) scale(1.06);box-shadow:0 8px 22px -6px rgba(47,107,255,.7)}
+  .logo:hover .mk::after{left:130%}
+  .logo .lk{display:flex;flex-direction:column;line-height:1}
+  .logo .lk b{font-weight:900;letter-spacing:-.045em;font-size:21px}
+  .logo .lk .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:#9aa3ad;margin-top:4px}
+  nav.links{display:flex;gap:3px}
+  nav.links a{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
+  nav.links a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  nav.links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+  nav.links a:hover::after,nav.links a.active::after{transform:scaleX(1)}
+  nav.links a.active{color:#fff}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;border-radius:10px;padding:12px 20px;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:transform .18s,background .2s,color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-ghost-l{background:transparent;border-color:rgba(244,242,238,.4);color:var(--off)}
+  .btn svg{width:15px;height:15px}
+  .menu-btn{display:none;position:relative;z-index:120;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.04);cursor:pointer;padding:0 12px}
+  .menu-btn span{display:block;height:2px;width:100%;background:var(--off);border-radius:2px;transition:transform .3s,opacity .2s}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-panel{position:fixed;inset:0;z-index:110;background:linear-gradient(180deg,#16181b,#0d0f12);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;display:flex;flex-direction:column;overflow:hidden}
+  .mobile-panel.open{opacity:1;visibility:visible}
+  .mobile-panel::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:54px 54px;opacity:.4;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);pointer-events:none}
+  .mobile-panel .m-inner{position:relative;width:100%;max-width:520px;margin:0 auto;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:88px 30px 56px}
+  .mobile-panel a.m-link{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),color .2s}
+  .mobile-panel.open a.m-link{opacity:1;transform:none}
+  .mobile-panel.open a.m-link:nth-child(1){transition-delay:.05s}
+  .mobile-panel.open a.m-link:nth-child(2){transition-delay:.10s}
+  .mobile-panel.open a.m-link:nth-child(3){transition-delay:.15s}
+  .mobile-panel.open a.m-link:nth-child(4){transition-delay:.20s}
+  .mobile-panel.open a.m-link:nth-child(5){transition-delay:.25s}
+  .mobile-panel.open a.m-link:nth-child(6){transition-delay:.30s}
+  .mobile-panel.open a.m-link:nth-child(7){transition-delay:.35s}
+  .mobile-panel a.m-link .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue)}
+  .mobile-panel a.m-link:hover,.mobile-panel a.m-link:active{color:#fff}
+  .m-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.06);cursor:pointer;display:grid;place-items:center;color:var(--off);transition:background .2s,border-color .2s;z-index:10}
+  .m-close:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+  .m-close svg{width:20px;height:20px}
+  .mobile-panel .m-cta{display:flex;flex-direction:column;gap:11px;margin-top:32px;opacity:0;transform:translateY(20px);transition:opacity .5s .4s,transform .5s .4s}
+  .mobile-panel.open .m-cta{opacity:1;transform:none}
+  .mobile-panel .m-cta .btn{justify-content:center;padding:15px}
+  /* MOBILE PANEL — logo + sectors expand */
+  .m-logo{position:absolute;top:18px;left:22px;z-index:10}
+  .m-sectors-toggle{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s .15s cubic-bezier(.2,.7,.2,1),transform .5s .15s cubic-bezier(.2,.7,.2,1),color .2s;cursor:pointer;-webkit-user-select:none;user-select:none}
+  .mobile-panel.open .m-sectors-toggle{opacity:1;transform:none}
+  .m-sectors-toggle:hover,.m-sectors-toggle:active{color:#fff}
+  .m-sectors-toggle .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue);display:flex;align-items:center;gap:7px}
+  .m-sectors-toggle .ix-caret{width:13px;height:13px;flex-shrink:0;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .m-sectors-wrap.open .m-sectors-toggle .ix-caret{transform:rotate(45deg)}
+  .m-sectors-sub{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1),opacity .28s;opacity:0}
+  .m-sectors-wrap.open .m-sectors-sub{max-height:320px;opacity:1}
+  .m-sector-link{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#5a6270;padding:10px 12px;border-radius:8px;transition:color .15s,background .15s}
+  .m-sector-link:hover,.m-sector-link:active{color:var(--blue);background:rgba(255,255,255,.05)}
+  .m-sl-num{font-family:var(--mono);font-size:9px;color:var(--blue);opacity:.55;flex-shrink:0}
+
+  /* SECTOR HERO */
+  .sec-hero{position:relative;overflow:hidden;background:var(--char);color:var(--off);padding:90px 0 80px}
+  .sec-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:64px 64px;opacity:.55;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 32%,#000 35%,transparent 78%);mask-image:radial-gradient(ellipse 80% 70% at 50% 32%,#000 35%,transparent 78%)}
+  .sec-hero .inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
+  .sec-hero-img{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--char2);border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 28px 64px -28px rgba(0,0,0,.7);position:relative;flex-shrink:0}
+  .sec-hero-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:22px 22px}
+  .sec-hero-ph svg{width:34px;height:34px;stroke:rgba(255,255,255,.2)}
+  .sec-hero-ph span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+  .breadcrumb{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#6a727c;margin-bottom:28px;flex-wrap:wrap}
+  .breadcrumb a{color:#6a727c;transition:color .2s}
+  .breadcrumb a:hover{color:var(--blue)}
+  .breadcrumb .sep{opacity:.4}
+  .sec-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(47,107,255,.15);border:1px solid rgba(47,107,255,.3);color:var(--blue);font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;padding:6px 14px;border-radius:40px;margin-bottom:24px}
+  .sec-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+  .sec-hero h1{font-size:clamp(34px,5vw,66px);font-weight:800;line-height:1.04;letter-spacing:-.04em;margin-bottom:24px}
+  .sec-hero h1 em{font-style:normal;color:var(--blue)}
+  .sec-hero .lead{font-size:17px;line-height:1.72;color:rgba(244,242,238,.82);max-width:68ch}
+  .sec-hero .acts{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .btn-ghost-d{background:transparent;border-color:rgba(255,255,255,.22);color:var(--off)}
+  .btn-ghost-d:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.4)}
+
+  /* OVERVIEW */
+  .overview{background:#fff;padding:88px 0}
+  .overview-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:center}
+  .overview-img{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--off2);border:1px solid var(--line);position:relative;box-shadow:0 22px 60px -24px rgba(22,24,27,.18);flex-shrink:0}
+  .overview-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background-image:radial-gradient(circle,rgba(22,24,27,.04) 1px,transparent 1px);background-size:22px 22px}
+  .overview-ph svg{width:34px;height:34px;stroke:rgba(22,24,27,.22)}
+  .overview-ph span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(22,24,27,.25)}
+  .overview-acts{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+  .btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--off)}
+  .sec-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:18px;display:flex;align-items:center;gap:12px}
+  .sec-kicker::before{content:'';display:block;width:28px;height:1px;background:var(--blue);opacity:.6}
+  .overview h2{font-size:clamp(26px,3vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-bottom:28px}
+  .overview h2 em{font-style:normal;color:var(--blue)}
+  .overview p{font-size:16.5px;line-height:1.74;color:#3f454c;margin-bottom:20px;max-width:72ch}
+  .overview p:last-child{margin-bottom:0}
+
+  /* ROLES */
+  .roles-section{background:var(--off);padding:88px 0}
+  .roles-section .sec-head{margin-bottom:52px}
+  .roles-section h2{font-size:clamp(28px,3.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-top:14px;margin-bottom:12px}
+  .roles-section .sub{color:var(--muted);font-size:15.5px;line-height:1.6;max-width:58ch}
+  .roles-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+  .role-card{background:#fff;padding:28px 26px;transition:background .2s}
+  .role-card:hover{background:#fdfcfb}
+  .role-num{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--blue);opacity:.7;margin-bottom:12px}
+  .role-title{font-size:17px;font-weight:800;letter-spacing:-.015em;line-height:1.2;margin-bottom:10px}
+  .role-desc{font-size:14px;line-height:1.65;color:var(--muted)}
+
+  /* WHY EMPLOYERS */
+  .why-employers{background:var(--char);color:var(--off);padding:88px 0}
+  .why-employers h2{font-size:clamp(28px,3.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-top:14px;margin-bottom:14px;color:var(--off)}
+  .why-employers .sub{color:#aab0b8;font-size:15.5px;line-height:1.6;max-width:56ch;margin-bottom:48px}
+  .reasons-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--lineD);border:1px solid var(--lineD);border-radius:18px;overflow:hidden}
+  .reason-card{background:var(--char);padding:36px 30px;transition:background .2s}
+  .reason-card:hover{background:var(--char2)}
+  .reason-ic{width:48px;height:48px;border-radius:12px;background:rgba(47,107,255,.14);color:var(--blue);display:grid;place-items:center;margin-bottom:24px;flex-shrink:0}
+  .reason-ic svg{width:22px;height:22px}
+  .reason-title{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px;color:var(--off)}
+  .reason-body{font-size:15px;line-height:1.65;color:#aab0b8}
+
+  /* WHY CANDIDATES */
+  .why-candidates{background:#fff;padding:88px 0}
+  .why-candidates h2{font-size:clamp(28px,3.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-top:14px;margin-bottom:14px}
+  .why-candidates .sub{color:var(--muted);font-size:15.5px;line-height:1.6;max-width:56ch;margin-bottom:48px}
+  .reasons-grid-light{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+  .reason-card-light{background:var(--off);border:1px solid var(--line);border-radius:18px;padding:36px 30px;transition:box-shadow .2s,transform .2s}
+  .reason-card-light:hover{transform:translateY(-3px);box-shadow:0 16px 44px rgba(22,24,27,.09)}
+  .reason-ic-light{width:48px;height:48px;border-radius:12px;background:rgba(47,107,255,.1);color:var(--blue);display:grid;place-items:center;margin-bottom:24px}
+  .reason-ic-light svg{width:22px;height:22px}
+  .reason-title-light{font-size:18px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px}
+  .reason-body-light{font-size:15px;line-height:1.65;color:var(--muted)}
+
+  /* FAQ */
+  .faq-section{background:var(--off);padding:88px 0}
+  .faq-section .faq-inner{max-width:780px}
+  .faq-section h2{font-size:clamp(28px,3.2vw,44px);font-weight:800;letter-spacing:-.03em;line-height:1.06;margin-top:14px;margin-bottom:12px}
+  .faq-section .sub{color:var(--muted);font-size:15.5px;line-height:1.6;max-width:58ch;margin-bottom:40px}
+  .faq-list{border-top:1px solid var(--line)}
+  .faq-item{border-bottom:1px solid var(--line)}
+  .faq-item h3{margin:0;font-size:inherit;font-weight:inherit}
+  .faq-q{width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:22px;padding:22px 2px;font-family:var(--sans);font-size:17px;font-weight:700;letter-spacing:-.01em;color:var(--ink);transition:color .2s}
+  .faq-q:hover{color:var(--blue)}
+  .faq-ic{flex:0 0 auto;width:24px;height:24px;position:relative;margin-top:2px}
+  .faq-ic::before,.faq-ic::after{content:"";position:absolute;background:var(--blue);border-radius:2px;transition:transform .3s,opacity .3s}
+  .faq-ic::before{left:4px;right:4px;top:11px;height:2px}
+  .faq-ic::after{top:4px;bottom:4px;left:11px;width:2px}
+  .faq-item.open .faq-ic::after{transform:scaleY(0);opacity:0}
+  .faq-a{overflow:hidden;max-height:0;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
+  .faq-item.open .faq-a{max-height:600px}
+  .faq-a .inner{padding:0 2px 24px;color:var(--muted);font-size:15.5px;line-height:1.66;max-width:66ch}
+
+  /* SECTOR CTA */
+  .sec-cta{background:radial-gradient(ellipse 140% 55% at 50% -5%,rgba(47,107,255,.32) 0%,transparent 52%),radial-gradient(ellipse 65% 45% at 88% 108%,rgba(47,107,255,.14) 0%,transparent 60%),#0d0f11;color:#fff;text-align:center;position:relative;overflow:hidden;padding:100px 0}
+  .sec-cta::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
+  .sec-cta .wrap{position:relative;z-index:1}
+  .cta-kicker{display:flex;align-items:center;justify-content:center;gap:16px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:30px}
+  .cta-kicker i{display:block;width:36px;height:1px;background:var(--blue);opacity:.55;font-style:normal}
+  .sec-cta h2{font-size:clamp(36px,5.5vw,72px);font-weight:800;letter-spacing:-.04em;line-height:1.0;margin:0 auto}
+  .sec-cta .cta-sub{margin:20px auto 0;max-width:54ch;font-size:17px;line-height:1.7;color:rgba(255,255,255,.82)}
+  .sec-cta .acts{display:flex;gap:14px;justify-content:center;margin-top:38px;flex-wrap:wrap}
+  .btn-dark{background:var(--ink);color:#fff}
+  .btn-dark:hover{background:#000}
+
+  /* FOOTER */
+  footer{background:#0e1013;color:#aab0b8;padding:64px 0 40px}
+  footer .grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+  footer h5{color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+  footer a{display:block;font-size:14px;margin-bottom:11px;color:#aab0b8;transition:color .2s}
+  footer a:hover{color:#fff}
+  footer .logo{color:#fff;margin-bottom:16px}
+  footer .bot{display:flex;justify-content:space-between;border-top:1px solid #23262b;margin-top:46px;padding-top:26px;font-size:12.5px;flex-wrap:wrap;gap:12px}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .roles-grid .reveal:nth-child(2),.reasons-grid .reveal:nth-child(2),.reasons-grid-light .reveal:nth-child(2){transition-delay:.06s}
+  .roles-grid .reveal:nth-child(3),.reasons-grid .reveal:nth-child(3),.reasons-grid-light .reveal:nth-child(3){transition-delay:.12s}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1 !important;transform:none !important;transition:none !important}}
+
+  /* RESPONSIVE */
+  @media(max-width:1000px){
+    nav.links{display:none}
+    .nav-cta .btn{display:none}
+    .menu-btn{display:flex}
+    .roles-grid{grid-template-columns:repeat(2,1fr)}
+    .reasons-grid{grid-template-columns:repeat(2,1fr)}
+    .reasons-grid-light{grid-template-columns:repeat(2,1fr)}
+    .sec-hero .inner{grid-template-columns:1fr;gap:36px}
+    .sec-hero-img{aspect-ratio:16/9;max-width:560px}
+    .overview-grid{grid-template-columns:1fr;gap:40px}
+    .overview-img{aspect-ratio:16/9;max-width:560px}
+  }
+  @media(max-width:768px){
+    footer .grid{grid-template-columns:1fr 1fr;gap:28px}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 22px}
+    .sec-hero{padding:64px 0 60px}
+    .roles-grid{grid-template-columns:1fr}
+    .reasons-grid{grid-template-columns:1fr}
+    .reasons-grid-light{grid-template-columns:1fr}
+    footer .grid{grid-template-columns:1fr}
+    .sec-hero h1{font-size:clamp(30px,9vw,48px)}
+    .sec-hero-img{aspect-ratio:3/2;max-width:100%}
+    .overview-img{aspect-ratio:3/2;max-width:100%}
+  }
+  /* NAV DROPDOWN */
+  .nav-drop-wrap{position:relative;display:flex;align-items:center}
+  .nav-drop-trigger{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s;display:flex;align-items:center;gap:5px;cursor:default;user-select:none;white-space:nowrap}
+  .nav-drop-trigger::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  .nav-drop-wrap:hover .nav-drop-trigger,.nav-drop-wrap:focus-within .nav-drop-trigger{color:#fff;background:rgba(255,255,255,.05)}
+  .nav-drop-wrap:hover .nav-drop-trigger::after,.nav-drop-wrap:focus-within .nav-drop-trigger::after{transform:scaleX(1)}
+  .drop-caret{width:11px;height:11px;transition:transform .22s;flex-shrink:0}
+  .nav-drop-wrap:hover .drop-caret,.nav-drop-wrap:focus-within .drop-caret{transform:rotate(180deg)}
+  .nav-drop-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);background:#1a1c20;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:6px;min-width:234px;box-shadow:0 20px 44px -14px rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:200}
+  .nav-drop-wrap:hover .nav-drop-menu,.nav-drop-wrap:focus-within .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .nav-drop-menu a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:13px;font-weight:600;color:#aab0b8;transition:color .15s,background .15s;white-space:nowrap;text-decoration:none}
+  .nav-drop-menu a:hover{background:rgba(255,255,255,.07);color:#fff}
+  .drop-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--blue);opacity:.7;min-width:18px}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="siteNav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="RFT Recruitment home">
+      <span class="mk" aria-hidden="true">R</span>
+      <span class="lk"><b>RFT</b><span class="tag">Right First Time</span></span>
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="/">Home</a><a href="/about">About</a><div class="nav-drop-wrap"><span class="nav-drop-trigger" tabindex="0">Sectors <svg class="drop-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span><div class="nav-drop-menu"><a href="/sectors/digital-marketing.html"><span class="drop-num">01</span>Digital &amp; Marketing</a><a href="/sectors/office-support.html"><span class="drop-num">02</span>Office Support</a><a href="/sectors/sales.html"><span class="drop-num">03</span>Sales</a><a href="/sectors/commercial.html"><span class="drop-num">04</span>Commercial</a><a href="/sectors/rec2rec.html"><span class="drop-num">05</span>Rec2Rec</a><a href="/sectors/construction.html"><span class="drop-num">06</span>White Collar Construction</a></div></div><a href="/#jobs">Jobs</a><a href="/employers">Employers</a><a href="/submit-cv">Submit CV</a><a href="/contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost-l" href="/submit-cv">Submit CV</a>
+      <a class="btn btn-primary" href="/employers">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <span class="nav-progress" id="navProgress" aria-hidden="true"></span>
+</header>
+
+<div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+  <a class="logo m-logo" href="/" aria-label="RFT Recruitment home">
+    <span class="mk" aria-hidden="true">R</span>
+    <span class="lk"><b>RFT</b><span class="tag">Right First Time</span></span>
+  </a>
+  <button class="m-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="m-inner">
+    <a class="m-link" href="/"><span>Home</span><span class="ix">01</span></a>
+    <a class="m-link" href="/about"><span>About</span><span class="ix">02</span></a>
+    <div class="m-sectors-wrap" id="mobileSectorsWrap">
+      <div class="m-sectors-toggle" id="mobileSectorsToggle">
+        <span>Sectors</span>
+        <span class="ix">03 <svg class="ix-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+      </div>
+      <div class="m-sectors-sub">
+        <a class="m-sector-link" href="/sectors/digital-marketing.html"><span class="m-sl-num">01</span>Digital &amp; Marketing</a>
+        <a class="m-sector-link" href="/sectors/office-support.html"><span class="m-sl-num">02</span>Office Support</a>
+        <a class="m-sector-link" href="/sectors/sales.html"><span class="m-sl-num">03</span>Sales</a>
+        <a class="m-sector-link" href="/sectors/commercial.html"><span class="m-sl-num">04</span>Commercial</a>
+        <a class="m-sector-link" href="/sectors/rec2rec.html"><span class="m-sl-num">05</span>Rec2Rec</a>
+        <a class="m-sector-link" href="/sectors/construction.html"><span class="m-sl-num">06</span>White Collar Construction</a>
+      </div>
+    </div>
+    <a class="m-link" href="/#jobs"><span>Jobs</span><span class="ix">04</span></a>
+    <a class="m-link" href="/employers"><span>Employers</span><span class="ix">05</span></a>
+    <a class="m-link" href="/submit-cv"><span>Submit CV</span><span class="ix">06</span></a>
+    <a class="m-link" href="/contact.html"><span>Contact</span><span class="ix">07</span></a>
+    <div class="m-cta">
+      <a class="btn btn-primary" href="/employers">Hire Talent</a>
+      <a class="btn btn-ghost-l" href="/submit-cv">Submit Your CV</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="sec-hero">
+  <div class="wrap">
+    <div class="inner">
+      <div class="sec-hero-img">
+        <div class="sec-hero-ph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" ry="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Photo Coming Soon</span>
+        </div>
+      </div>
+      <div class="sec-hero-content">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span class="sep">›</span>
+        <a href="/#spec">Sectors</a><span class="sep">›</span>
+        <span aria-current="page">Office Support</span>
+      </nav>
+      <div class="sec-tag reveal"><span class="dot"></span> Specialist Sector</div>
+      <h1 class="reveal">Office Support &amp; <em>Administration</em> Recruitment</h1>
+      <p class="lead reveal">Office support and administration roles are the backbone of every business, and getting them right is more commercially important than many organisations realise. A poor hire at PA, Office Manager or Executive Assistant level creates friction across entire teams. RFT recruits across the full administrative function, from reception and coordination roles through to senior EAs supporting C-suite executives. We work with employers across Manchester and the wider North West, placing candidates who are organised, proactive and genuinely professional in how they operate.</p>
+      <div class="acts reveal">
+        <a class="btn btn-primary" href="/contact.html">Discuss a Vacancy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        <a class="btn btn-ghost-d" href="/submit-cv">Submit Your CV</a>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="overview">
+  <div class="wrap">
+    <div class="overview-grid">
+      <div class="overview-img reveal">
+        <div class="overview-ph">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3" ry="3"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="M21 15l-5-5L5 21"/></svg>
+          <span>Photo Coming Soon</span>
+        </div>
+      </div>
+      <div class="overview-content">
+      <p class="sec-kicker reveal">About This Sector</p>
+      <h2 class="reveal">Administration Recruitment That <em>Goes Deeper</em></h2>
+      <p class="reveal">The office support market moves quickly. Good PAs and EAs are rarely available for long, and the candidates who can manage complex diaries, coordinate international travel and handle confidential matters with discretion are in consistent demand. RFT maintains an active pool of office support professionals at every level, which means we can respond with pace rather than relying on a slow job board cycle.</p>
+      <p class="reveal">We take the time to understand working culture and management style, because fit matters as much as skills in a support function that sits close to senior leadership. An EA who is technically competent but cannot read a principal's priorities creates problems. We assess both  -  and we tell you what we find at the briefing stage rather than leaving it to interview day to discover.</p>
+        <div class="overview-acts reveal">
+          <a class="btn btn-primary" href="/jobs">Browse Jobs <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a class="btn btn-ghost" href="/contact.html">Send a Brief <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROLES WE RECRUIT -->
+<section class="roles-section">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="sec-kicker reveal">Roles We Place</p>
+      <h2 class="reveal">Office Support Roles We Recruit</h2>
+      <p class="sub reveal">From reception through to C-suite EA, we recruit across the full administrative function.</p>
+    </div>
+    <div class="roles-grid">
+      <div class="role-card reveal">
+        <div class="role-num">01</div>
+        <h3 class="role-title">Receptionist</h3>
+        <p class="role-desc">First-point-of-contact roles managing switchboards, visitor management and general office coordination. Presentation, communication and reliability are the defining qualities we look for.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">02</div>
+        <h3 class="role-title">Administrator</h3>
+        <p class="role-desc">General administrative support across departments: data entry, document management, scheduling and inbox handling. Attention to detail and software proficiency are consistently expected.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">03</div>
+        <h3 class="role-title">Office Manager</h3>
+        <p class="role-desc">End-to-end office operations including facilities, supplier management, HR administration and team coordination. Experience managing a physical office environment is usually a prerequisite.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">04</div>
+        <h3 class="role-title">Executive Assistant</h3>
+        <p class="role-desc">Complex diary management, board-level correspondence, travel logistics and confidential document handling. We place EAs at MD, Director and C-suite level who operate as true business partners.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">05</div>
+        <h3 class="role-title">Personal Assistant</h3>
+        <p class="role-desc">Dedicated one-to-one support for senior individuals. Candidates must demonstrate discretion, initiative and the ability to manage upward when necessary.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">06</div>
+        <h3 class="role-title">Team Secretary</h3>
+        <p class="role-desc">Shared administrative support across professional teams in legal, financial and professional services environments. Accurate document production and formatting skills are essential.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">07</div>
+        <h3 class="role-title">Data Entry Clerk</h3>
+        <p class="role-desc">High-volume, accuracy-led roles focused on database updating, records management and CRM input. Speed and precision are both measured at this level.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">08</div>
+        <h3 class="role-title">Operations Coordinator</h3>
+        <p class="role-desc">Cross-functional coordination roles that sit between administration and operations management. Candidates typically have strong process skills and experience working across departments.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">09</div>
+        <h3 class="role-title">Project Coordinator</h3>
+        <p class="role-desc">Administrative support within project environments, including tracking milestones, managing documentation and liaising with stakeholders. PM software exposure is increasingly expected.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">10</div>
+        <h3 class="role-title">Business Support Assistant</h3>
+        <p class="role-desc">Flexible, generalist roles supporting multiple business functions. Often the entry point for candidates building an administrative career across different sectors.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">11</div>
+        <h3 class="role-title">Customer Service Administrator</h3>
+        <p class="role-desc">Inbound query handling combined with administrative duties, common in financial services, insurance and professional services environments.</p>
+      </div>
+      <div class="role-card reveal">
+        <div class="role-num">12</div>
+        <h3 class="role-title">HR Administrator</h3>
+        <p class="role-desc">Onboarding administration, payroll liaison, absence tracking and employee records management. Often sits within a shared services or HR team.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY EMPLOYERS -->
+<section class="why-employers">
+  <div class="wrap">
+    <p class="sec-kicker reveal" style="color:var(--blue)">For Employers</p>
+    <h2 class="reveal">Why Employers Choose RFT</h2>
+    <p class="sub reveal">Quality candidates, operational speed and flexible arrangements that work for your business.</p>
+    <div class="reasons-grid">
+      <div class="reason-card reveal">
+        <div class="reason-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <h3 class="reason-title">Quality Candidates, Properly Screened</h3>
+        <p class="reason-body">We do not send lists. Every candidate we put forward has been spoken to, had their experience verified and been assessed for the specific role and working environment. You receive a shortlist of people who can genuinely do the job, in the culture you have described.</p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+        </div>
+        <h3 class="reason-title">Speed When It Matters</h3>
+        <p class="reason-body">Admin vacancies create operational disruption from day one. RFT's candidate pool means we can often introduce suitable candidates within 48 hours for common roles. We keep the pipeline moving so your business does not stall while the search is underway.</p>
+      </div>
+      <div class="reason-card reveal">
+        <div class="reason-ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
+        </div>
+        <h3 class="reason-title">Temp-to-Perm and Flexible Options</h3>
+        <p class="reason-body">Not every requirement needs an immediate permanent hire. We offer temporary, contract and temp-to-perm arrangements that give you flexibility without exposing you to a long recruitment process when you need cover fast.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CANDIDATES -->
+<section class="why-candidates">
+  <div class="wrap">
+    <p class="sec-kicker reveal">For Candidates</p>
+    <h2 class="reveal">Why Candidates Work With RFT</h2>
+    <p class="sub reveal">Access to roles that are not advertised, honest salary guidance and real career advocacy.</p>
+    <div class="reasons-grid-light">
+      <div class="reason-card-light reveal">
+        <div class="reason-ic-light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        </div>
+        <h3 class="reason-title-light">Access to Roles That Are Not Advertised</h3>
+        <p class="reason-body-light">Many of the office support roles we fill are not posted publicly. Senior PAs and EAs are regularly placed through direct introductions. Registering with RFT gives you access to the full market, not just the visible job board layer.</p>
+      </div>
+      <div class="reason-card-light reveal">
+        <div class="reason-ic-light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <h3 class="reason-title-light">Temporary Work That Builds Your Career</h3>
+        <p class="reason-body-light">We offer a range of temporary assignments that help you build experience across different sectors and environments. These roles often convert to permanent positions for candidates who perform well and want to stay.</p>
+      </div>
+      <div class="reason-card-light reveal">
+        <div class="reason-ic-light">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <h3 class="reason-title-light">Honest Guidance on Your Market</h3>
+        <p class="reason-body-light">We tell you what your skills are worth in the current Manchester market, what types of businesses are hiring and how your CV reads to employers. That knowledge helps you target your search more effectively and set realistic expectations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="wrap">
+    <div class="faq-inner">
+      <p class="sec-kicker reveal">Common Questions</p>
+      <h2 class="reveal">Frequently Asked Questions</h2>
+      <p class="sub reveal">Answers to the questions we hear most from employers and candidates in the office support sector.</p>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3><button class="faq-q" aria-expanded="false">Do you offer temporary and part-time office support roles?<span class="faq-ic" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" role="region"><div class="inner">Yes. We regularly place candidates in temporary, part-time and flexible arrangements. Temporary assignments range from a few days of holiday cover to extended contracts while permanent recruitment is underway. We work with candidates who want flexibility and employers who need it.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" aria-expanded="false">What qualifications do you need for an EA or PA role?<span class="faq-ic" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" role="region"><div class="inner">Formal qualifications are rarely the deciding factor. What matters is demonstrable experience, a strong work history with credible references, and the ability to show initiative and discretion. We brief every candidate on exactly what the client is looking for before we put anyone forward.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" aria-expanded="false">How quickly do office support roles typically fill?<span class="faq-ic" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" role="region"><div class="inner">Common administrator and coordinator roles often move in under a week once a shortlist is agreed. Senior EA or Office Manager positions with more specific requirements can take two to three weeks. We set realistic expectations at the start of every search.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" aria-expanded="false">Can I register even if I am currently employed?<span class="faq-ic" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" role="region"><div class="inner">Yes. Most of the candidates we represent are employed and simply open to the right move. You can register your preferences and we will contact you only when something matches, without any pressure to apply for roles that do not fit your situation.</div></div>
+        </div>
+        <div class="faq-item">
+          <h3><button class="faq-q" aria-expanded="false">What is the typical salary range for office support roles in Manchester?<span class="faq-ic" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" role="region"><div class="inner">Entry-level admin roles start from around £22,000. Office Managers and experienced EAs typically sit between £30,000 and £45,000, with senior EA positions at C-suite level reaching £50,000 to £60,000 in the Greater Manchester market. We provide benchmarking at the briefing stage.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="sec-cta">
+  <div class="wrap">
+    <div class="cta-kicker reveal" aria-hidden="true"><i></i>Get In Touch<i></i></div>
+    <h2 class="reveal">Ready to Place or Find the Right Office Support Talent?</h2>
+    <p class="cta-sub reveal">Tell us about your vacancy or your next career move and a consultant who knows office support recruitment will be in touch the same day.</p>
+    <div class="acts reveal">
+      <a class="btn btn-primary" href="/contact.html">Discuss a Vacancy <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-dark" href="/submit-cv">Submit Your CV</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="logo"><span class="mk" aria-hidden="true">R</span>RFT</div>
+        <p style="max-width:34ch;font-size:14px;line-height:1.6">Manchester-based recruitment for employers and candidates across six specialist sectors. Permanent and contract.</p>
+      </div>
+      <div><h5>Recruit</h5><a href="/employers">Hire Talent</a><a href="/employers">Send Hiring Brief</a><a href="/#spec">Our Sectors</a><a href="/contact.html">Speak to RFT</a></div>
+      <div><h5>Candidates</h5><a href="/jobs">Browse Jobs</a><a href="/submit-cv">Submit CV</a><a href="/submit-cv">Register Interest</a><a href="/jobs">Job Alerts</a></div>
+      <div><h5>Company</h5><a href="/about">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a></div>
+    </div>
+    <div class="bot"><span>© 2026 RFT Recruitment Ltd · Manchester,&nbsp;UK</span><span class="mono">RFT · Right First Time</span></div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll behaviour
+  var nav=document.getElementById('siteNav'),prog=document.getElementById('navProgress');
+  function onScroll(){
+    var s=window.scrollY,h=document.documentElement.scrollHeight-window.innerHeight;
+    nav.classList.toggle('scrolled',s>40);
+    if(prog)prog.style.transform='scaleX('+(h>0?s/h:0)+')';
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  // Mobile menu
+  var btn=document.getElementById('menuBtn'),panel=document.getElementById('mobilePanel'),cls=document.getElementById('mobileClose');
+  function openMenu(){panel.classList.add('open');btn.setAttribute('aria-expanded','true');document.body.style.overflow='hidden'}
+  function closeMenu(){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');document.body.style.overflow=''}
+  if(btn)btn.addEventListener('click',openMenu);
+  if(cls)cls.addEventListener('click',closeMenu);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu()});
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var item=btn.closest('.faq-item'),open=item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(i){
+        i.classList.remove('open');
+        i.querySelector('.faq-q').setAttribute('aria-expanded','false');
+      });
+      if(!open){item.classList.add('open');btn.setAttribute('aria-expanded','true')}
+    });
+  });
+
+  // Reveal on scroll
+  var ro=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');ro.unobserve(e.target)}});
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(function(el){ro.observe(el)});
+</script>
+
+<script>
+// Mobile sectors toggle
+(function(){
+  var wrap   = document.getElementById('mobileSectorsWrap');
+  var toggle = document.getElementById('mobileSectorsToggle');
+  var panel  = document.getElementById('mobilePanel');
+  if (!toggle || !wrap) return;
+  toggle.addEventListener('click', function(){
+    wrap.classList.toggle('open');
+  });
+  // Close sub-menu whenever the main panel closes
+  var closeBtn = document.getElementById('mobileClose');
+  if (closeBtn) closeBtn.addEventListener('click', function(){ wrap.classList.remove('open'); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') wrap.classList.remove('open');
+  });
+})();
+</script>
+</body>
+</html>

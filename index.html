@@ -11,7 +11,7 @@
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#16181b" />
 
-<!-- Favicon — inline SVG of the RFT "R" mark, no external file needed -->
+<!-- Favicon  -  inline SVG of the RFT "R" mark, no external file needed -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6bff'/%3E%3Ctext x='16' y='23' font-family='Archivo,Arial,sans-serif' font-size='21' font-weight='900' fill='%23ffffff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
 
 <!-- Open Graph -->
@@ -74,6 +74,7 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{font-family:var(--sans);color:var(--ink);background:var(--off);-webkit-font-smoothing:antialiased;line-height:1.5}
+  h1,h2{text-wrap:balance}
   a{color:inherit;text-decoration:none}
   img{display:block;max-width:100%}
   :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
@@ -84,7 +85,7 @@
   .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--blue);color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700;font-size:14px}
   .skip:focus{left:0}
 
-  /* ===== NAV — editorial command bar ===== */
+  /* ===== NAV  -  editorial command bar ===== */
   header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(22,24,28,.82),rgba(18,20,23,.7));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 34px -16px rgba(0,0,0,.6);transition:background .35s,box-shadow .35s}
   header.nav.scrolled{background:linear-gradient(180deg,rgba(17,19,22,.96),rgba(14,16,19,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 16px 40px -18px rgba(0,0,0,.75)}
   .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:74px;transition:height .35s}
@@ -125,10 +126,10 @@
   .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
   .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   /* full-screen overlay */
-  .mobile-panel{position:fixed;inset:0;z-index:110;background:linear-gradient(180deg,#16181b,#0d0f12);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;display:flex;flex-direction:column;justify-content:center;padding:96px 30px 44px;overflow-y:auto}
+  .mobile-panel{position:fixed;inset:0;z-index:110;background:linear-gradient(180deg,#16181b,#0d0f12);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;display:flex;flex-direction:column;overflow:hidden}
   .mobile-panel.open{opacity:1;visibility:visible}
   .mobile-panel::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:54px 54px;opacity:.4;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);pointer-events:none}
-  .mobile-panel .m-inner{position:relative;width:100%;max-width:520px;margin:0 auto}
+  .mobile-panel .m-inner{position:relative;width:100%;max-width:520px;margin:0 auto;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:88px 30px 56px}
   .mobile-panel a.m-link{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),color .2s}
   .mobile-panel.open a.m-link{opacity:1;transform:none}
   .mobile-panel.open a.m-link:nth-child(1){transition-delay:.05s}
@@ -140,12 +141,25 @@
   .mobile-panel.open a.m-link:nth-child(7){transition-delay:.35s}
   .mobile-panel a.m-link .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue)}
   .mobile-panel a.m-link:hover,.mobile-panel a.m-link:active{color:#fff}
-  .m-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.06);cursor:pointer;display:grid;place-items:center;color:var(--off);transition:background .2s,border-color .2s}
+  .m-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.06);cursor:pointer;display:grid;place-items:center;color:var(--off);transition:background .2s,border-color .2s;z-index:10}
   .m-close:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
   .m-close svg{width:20px;height:20px}
   .mobile-panel .m-cta{display:flex;flex-direction:column;gap:11px;margin-top:32px;opacity:0;transform:translateY(20px);transition:opacity .5s .4s,transform .5s .4s}
   .mobile-panel.open .m-cta{opacity:1;transform:none}
   .mobile-panel .m-cta .btn{justify-content:center;padding:15px}
+  /* MOBILE PANEL — logo + sectors expand */
+  .m-logo{position:absolute;top:18px;left:22px;z-index:10}
+  .m-sectors-toggle{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s .15s cubic-bezier(.2,.7,.2,1),transform .5s .15s cubic-bezier(.2,.7,.2,1),color .2s;cursor:pointer;-webkit-user-select:none;user-select:none}
+  .mobile-panel.open .m-sectors-toggle{opacity:1;transform:none}
+  .m-sectors-toggle:hover,.m-sectors-toggle:active{color:#fff}
+  .m-sectors-toggle .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue);display:flex;align-items:center;gap:7px}
+  .m-sectors-toggle .ix-caret{width:13px;height:13px;flex-shrink:0;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .m-sectors-wrap.open .m-sectors-toggle .ix-caret{transform:rotate(45deg)}
+  .m-sectors-sub{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1),opacity .28s;opacity:0}
+  .m-sectors-wrap.open .m-sectors-sub{max-height:320px;opacity:1}
+  .m-sector-link{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#5a6270;padding:10px 12px;border-radius:8px;transition:color .15s,background .15s}
+  .m-sector-link:hover,.m-sector-link:active{color:var(--blue);background:rgba(255,255,255,.05)}
+  .m-sl-num{font-family:var(--mono);font-size:9px;color:var(--blue);opacity:.55;flex-shrink:0}
   @media (prefers-reduced-motion: reduce){
     .mobile-panel a.m-link,.mobile-panel .m-cta{transition:opacity .2s !important;transform:none !important;transition-delay:0s !important}
     .logo .mk,.logo .mk::after{transition:none !important}
@@ -157,6 +171,7 @@
   .hero .inner{position:relative;z-index:2;max-width:1000px;margin:0 auto;padding:108px 40px 100px;text-align:center;display:flex;flex-direction:column;align-items:center}
   .hero .eyebrow{margin-bottom:30px;color:#9aa3ad;display:inline-flex;align-items:center;gap:11px}
   .hero .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 rgba(47,107,255,.5);animation:pulse 2.4s infinite}
+  .eye-pin{width:12px;height:12px;stroke:var(--blue);flex-shrink:0}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,107,255,.45)}70%{box-shadow:0 0 0 9px rgba(47,107,255,0)}100%{box-shadow:0 0 0 0 rgba(47,107,255,0)}}
   .hero h1{font-size:clamp(32px,4.7vw,58px);font-weight:800;line-height:1.06;letter-spacing:-.035em;max-width:none}
   .hero h1 .rft{position:relative;white-space:nowrap;color:var(--off)}
@@ -166,7 +181,7 @@
     .hero h1 .rft .uline path.armed{stroke-dashoffset:640}
     .hero h1 .rft .uline path.armed.go{stroke-dashoffset:0;transition:stroke-dashoffset 1.15s cubic-bezier(.6,.1,.25,1)}
   }
-  .hero p.lead{margin-top:26px;font-size:clamp(14px,1.2vw,16px);line-height:1.65;max-width:60ch;color:var(--off)}
+  .hero p.lead{margin-top:26px;font-size:16px;line-height:1.65;max-width:60ch;color:var(--off)}
   .hero .acts{display:flex;gap:12px;margin-top:38px;flex-wrap:wrap;justify-content:center}
 
   .trust-strip{background:var(--char2);color:var(--off);border-top:1px solid var(--lineD)}
@@ -201,6 +216,7 @@
       color:var(--muted);text-align:center;padding:24px}
   .img-ph svg{width:34px;height:34px;stroke:var(--muted);opacity:.7}
   .img-ph span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;max-width:24ch;line-height:1.5}
+  .faq-media img{width:100%;height:100%;object-fit:cover;object-position:center center}
 
   /* hero marquee */
   .hero-marquee{position:relative;overflow:hidden;border-top:1px solid rgba(255,255,255,.08);padding:16px 0;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0%,#000 7%,#000 93%,transparent 100%)}
@@ -210,10 +226,11 @@
   @keyframes marquee-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
   @media(prefers-reduced-motion:reduce){.marquee-track{animation:none}}
 
-  /* intro editorial — image left, text right */
+  /* intro editorial  -  image left, text right */
   .intro{background:#fff;padding:100px 0 0}
   .intro-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:64px;align-items:center}
   .intro-img{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--off2);box-shadow:0 22px 60px -24px rgba(22,24,27,.35)}
+  .intro-img img{width:100%;height:100%;object-fit:cover;object-position:center center}
   .intro-inner{max-width:560px}
   .intro-inner .k{color:var(--muted);margin-bottom:18px}
   .intro-inner h2{font-size:clamp(28px,3.2vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.05;max-width:18ch}
@@ -224,12 +241,12 @@
   /* specialisms numbered rows */
   .spec{border-top:1px solid var(--line)}
   .spec .row{display:grid;grid-template-columns:60px 1fr 44px;gap:26px;align-items:start;padding:28px 6px;border-bottom:1px solid var(--line);cursor:pointer;transition:padding-left .25s,background .25s}
-  .spec .row:hover{padding-left:16px;background:var(--off)}
+  @media(hover:hover){.spec .row:hover{padding-left:16px;background:var(--off)}}
   .spec .row .num{font-family:var(--mono);color:var(--blue);font-size:14px;padding-top:5px}
   .spec .row h3{font-size:24px;font-weight:800;letter-spacing:-.02em}
   .spec .row .desc{color:var(--muted);font-size:14.5px;line-height:1.6;margin-top:9px;max-width:62ch}
   .spec .row .arr{width:42px;height:42px;border:1px solid var(--line);border-radius:50%;display:grid;place-items:center;transition:background .2s,color .2s,border-color .2s;margin-top:3px}
-  .spec .row:hover .arr{background:var(--blue);color:#fff;border-color:var(--blue)}
+  @media(hover:hover){.spec .row:hover .arr{background:var(--blue);color:#fff;border-color:var(--blue)}}
   .spec .row .arr svg{width:16px;height:16px}
 
   /* why RFT */
@@ -240,25 +257,27 @@
   .why-card .ic{width:46px;height:46px;border-radius:11px;background:rgba(47,107,255,.14);color:var(--blue);display:grid;place-items:center;margin-bottom:22px}
   .why-card .ic svg{width:22px;height:22px}
   .why-card h3{font-size:19px;font-weight:700;letter-spacing:-.01em}
-  .why-card p{color:#aab0b8;font-size:14.5px;line-height:1.6;margin-top:11px}
+  .why-card p{color:#aab0b8;font-size:15.5px;line-height:1.62;margin-top:13px}
 
   /* jobs grid */
   .jobs{background:#fff}
-  .job-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-  .job{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
-  .job:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(22,24,27,.1);border-color:#c7c3ba}
-  .job .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+  .job-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+  .job{background:#fff;border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column;cursor:pointer;transition:transform .2s,box-shadow .2s,border-color .2s}
+  .job:hover{transform:translateY(-4px);box-shadow:0 20px 48px rgba(22,24,27,.11);border-color:#bfbbb2}
+  .job .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
   .job .sector{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);background:rgba(47,107,255,.1);padding:6px 10px;border-radius:6px}
   .job .ctype{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-  .job h3{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .job h3{font-size:22px;font-weight:800;letter-spacing:-.025em;line-height:1.1}
   .job .meta{display:flex;flex-wrap:wrap;gap:14px;margin-top:14px;color:#4c525a;font-size:13.5px}
   .job .meta span{display:flex;align-items:center;gap:6px}
   .job .meta svg{width:14px;height:14px;opacity:.6}
-  .job .sal{margin-top:18px;font-size:22px;font-weight:800;letter-spacing:-.02em}
+  .job .sal{margin-top:16px;font-size:23px;font-weight:800;letter-spacing:-.025em}
   .job .sal small{font-size:13px;color:var(--muted);font-weight:500}
-  .job .desc{color:var(--muted);font-size:14px;line-height:1.55;margin-top:12px;flex:1}
-  .job .apply{margin-top:20px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px}
-  .job .apply .lk{font-weight:700;font-size:14px;color:var(--blue);display:flex;align-items:center;gap:7px}
+  .job .tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+  .job .tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);background:var(--off);padding:4px 9px;border-radius:5px;border:1px solid var(--line)}
+  .job .desc{color:#4c525a;font-size:15px;line-height:1.62;margin-top:14px;flex:1}
+  .job .apply{margin-top:22px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid var(--line);padding-top:18px}
+  .job .apply .lk{font-weight:700;font-size:14px;color:var(--blue);display:flex;align-items:center;gap:7px;white-space:nowrap}
   .job .apply .pat{font-family:var(--mono);font-size:10px;color:var(--muted);text-transform:uppercase}
 
   /* process tabs */
@@ -283,7 +302,7 @@
   .proc .step h4{color:var(--off)}
   .proc .step p{color:#aab0b8}
 
-  /* FAQ — image left (sticky), accordion right */
+  /* FAQ  -  image left (sticky), accordion right */
   .faq{background:#fff}
   .faq-media{position:sticky;top:100px;align-self:start;width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--off2);box-shadow:0 22px 60px -24px rgba(22,24,27,.35)}
   .faq-head .k{color:var(--muted);margin-bottom:16px}
@@ -305,18 +324,33 @@
   .faq-a .inner{padding:0 2px 24px;color:var(--muted);font-size:15.5px;line-height:1.66;max-width:62ch}
 
   /* final CTA */
-  .final{background:var(--blue);color:#fff;text-align:center}
-  .final h2{font-size:clamp(34px,5vw,68px);font-weight:800;letter-spacing:-.035em;line-height:1;max-width:18ch;margin:0 auto}
-  .final h2 em{font-style:normal;color:#fff}
+  .final{
+    background:
+      radial-gradient(ellipse 140% 55% at 50% -5%,rgba(47,107,255,.32) 0%,transparent 52%),
+      radial-gradient(ellipse 65% 45% at 88% 108%,rgba(47,107,255,.14) 0%,transparent 60%),
+      #0d0f11;
+    color:#fff;text-align:center;position:relative;overflow:hidden
+  }
+  .final::before{
+    content:'';position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);
+    background-size:28px 28px;pointer-events:none;z-index:0
+  }
+  .final .wrap{position:relative;z-index:1}
+  .final-kicker{display:flex;align-items:center;justify-content:center;gap:16px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:36px}
+  .final-kicker i{display:block;width:36px;height:1px;background:var(--blue);opacity:.55;font-style:normal}
+  .final h2{font-size:clamp(44px,6.5vw,88px);font-weight:800;letter-spacing:-.04em;line-height:1.0;margin:0 auto}
+  .final h2 span{display:block}
   .final .acts{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
-  .final .note{margin-top:34px;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+  .final .note{margin-top:44px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .final .note span{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.42);border:1px solid rgba(255,255,255,.1);padding:5px 13px;border-radius:5px}
   .final .btn-dark{background:var(--ink);color:#fff}
   .final .btn-dark:hover{background:#000}
 
   /* contact form (dual: clients / candidates) */
-  .final .final-sub{margin:18px auto 0;max-width:46ch;font-size:16px;line-height:1.6;color:rgba(255,255,255,.92)}
-  .cf{max-width:760px;margin:36px auto 0;text-align:center}
-  .cf-toggle{display:inline-flex;background:rgba(0,0,0,.2);border:1px solid rgba(255,255,255,.35);border-radius:13px;padding:5px;gap:4px;margin-bottom:24px}
+  .final .final-sub{margin:22px auto 0;max-width:58ch;font-size:17px;line-height:1.7;color:rgba(255,255,255,.84)}
+  .cf{max-width:760px;margin:44px auto 0;text-align:center}
+  .cf-toggle{display:inline-flex;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:13px;padding:5px;gap:4px;margin-bottom:24px}
   .cf-toggle button{font-family:var(--sans);font-weight:700;font-size:14px;padding:11px 26px;border:none;background:transparent;color:#fff;border-radius:9px;cursor:pointer;transition:.2s;white-space:nowrap}
   .cf-toggle button.on{background:#fff;color:var(--ink)}
   .cf-panel{text-align:left;border-radius:20px;padding:34px;box-shadow:0 30px 70px -28px rgba(0,0,0,.6)}
@@ -347,7 +381,7 @@
   .cf-client .cf-reassure{color:var(--muted)}
   .cf-client .cf-reassure svg{stroke:var(--blue)}
   /* CANDIDATES: light on dark */
-  .cf-candidate{background:var(--char);color:var(--off)}
+  .cf-candidate{background:var(--char);color:var(--off);border:1px solid rgba(255,255,255,.07)}
   .cf-candidate .cf-field label{color:#aab0b8}
   .cf-candidate .cf-field input,.cf-candidate .cf-field select,.cf-candidate .cf-field textarea{background:rgba(255,255,255,.05);border:1px solid var(--lineD);color:var(--off)}
   .cf-candidate .cf-field input:focus,.cf-candidate .cf-field select:focus,.cf-candidate .cf-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,107,255,.28)}
@@ -395,12 +429,22 @@
     .col-left{position:static;top:auto}
     .why-grid,.job-grid{grid-template-columns:1fr 1fr}
     .intro-grid{grid-template-columns:1fr;gap:36px}
-    .intro-img{max-width:480px;aspect-ratio:16/10}
+    .intro-img{width:100%;aspect-ratio:16/10}
+    .intro-inner h2{max-width:none}
     .spec .row{grid-template-columns:40px 1fr 40px;gap:16px}
-    .faq-media{position:static;top:auto;aspect-ratio:16/10;max-width:520px}
+    .faq-media{position:static;top:auto;aspect-ratio:16/10;width:100%;max-width:600px}
     nav.links{display:none}
     .nav-cta .btn{display:none}
     .menu-btn{display:flex}
+  }
+  @media(max-width:900px){
+    section{padding:72px 0}
+    .intro{padding:72px 0 0}
+    .hero .inner{padding:80px 40px 80px}
+  }
+  @media(max-width:768px){
+    footer .grid{grid-template-columns:1fr 1fr;gap:28px}
+    .trust-strip .wrap{gap:20px}
   }
   @media(max-width:640px){
     .wrap{padding:0 22px}
@@ -409,8 +453,31 @@
     .hero .eyebrow{flex-wrap:wrap;justify-content:center;text-align:center;gap:8px;font-size:10px}
     .cf-grid{grid-template-columns:1fr}
     .cf-panel{padding:24px}
-    footer .grid{grid-template-columns:1fr 1fr}
+    /* mobile-first fixes */
+    section{padding:60px 0}
+    .intro{padding:60px 0 0}
+    .col-left h2,.faq-head h2,.intro-inner h2{font-size:clamp(26px,7vw,46px)}
+    h1 br,h2 br{display:none}
+    .btn{min-height:44px}
+    .spec .row .arr{width:44px;height:44px}
+    .proc-tabs button,.cf-toggle button{min-height:44px}
+    .faq-media{display:none}
+    footer .grid{grid-template-columns:1fr}
   }
+
+  /* NAV DROPDOWN */
+  .nav-drop-wrap{position:relative;display:flex;align-items:center}
+  .nav-drop-trigger{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s;display:flex;align-items:center;gap:5px;cursor:default;user-select:none;white-space:nowrap}
+  .nav-drop-trigger::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  .nav-drop-wrap:hover .nav-drop-trigger,.nav-drop-wrap:focus-within .nav-drop-trigger{color:#fff;background:rgba(255,255,255,.05)}
+  .nav-drop-wrap:hover .nav-drop-trigger::after,.nav-drop-wrap:focus-within .nav-drop-trigger::after{transform:scaleX(1)}
+  .drop-caret{width:11px;height:11px;transition:transform .22s;flex-shrink:0}
+  .nav-drop-wrap:hover .drop-caret,.nav-drop-wrap:focus-within .drop-caret{transform:rotate(180deg)}
+  .nav-drop-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);background:#1a1c20;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:6px;min-width:234px;box-shadow:0 20px 44px -14px rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:200}
+  .nav-drop-wrap:hover .nav-drop-menu,.nav-drop-wrap:focus-within .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .nav-drop-menu a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:13px;font-weight:600;color:#aab0b8;transition:color .15s,background .15s;white-space:nowrap;text-decoration:none}
+  .nav-drop-menu a:hover{background:rgba(255,255,255,.07);color:#fff}
+  .drop-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--blue);opacity:.7;min-width:18px}
 </style>
 </head>
 <body>
@@ -424,7 +491,7 @@
       <span class="lk"><b>RFT</b><span class="tag">Right First Time</span></span>
     </a>
     <nav class="links" aria-label="Primary">
-      <a href="/">Home</a><a href="/about">About</a><a href="#spec">Services</a><a href="#jobs">Jobs</a><a href="/employers">Employers</a><a href="/submit-cv">Submit CV</a><a href="/contact">Contact</a>
+      <a href="/">Home</a><a href="/about">About</a><div class="nav-drop-wrap"><span class="nav-drop-trigger" tabindex="0">Sectors <svg class="drop-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span><div class="nav-drop-menu"><a href="/sectors/digital-marketing.html"><span class="drop-num">01</span>Digital &amp; Marketing</a><a href="/sectors/office-support.html"><span class="drop-num">02</span>Office Support</a><a href="/sectors/sales.html"><span class="drop-num">03</span>Sales</a><a href="/sectors/commercial.html"><span class="drop-num">04</span>Commercial</a><a href="/sectors/rec2rec.html"><span class="drop-num">05</span>Rec2Rec</a><a href="/sectors/construction.html"><span class="drop-num">06</span>White Collar Construction</a></div></div><a href="#jobs">Jobs</a><a href="/employers">Employers</a><a href="/submit-cv">Submit CV</a><a href="/contact.html">Contact</a>
     </nav>
     <div class="nav-cta">
       <a class="btn btn-ghost-l" href="/submit-cv">Submit CV</a>
@@ -437,17 +504,34 @@
   <span class="nav-progress" id="navProgress" aria-hidden="true"></span>
 </header>
 <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+  <a class="logo m-logo" href="/" aria-label="RFT Recruitment home">
+    <span class="mk" aria-hidden="true">R</span>
+    <span class="lk"><b>RFT</b><span class="tag">Right First Time</span></span>
+  </a>
   <button class="m-close" id="mobileClose" aria-label="Close menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
   </button>
   <div class="m-inner">
     <a class="m-link" href="/"><span>Home</span><span class="ix">01</span></a>
     <a class="m-link" href="/about"><span>About</span><span class="ix">02</span></a>
-    <a class="m-link" href="#spec"><span>Services</span><span class="ix">03</span></a>
+    <div class="m-sectors-wrap" id="mobileSectorsWrap">
+      <div class="m-sectors-toggle" id="mobileSectorsToggle">
+        <span>Sectors</span>
+        <span class="ix">03 <svg class="ix-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+      </div>
+      <div class="m-sectors-sub">
+        <a class="m-sector-link" href="/sectors/digital-marketing.html"><span class="m-sl-num">01</span>Digital &amp; Marketing</a>
+        <a class="m-sector-link" href="/sectors/office-support.html"><span class="m-sl-num">02</span>Office Support</a>
+        <a class="m-sector-link" href="/sectors/sales.html"><span class="m-sl-num">03</span>Sales</a>
+        <a class="m-sector-link" href="/sectors/commercial.html"><span class="m-sl-num">04</span>Commercial</a>
+        <a class="m-sector-link" href="/sectors/rec2rec.html"><span class="m-sl-num">05</span>Rec2Rec</a>
+        <a class="m-sector-link" href="/sectors/construction.html"><span class="m-sl-num">06</span>White Collar Construction</a>
+      </div>
+    </div>
     <a class="m-link" href="#jobs"><span>Jobs</span><span class="ix">04</span></a>
     <a class="m-link" href="/employers"><span>Employers</span><span class="ix">05</span></a>
     <a class="m-link" href="/submit-cv"><span>Submit CV</span><span class="ix">06</span></a>
-    <a class="m-link" href="/contact"><span>Contact</span><span class="ix">07</span></a>
+    <a class="m-link" href="/contact.html"><span>Contact</span><span class="ix">07</span></a>
     <div class="m-cta">
       <a class="btn btn-primary" href="/employers">Hire Talent</a>
       <a class="btn btn-ghost-l" href="/submit-cv">Submit Your CV</a>
@@ -460,8 +544,8 @@
 <!-- HERO centred -->
 <div class="hero" id="hero">
   <div class="inner">
-    <p class="eyebrow mono"><span class="pulse" aria-hidden="true"></span> Manchester Recruitment · Employers &amp; Candidates</p>
-    <h1>The Recruitment Agency<br>Getting It <span class="rft">Right First Time<svg class="uline" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 15 C 60 7, 120 6, 174 11 S 268 19, 316 9"/></svg></span></h1>
+    <p class="eyebrow mono"><svg class="eye-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Manchester, UK</p>
+    <h1>The Recruitment Agency <br>Getting It <span class="rft">Right First Time<svg class="uline" viewBox="0 0 320 24" preserveAspectRatio="none" aria-hidden="true"><path d="M4 15 C 60 7, 120 6, 174 11 S 268 19, 316 9"/></svg></span></h1>
     <p class="lead">Manchester-based recruitment for employers and candidates across Digital, Marketing, Sales, Office, Commercial, Rec2Rec and White Collar Construction roles. Sharp shortlists, straight advice, the right match.</p>
     <div class="acts">
       <a class="btn btn-primary" href="/employers">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -508,7 +592,7 @@
       </div>
       <div class="intro-inner reveal">
         <p class="k mono">Manchester Recruitment</p>
-        <h2>Sharp, Sector-Focused Recruitment, Done <em>Right</em> First Time.</h2>
+        <h2>Sharp, Sector-Focused Recruitment, Done <br><em>Right First Time</em>.</h2>
         <p>RFT Recruitment connects ambitious employers with reliable, well-matched candidates across Manchester and the wider UK. We handle permanent and contract recruitment, and we work the way commercial teams actually need: fast, straight-talking and focused on the right shortlist rather than the longest one.</p>
         <p>Whether you're scaling a team or planning your next career move, you get consultants who understand the roles, the salaries and the local market, and who stay involved from the first brief through to a confident placement.</p>
         <div class="acts">
@@ -531,12 +615,12 @@
     </div>
     <div class="col-right">
     <div class="spec">
-      <a class="row reveal" href="/services/digital-marketing-recruitment"><div class="num">01</div><div class="rc"><h3>Digital &amp; Marketing</h3><div class="desc">Digital Marketing Executives, PPC Specialists, SEO Executives, Social Media Managers, Content Marketers and Marketing Managers. The people who drive demand, traffic and brand for growing businesses.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
-      <a class="row reveal" href="/services/office-support-recruitment"><div class="num">02</div><div class="rc"><h3>Office Support</h3><div class="desc">Administrators, Office Managers, Receptionists, PAs, Executive Assistants and Customer Service Advisors. The dependable people who keep busy offices and operations teams running day to day.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
-      <a class="row reveal" href="/services/sales-recruitment"><div class="num">03</div><div class="rc"><h3>Sales</h3><div class="desc">Sales Executives, Business Development Managers, Account Managers, Telesales and Field Sales Executives. Revenue-focused hires for teams that need to win new business and grow existing accounts.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
-      <a class="row reveal" href="/services/commercial-recruitment"><div class="num">04</div><div class="rc"><h3>Commercial</h3><div class="desc">Commercial Administrators, Account Coordinators, Procurement and Supply Chain Coordinators, Buyers and Commercial Managers. The commercial backbone behind smooth-running operations.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
-      <a class="row reveal" href="/services/rec2rec-recruitment"><div class="num">05</div><div class="rc"><h3>Rec2Rec</h3><div class="desc">Trainee to Senior Recruitment Consultants, Principal Consultants, Billing Managers and Internal Recruiters. We help agencies and in-house teams hire the recruiters who bill and lead.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
-      <a class="row reveal" href="/services/white-collar-construction-recruitment"><div class="num">06</div><div class="rc"><h3>White Collar Construction</h3><div class="desc">Quantity Surveyors, Assistant QSs, Project and Site Managers, Estimators, Planners and Contracts Managers. Built-environment professionals for contractors, consultancies and developers.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
+      <a class="row reveal" href="/sectors/digital-marketing.html"><div class="num">01</div><div class="rc"><h3>Digital &amp; Marketing</h3><div class="desc">Digital Marketing Executives, PPC Specialists, SEO Executives, Social Media Managers, Content Marketers and Marketing Managers. The people who drive demand, traffic and brand for growing businesses.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
+      <a class="row reveal" href="/sectors/office-support.html"><div class="num">02</div><div class="rc"><h3>Office Support</h3><div class="desc">Administrators, Office Managers, Receptionists, PAs, Executive Assistants and Customer Service Advisors. The dependable people who keep busy offices and operations teams running day to day.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
+      <a class="row reveal" href="/sectors/sales.html"><div class="num">03</div><div class="rc"><h3>Sales</h3><div class="desc">Sales Executives, Business Development Managers, Account Managers, Telesales and Field Sales Executives. Revenue-focused hires for teams that need to win new business and grow existing accounts.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
+      <a class="row reveal" href="/sectors/commercial.html"><div class="num">04</div><div class="rc"><h3>Commercial</h3><div class="desc">Commercial Administrators, Account Coordinators, Procurement and Supply Chain Coordinators, Buyers and Commercial Managers. The commercial backbone behind smooth-running operations.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
+      <a class="row reveal" href="/sectors/rec2rec.html"><div class="num">05</div><div class="rc"><h3>Rec2Rec</h3><div class="desc">Trainee to Senior Recruitment Consultants, Principal Consultants, Billing Managers and Internal Recruiters. We help agencies and in-house teams hire the recruiters who bill and lead.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
+      <a class="row reveal" href="/sectors/construction.html"><div class="num">06</div><div class="rc"><h3>White Collar Construction</h3><div class="desc">Quantity Surveyors, Assistant QSs, Project and Site Managers, Estimators, Planners and Contracts Managers. Built-environment professionals for contractors, consultancies and developers.</div></div><div class="arr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M7 17 17 7M17 7H9M17 7v8"/></svg></div></a>
     </div>
     </div>
   </div>
@@ -553,12 +637,12 @@
     </div>
     <div class="col-right">
     <div class="why-grid">
-      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3>Fast, Focused Shortlists</h3><p>A tight list of genuinely relevant candidates, not fifty CVs to wade through.</p></div>
-      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg></div><h3>Sector Understanding</h3><p>Consultants who know the roles, the salaries and the market in each sector.</p></div>
-      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h8M8 8h8M8 16h5M4 4h16v16H4z"/></svg></div><h3>Commercial Advice</h3><p>Straight talk on what's achievable, so you hire on the right terms first time.</p></div>
-      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Candidate Care</h3><p>People are kept informed and prepped, so they show up and they stay.</p></div>
-      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></div><h3>Brief to Placement</h3><p>One point of contact from first call to onboarding and the follow-up.</p></div>
-      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><h3>Every Basis</h3><p>Permanent and contract roles, across short and long-term assignments, whatever the role needs.</p></div>
+      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div><h3>Fast, Focused Shortlists</h3><p>We build shortlists of candidates who genuinely fit the brief and are actively interested in the role. Every person on the list has been spoken to and assessed before their name reaches you.</p></div>
+      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg></div><h3>Sector Understanding</h3><p>Our consultants recruit within defined sectors, so they understand the roles, the realistic salaries and where the best candidates are working right now. You get relevant matches, not near-misses.</p></div>
+      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 12h8M8 8h8M8 16h5M4 4h16v16H4z"/></svg></div><h3>Commercial Advice</h3><p>We advise on what salary attracts the right calibre, where the market is moving and what a strong offer looks like in your sector. That context means you hire confidently on the right terms.</p></div>
+      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg></div><h3>Candidate Care</h3><p>Every candidate is fully briefed ahead of interviews and kept updated at every stage of the process. Better preparation means stronger performance, fewer withdrawals and more confident starts.</p></div>
+      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M7 14l4-4 3 3 5-6"/></svg></div><h3>Brief to Placement</h3><p>One consultant manages your hire from the initial brief through to offer, acceptance and onboarding. No handoffs, no gaps in communication and one person accountable for the outcome.</p></div>
+      <div class="why-card reveal"><div class="ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></div><h3>Every Basis</h3><p>We handle permanent appointments and contract placements across all six sectors, taking on everything from short-term cover to long-term senior hires as and when the need arises.</p></div>
     </div>
     </div>
   </div>
@@ -580,7 +664,8 @@
         <h3>Digital Marketing Executive</h3>
         <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Manchester (Hybrid)</span></div>
         <div class="sal">£30k–£36k</div>
-        <p class="desc">Own paid and organic across a growing B2B brand. Strong PPC and analytics focus.</p>
+        <div class="tags"><span class="tag">PPC</span><span class="tag">Paid Social</span><span class="tag">Analytics</span></div>
+        <p class="desc">You'll own paid and organic channels across a growing B2B brand, with a clear focus on PPC, paid social and performance reporting. Hands-on role with real scope to shape strategy as the marketing team scales.</p>
         <div class="apply"><a class="lk" href="/jobs/digital-marketing-executive">Apply Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="pat">Full Time</span></div>
       </article>
       <article class="job reveal">
@@ -588,7 +673,8 @@
         <h3>Office Manager</h3>
         <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Salford, M5</span></div>
         <div class="sal">£32k–£38k</div>
-        <p class="desc">Run the floor for a 40-strong team across facilities, suppliers and culture.</p>
+        <div class="tags"><span class="tag">Facilities</span><span class="tag">Operations</span><span class="tag">Team Lead</span></div>
+        <p class="desc">Running day-to-day operations for a 40-strong office across facilities, supplier relationships, culture and process improvement. A confident operator who manages upwards well and keeps a busy floor running without fuss.</p>
         <div class="apply"><a class="lk" href="/jobs/office-manager">Apply Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="pat">Full Time</span></div>
       </article>
       <article class="job reveal">
@@ -596,7 +682,8 @@
         <h3>Business Development Manager</h3>
         <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Manchester / Field</span></div>
         <div class="sal">£40k <small>+ OTE £70k</small></div>
-        <p class="desc">New-business hunter for a SaaS scale-up. Warm pipeline and strong comms.</p>
+        <div class="tags"><span class="tag">SaaS</span><span class="tag">New Business</span><span class="tag">B2B</span></div>
+        <p class="desc">New-business hunter for a SaaS scale-up with a warm pipeline, clear territory and strong product support behind you. Realistic OTE from month one, full onboarding and a team that genuinely backs its salespeople.</p>
         <div class="apply"><a class="lk" href="/jobs/business-development-manager">Apply Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="pat">Full Time</span></div>
       </article>
       <article class="job reveal">
@@ -604,7 +691,8 @@
         <h3>Recruitment Consultant</h3>
         <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Manchester City Centre</span></div>
         <div class="sal">£28k <small>+ Comms</small></div>
-        <p class="desc">Join a high-performing billing team with a warm client base and uncapped commission.</p>
+        <div class="tags"><span class="tag">360 Desk</span><span class="tag">Billing</span><span class="tag">Perm</span></div>
+        <p class="desc">You'll work a live desk with an established client base, warm roles and a clear pathway through to senior level. Uncapped commission structure, strong billers around you and genuine autonomy from day one.</p>
         <div class="apply"><a class="lk" href="/jobs/recruitment-consultant">Apply Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="pat">Full Time</span></div>
       </article>
       <article class="job reveal">
@@ -612,7 +700,8 @@
         <h3>Quantity Surveyor</h3>
         <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Greater Manchester</span></div>
         <div class="sal">£350–£420 <small>/ Day</small></div>
-        <p class="desc">12-month contract on a mixed-use scheme. MRICS or working toward it.</p>
+        <div class="tags"><span class="tag">MRICS</span><span class="tag">Mixed Use</span><span class="tag">CVR</span></div>
+        <p class="desc">12-month contract on a mixed-use residential and commercial scheme in Greater Manchester, requiring MRICS or active progress toward it. Strong subcontract management and cost value reconciliation experience expected.</p>
         <div class="apply"><a class="lk" href="/jobs/quantity-surveyor">Apply Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="pat">Contract</span></div>
       </article>
       <article class="job reveal">
@@ -620,7 +709,8 @@
         <h3>Commercial Administrator</h3>
         <div class="meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg> Trafford Park</span></div>
         <div class="sal">£13–£15 <small>/ Hr</small></div>
-        <p class="desc">3-month contract supporting a busy commercial team. Immediate start.</p>
+        <div class="tags"><span class="tag">Procurement</span><span class="tag">Administration</span><span class="tag">Immediate</span></div>
+        <p class="desc">3-month contract supporting a busy commercial team at a Trafford Park site, with potential to extend for the right person. Processing orders, managing supplier correspondence and keeping contract records up to date.</p>
         <div class="apply"><a class="lk" href="/jobs/commercial-administrator">Apply Now <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><span class="pat">Contract</span></div>
       </article>
     </div>
@@ -650,16 +740,12 @@
 <section class="faq" id="faq">
   <div class="wrap split">
     <div class="faq-media reveal">
-      <!-- Replace with: <img src="/images/rft-office.jpg" alt="Inside the RFT Recruitment office in Manchester"> -->
-      <div class="img-ph">
-        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.7" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="11" r="2.2"/><path d="M3 17l5-4 4 3 3-2 6 5"/></svg>
-        <span>Team / office photo</span>
-      </div>
+      <img src="/images/rft-office.jpg" alt="RFT Recruitment consultant on the phone reviewing a CV at their Manchester office desk" loading="lazy">
     </div>
     <div class="col-right">
       <div class="faq-head reveal">
         <p class="k mono">Common Questions</p>
-        <h2>Answers, Before You <em>Ask</em>.</h2>
+        <h2>Answers, <em>Before You Ask</em>.</h2>
         <p>The things employers and candidates ask us most. If your question isn't here, just speak to RFT.</p>
         <div class="proc-tabs faq-tabs" role="tablist" aria-label="FAQ audience" style="margin-top:22px">
           <button class="on" data-faq="clients" role="tab" aria-selected="true">For Clients</button>
@@ -674,8 +760,9 @@
 <!-- FINAL -->
 <section class="final">
   <div class="wrap">
-    <h2 class="reveal">Ready to Make Your Next Hire <em>or</em> Your Next Move?</h2>
-    <p class="final-sub reveal">Tell us what you need and we'll come back to you quickly, with no obligation.</p>
+    <div class="final-kicker reveal" aria-hidden="true"><i></i>Get In Touch<i></i></div>
+    <h2 class="reveal"><span>Your Next Great Hire.</span><span>Your Next Great Move.</span></h2>
+    <p class="final-sub reveal">Share a few details and a consultant who knows your sector will be in touch the same day. No lengthy sign-up, no hard sell  -  just a straightforward conversation about what's possible.</p>
     <div class="cf reveal">
       <div class="cf-toggle" role="tablist" aria-label="Contact form audience">
         <button class="on" data-form="client" role="tab" aria-selected="true">For Clients</button>
@@ -718,7 +805,7 @@
         </div>
       </form>
     </div>
-    <p class="note reveal">Manchester · Digital · Office · Sales · Commercial · Rec2Rec · Construction</p>
+    <p class="note reveal"><span>Manchester</span><span>Digital</span><span>Office Support</span><span>Sales</span><span>Commercial</span><span>Rec2Rec</span><span>Construction</span></p>
   </div>
 </section>
 
@@ -731,11 +818,11 @@
         <div class="logo"><span class="mk" aria-hidden="true">R</span>RFT</div>
         <p style="max-width:34ch;font-size:14px;line-height:1.6">Manchester-based recruitment for employers and candidates across six specialist sectors. Permanent and contract.</p>
       </div>
-      <div><h5>Recruit</h5><a href="/employers">Hire Talent</a><a href="/employers">Send Hiring Brief</a><a href="#spec">Our Sectors</a><a href="/contact">Speak to RFT</a></div>
+      <div><h5>Recruit</h5><a href="/employers">Hire Talent</a><a href="/employers">Send Hiring Brief</a><a href="#spec">Our Sectors</a><a href="/contact.html">Speak to RFT</a></div>
       <div><h5>Candidates</h5><a href="/jobs">Browse Jobs</a><a href="/submit-cv">Submit CV</a><a href="/submit-cv">Register Interest</a><a href="/jobs">Job Alerts</a></div>
-      <div><h5>Company</h5><a href="/about">About</a><a href="/contact">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a></div>
+      <div><h5>Company</h5><a href="/about">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a></div>
     </div>
-    <div class="bot"><span>© 2026 RFT Recruitment Ltd · Manchester, UK</span><span class="mono">RFT · Right First Time</span></div>
+    <div class="bot"><span>© 2026 RFT Recruitment Ltd · Manchester,&nbsp;UK</span><span class="mono">RFT · Right First Time</span></div>
   </div>
 </footer>
 
@@ -743,18 +830,18 @@
   // process steps data
   var steps = {
     emp:[
-      ["01","Share the Brief","Tell us the role, the team and what good looks like."],
-      ["02","Define the Search","We agree salary, must-haves and realistic timelines."],
-      ["03","Focused Shortlist","A tight list of relevant, pre-screened candidates."],
-      ["04","Interview","Coordinated, prepped and kept moving, with no drop-off."],
-      ["05","Offer &amp; Onboard","Offer management, onboarding support and follow-up."]
+      ["01","Share the Brief","Walk us through the role, the team structure and what a strong hire looks like in practice. The more context you give us, the tighter the search and the faster we move."],
+      ["02","Scope the Search","We agree the salary range, the must-have criteria and a realistic timeline based on current market conditions. This gives us a clear brief and sets expectations on both sides."],
+      ["03","Focused Shortlist","You receive a shortlist of pre-screened candidates who fit the brief, have been spoken to and are actively interested in the role. No padding, no speculative CVs, just the people worth your time."],
+      ["04","Interview","We coordinate every interview stage, brief each candidate thoroughly and keep the process moving so momentum does not stall. You get honest updates after each stage so decisions are straightforward."],
+      ["05","Offer &amp; Onboard","We manage the offer conversation, handle any counter-offer or negotiation and stay close through to start date. Once your hire is in the role, we follow up to make sure the placement sticks."]
     ],
     can:[
-      ["01","Submit Your CV","Send it over and tell us what you're after."],
-      ["02","Tell Us the Goal","Sector, salary, location and your next step."],
-      ["03","Get Matched","We line you up with roles that actually fit."],
-      ["04","Interview Support","Prep, feedback and honest guidance throughout."],
-      ["05","Secure the Move","Offer advice and a smooth start in the right role."]
+      ["01","Register with RFT","Tell us your background, the type of role you are targeting and what a genuinely good move looks like for you right now. We take the time to understand what you want before we put anything in front of you."],
+      ["02","Tell Us the Move","Share your sector, salary expectations, preferred location and the kind of opportunity that would actually make you leave your current position. Knowing what matters to you means we only bring you roles worth considering."],
+      ["03","Get Introduced","We put you forward to roles that genuinely fit your background, with the right context so you go in positioned well. You will not be sent speculative applications or roles that do not match what you told us."],
+      ["04","Interview Prep","We give you a full briefing before every interview stage, covering the client, the role, the likely questions and what good looks like to the hiring manager. After each stage we get you honest feedback and clear guidance on next steps."],
+      ["05","Land the Role","We advise on the offer, help you navigate the resignation and manage any counter-offer so you make the move with confidence. Once you have started, we stay in touch to make sure everything is going as expected."]
     ]
   };
   function renderSteps(key){
@@ -765,7 +852,7 @@
   }
   renderSteps('emp');
 
-  // FAQ accordion — client / candidate toggle
+  // FAQ accordion  -  client / candidate toggle
   var faqSets = {
     clients:[
       {q:"Which sectors do you recruit for?",a:"We focus on Digital &amp; Marketing, Office Support, Sales, Commercial, Rec2Rec and White Collar Construction. We place roles outside these areas too, so it is always worth asking if your vacancy sits elsewhere."},
@@ -894,7 +981,7 @@
     });
   })();
 
-  // mobile menu — full-screen overlay (scroll-lock + Escape)
+  // mobile menu  -  full-screen overlay (scroll-lock + Escape)
   (function(){
     var btn=document.getElementById('menuBtn');
     var panel=document.getElementById('mobilePanel');
@@ -955,6 +1042,25 @@
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){ioFired=true;e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
   setTimeout(function(){if(!ioFired){document.querySelectorAll('.reveal').forEach(function(el){el.style.transition='none';el.classList.add('in');el.style.opacity='1';el.style.transform='none';})}},500);
+</script>
+
+<script>
+// Mobile sectors toggle
+(function(){
+  var wrap   = document.getElementById('mobileSectorsWrap');
+  var toggle = document.getElementById('mobileSectorsToggle');
+  var panel  = document.getElementById('mobilePanel');
+  if (!toggle || !wrap) return;
+  toggle.addEventListener('click', function(){
+    wrap.classList.toggle('open');
+  });
+  // Close sub-menu whenever the main panel closes
+  var closeBtn = document.getElementById('mobileClose');
+  if (closeBtn) closeBtn.addEventListener('click', function(){ wrap.classList.remove('open'); });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape') wrap.classList.remove('open');
+  });
+})();
 </script>
 </body>
 </html>
