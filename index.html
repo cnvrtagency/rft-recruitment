@@ -793,7 +793,11 @@
           return;
         }
         err.classList.remove('show');
-        // Success — no backend wired yet, so we confirm in-page. Swap in a real endpoint here.
+        // Backend: Supabase (planned). For now we confirm in-page and do not persist.
+        // To wire up later, insert here before showing success, e.g.:
+        //   const data = Object.fromEntries(new FormData(f));
+        //   await supabase.from('enquiries').insert({ ...data, kind: f.classList.contains('cf-client') ? 'client' : 'candidate' });
+        // (candidate CV upload -> supabase.storage; gate success on the awaited result.)
         var name=(f.querySelector('input[name=name],input[name=first_name]')||{}).value||'there';
         grid.innerHTML='<div class="cf-success">'
           +'<div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>'
