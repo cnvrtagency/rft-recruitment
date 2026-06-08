@@ -261,7 +261,7 @@
   .faq-ic::after{top:4px;bottom:4px;left:11px;width:2px}
   .faq-item.open .faq-ic::after{transform:scaleY(0);opacity:0}
   .faq-a{overflow:hidden;max-height:0;transition:max-height .38s cubic-bezier(.4,0,.2,1)}
-  .faq-item.open .faq-a{max-height:360px}
+  .faq-item.open .faq-a{max-height:600px}
   .faq-a .inner{padding:0 2px 24px;color:var(--muted);font-size:15.5px;line-height:1.66;max-width:62ch}
 
   /* final CTA */
@@ -320,6 +320,17 @@
   .cf-candidate .cf-reassure svg{stroke:var(--blue)}
   .final .btn-ol{background:transparent;border-color:rgba(0,0,0,.85);color:var(--ink)}
   .final .btn-ol:hover{background:var(--ink);color:#fff}
+  /* form validation + success */
+  .cf-field input.invalid,.cf-field select.invalid,.cf-field textarea.invalid{border-color:#e5484d !important;box-shadow:0 0 0 3px rgba(229,72,77,.18) !important}
+  .cf-consent.invalid{color:#e5484d}
+  .cf-error{grid-column:1/-1;display:none;font-size:13px;font-weight:600;color:#e5484d;margin-top:2px}
+  .cf-error.show{display:block}
+  .cf-success{text-align:center;padding:30px 24px}
+  .cf-success .tick{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;margin:0 auto 18px;background:rgba(47,107,255,.12)}
+  .cf-success .tick svg{width:28px;height:28px;stroke:var(--blue)}
+  .cf-success h3{font-size:23px;font-weight:800;letter-spacing:-.02em}
+  .cf-success p{margin-top:10px;font-size:15px;line-height:1.6;opacity:.85;max-width:42ch;margin-left:auto;margin-right:auto}
+  .cf-candidate .cf-success .tick{background:rgba(47,107,255,.2)}
 
   footer{background:#0e1013;color:#aab0b8;padding:64px 0 40px}
   footer .grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
@@ -568,7 +579,7 @@
       </div>
     </div>
     <div class="col-right">
-      <div class="steps" id="steps"></div>
+      <div class="steps" id="steps" aria-live="polite"></div>
     </div>
   </div>
 </section>
@@ -607,15 +618,15 @@
 
       <form class="cf-panel cf-client" novalidate>
         <div class="cf-grid">
-          <div class="cf-field"><label for="c-name">Your Name</label><input id="c-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith"></div>
+          <div class="cf-field"><label for="c-name">Your Name</label><input id="c-name" name="name" type="text" autocomplete="name" placeholder="Jane Smith" required></div>
           <div class="cf-field"><label for="c-company">Company</label><input id="c-company" name="company" type="text" autocomplete="organization" placeholder="Company Ltd"></div>
-          <div class="cf-field"><label for="c-email">Work Email</label><input id="c-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com"></div>
+          <div class="cf-field"><label for="c-email">Work Email</label><input id="c-email" name="email" type="email" autocomplete="email" placeholder="jane@company.com" required></div>
           <div class="cf-field"><label for="c-phone">Phone</label><input id="c-phone" name="phone" type="tel" autocomplete="tel" placeholder="0161 000 0000"></div>
           <div class="cf-field"><label for="c-sector">Hiring Sector</label><select id="c-sector" name="sector"><option value="">Select a sector</option><option>Digital &amp; Marketing</option><option>Office Support</option><option>Sales</option><option>Commercial</option><option>Rec2Rec</option><option>White Collar Construction</option><option>Other</option></select></div>
           <div class="cf-field"><label for="c-type">Employment Type</label><select id="c-type" name="employment_type"><option value="">Select type</option><option>Permanent</option><option>Contract</option><option>Not sure yet</option></select></div>
           <div class="cf-field full"><label for="c-role">Role Title</label><input id="c-role" name="role" type="text" placeholder="e.g. Business Development Manager"></div>
           <div class="cf-field full"><label for="c-msg">What are you hiring for?</label><textarea id="c-msg" name="message" placeholder="Tell us about the role, the team and your timelines."></textarea></div>
-          <label class="cf-consent"><input type="checkbox" name="consent"> I'm happy for RFT to contact me about this enquiry. See our <a href="/privacy-policy">Privacy Policy</a>.</label>
+          <label class="cf-consent"><input type="checkbox" name="consent" required> I'm happy for RFT to contact me about this enquiry. See our <a href="/privacy-policy">Privacy Policy</a>.</label>
           <div class="cf-actions">
             <button type="submit" class="cf-submit">Send Hiring Brief <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             <span class="cf-reassure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg> Your details are handled securely.</span>
@@ -625,15 +636,15 @@
 
       <form class="cf-panel cf-candidate" hidden novalidate>
         <div class="cf-grid">
-          <div class="cf-field"><label for="d-first">First Name</label><input id="d-first" name="first_name" type="text" autocomplete="given-name" placeholder="Alex"></div>
-          <div class="cf-field"><label for="d-last">Last Name</label><input id="d-last" name="last_name" type="text" autocomplete="family-name" placeholder="Taylor"></div>
-          <div class="cf-field"><label for="d-email">Email</label><input id="d-email" name="email" type="email" autocomplete="email" placeholder="alex@email.com"></div>
+          <div class="cf-field"><label for="d-first">First Name</label><input id="d-first" name="first_name" type="text" autocomplete="given-name" placeholder="Alex" required></div>
+          <div class="cf-field"><label for="d-last">Last Name</label><input id="d-last" name="last_name" type="text" autocomplete="family-name" placeholder="Taylor" required></div>
+          <div class="cf-field"><label for="d-email">Email</label><input id="d-email" name="email" type="email" autocomplete="email" placeholder="alex@email.com" required></div>
           <div class="cf-field"><label for="d-phone">Phone</label><input id="d-phone" name="phone" type="tel" autocomplete="tel" placeholder="07000 000000"></div>
           <div class="cf-field"><label for="d-sector">Desired Sector</label><select id="d-sector" name="sector"><option value="">Select a sector</option><option>Digital &amp; Marketing</option><option>Office Support</option><option>Sales</option><option>Commercial</option><option>Rec2Rec</option><option>White Collar Construction</option><option>Other</option></select></div>
           <div class="cf-field"><label for="d-title">Current Job Title</label><input id="d-title" name="job_title" type="text" placeholder="e.g. Sales Executive"></div>
           <div class="cf-field full"><label for="d-cv">Upload Your CV</label><input id="d-cv" name="cv" type="file" accept=".pdf,.doc,.docx"></div>
           <div class="cf-field full"><label for="d-msg">What are you looking for?</label><textarea id="d-msg" name="message" placeholder="Tell us the sort of role, salary and next step you're after."></textarea></div>
-          <label class="cf-consent"><input type="checkbox" name="consent"> I'm happy for RFT to contact me about relevant roles. See our <a href="/privacy-policy">Privacy Policy</a>.</label>
+          <label class="cf-consent"><input type="checkbox" name="consent" required> I'm happy for RFT to contact me about relevant roles. See our <a href="/privacy-policy">Privacy Policy</a>.</label>
           <div class="cf-actions">
             <button type="submit" class="cf-submit">Submit Your CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
             <span class="cf-reassure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"/></svg> We'll only contact you about relevant roles.</span>
@@ -761,7 +772,34 @@
       });
     });
     document.querySelectorAll('.cf-panel').forEach(function(f){
-      f.addEventListener('submit',function(e){e.preventDefault();});
+      f.addEventListener('submit',function(e){
+        e.preventDefault();
+        var grid=f.querySelector('.cf-grid');
+        var fields=f.querySelectorAll('input[required],select[required],textarea[required]');
+        var bad=0, firstBad=null;
+        fields.forEach(function(el){
+          var ok = el.type==='checkbox' ? el.checked : String(el.value).trim()!=='';
+          if(el.type==='email' && ok) ok=/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(el.value);
+          var target = el.type==='checkbox' ? el.closest('.cf-consent') : el;
+          target.classList.toggle('invalid',!ok);
+          if(!ok){ bad++; if(!firstBad) firstBad=el; }
+        });
+        var err=grid.querySelector('.cf-error');
+        if(!err){ err=document.createElement('p'); err.className='cf-error'; err.setAttribute('role','alert'); grid.appendChild(err); }
+        if(bad){
+          err.textContent='Please fill in the highlighted fields with a valid email and consent.';
+          err.classList.add('show');
+          if(firstBad) firstBad.focus();
+          return;
+        }
+        err.classList.remove('show');
+        // Success — no backend wired yet, so we confirm in-page. Swap in a real endpoint here.
+        var name=(f.querySelector('input[name=name],input[name=first_name]')||{}).value||'there';
+        grid.innerHTML='<div class="cf-success">'
+          +'<div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg></div>'
+          +'<h3>Thanks, '+name.replace(/[<>&]/g,'')+'.</h3>'
+          +'<p>Your message has reached RFT. A consultant will be in touch shortly.</p></div>';
+      });
     });
   })();
 
