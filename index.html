@@ -93,7 +93,7 @@
   .nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),#7aa0ff);box-shadow:0 0 12px rgba(47,107,255,.7);will-change:transform}
   /* logo lockup */
   .logo{display:flex;align-items:center}
-  .logo-img{height:38px;width:auto;display:block;transition:opacity .2s}
+  .logo-img{height:48px;width:auto;display:block;transition:opacity .2s}
   .logo:hover .logo-img{opacity:.85}
   /* primary links */
   nav.links{display:flex;gap:3px}
@@ -439,7 +439,7 @@
   @media(max-width:640px){
     .wrap{padding:0 22px}
     .why-grid,.job-grid{grid-template-columns:1fr}
-    .hero{height:1000px;min-height:unset;margin-top:-64px}
+    .hero{aspect-ratio:800/1200;height:auto;min-height:unset;margin-top:-64px}
     .hero-video{display:none}
     .hero-video-mobile{display:block}
     .hero .inner{padding:160px 22px 64px;text-align:left;align-items:flex-start}
