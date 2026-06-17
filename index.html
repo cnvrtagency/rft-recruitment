@@ -93,14 +93,9 @@
   /* scroll-progress hairline */
   .nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),#7aa0ff);box-shadow:0 0 12px rgba(47,107,255,.7);will-change:transform}
   /* logo lockup */
-  .logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em;font-size:20px;color:var(--off)}
-  .logo .mk{position:relative;width:38px;height:38px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:10px;font-size:17px;font-weight:900;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
-  .logo .mk::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transition:left .6s cubic-bezier(.4,0,.2,1)}
-  .logo:hover .mk{transform:rotate(-7deg) scale(1.06);box-shadow:0 8px 22px -6px rgba(47,107,255,.7)}
-  .logo:hover .mk::after{left:130%}
-  .logo .lk{display:flex;flex-direction:column;line-height:1}
-  .logo .lk b{font-weight:900;letter-spacing:-.045em;font-size:21px}
-  .logo .lk .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:#9aa3ad;margin-top:4px}
+  .logo{display:flex;align-items:center}
+  .logo-img{height:38px;width:auto;display:block;transition:opacity .2s}
+  .logo:hover .logo-img{opacity:.85}
   /* primary links */
   nav.links{display:flex;gap:3px}
   nav.links a{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
@@ -170,7 +165,7 @@
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.45;z-index:0;pointer-events:none}
   .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,12,14,.55) 0%,rgba(10,12,14,.3) 40%,rgba(10,12,14,.7) 100%)}
   .hero::after{content:"";position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 40%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse 85% 75% at 50% 40%,#000 20%,transparent 80%)}
-  .hero .inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:200px 80px 160px;text-align:left;display:flex;flex-direction:column;align-items:flex-start}
+  .hero .inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:200px 40px 160px;text-align:left;display:flex;flex-direction:column;align-items:flex-start}
   .hero .eyebrow{margin-bottom:30px;color:#9aa3ad;display:inline-flex;align-items:center;gap:11px}
   .hero .eyebrow .pulse{width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 rgba(47,107,255,.5);animation:pulse 2.4s infinite}
   .eye-pin{width:12px;height:12px;stroke:var(--blue);flex-shrink:0}
@@ -489,8 +484,7 @@
 <header class="nav" id="siteNav">
   <div class="wrap">
     <a class="logo" href="/" aria-label="RFT Recruitment home">
-      <span class="mk" aria-hidden="true">R</span>
-      <span class="lk"><b>RFT</b><span class="tag">Right First Time</span></span>
+      <img class="logo-img" src="/images/RFT-logo.png" alt="RFT Recruitment">
     </a>
     <nav class="links" aria-label="Primary">
       <a href="/">Home</a><a href="/about">About</a><div class="nav-drop-wrap"><span class="nav-drop-trigger" tabindex="0">Sectors <svg class="drop-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span><div class="nav-drop-menu"><a href="/sectors/digital-marketing.html"><span class="drop-num">01</span>Digital &amp; Marketing</a><a href="/sectors/office-support.html"><span class="drop-num">02</span>Office Support</a><a href="/sectors/sales.html"><span class="drop-num">03</span>Sales</a><a href="/sectors/commercial.html"><span class="drop-num">04</span>Commercial</a><a href="/sectors/rec2rec.html"><span class="drop-num">05</span>Rec2Rec</a><a href="/sectors/construction.html"><span class="drop-num">06</span>White Collar Construction</a></div></div><a href="#jobs">Jobs</a><a href="/employers">Employers</a><a href="/submit-cv">Submit CV</a><a href="/contact.html">Contact</a>
@@ -507,8 +501,7 @@
 </header>
 <div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
   <a class="logo m-logo" href="/" aria-label="RFT Recruitment home">
-    <span class="mk" aria-hidden="true">R</span>
-    <span class="lk"><b>RFT</b><span class="tag">Right First Time</span></span>
+    <img class="logo-img" src="/images/RFT-logo.png" alt="RFT Recruitment">
   </a>
   <button class="m-close" id="mobileClose" aria-label="Close menu">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
@@ -767,7 +760,7 @@
   <div class="wrap">
     <div class="grid">
       <div>
-        <div class="logo"><span class="mk" aria-hidden="true">R</span>RFT</div>
+        <div class="logo"><img class="logo-img" src="/images/RFT-logo.png" alt="RFT Recruitment"></div>
         <p style="max-width:34ch;font-size:14px;line-height:1.6">Manchester-based recruitment for employers and candidates across six specialist sectors. Permanent and contract.</p>
       </div>
       <div><h5>Recruit</h5><a href="/employers">Hire Talent</a><a href="/employers">Send Hiring Brief</a><a href="#spec">Our Sectors</a><a href="/contact.html">Speak to RFT</a></div>
