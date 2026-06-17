@@ -163,6 +163,7 @@
   /* HERO centred (dark) */
   .hero{position:relative;overflow:hidden;background:#0a0c0e;color:var(--off);margin-top:-74px}
   .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:.45;z-index:0;pointer-events:none}
+  .hero-video-mobile{display:none}
   .hero::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(10,12,14,.55) 0%,rgba(10,12,14,.3) 40%,rgba(10,12,14,.7) 100%)}
   .hero::after{content:"";position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 85% 75% at 50% 40%,#000 20%,transparent 80%);mask-image:radial-gradient(ellipse 85% 75% at 50% 40%,#000 20%,transparent 80%)}
   .hero .inner{position:relative;z-index:2;max-width:1280px;margin:0 auto;padding:200px 40px 160px;text-align:left;display:flex;flex-direction:column;align-items:flex-start}
@@ -446,7 +447,10 @@
   @media(max-width:640px){
     .wrap{padding:0 22px}
     .why-grid,.job-grid{grid-template-columns:1fr}
-    .hero .inner{padding:54px 24px 64px;text-align:center;align-items:center}
+    .hero{min-height:100dvh;margin-top:-64px}
+    .hero-video{display:none}
+    .hero-video-mobile{display:block}
+    .hero .inner{padding:120px 24px 64px;text-align:center;align-items:center}
     .hero .eyebrow{flex-wrap:wrap;justify-content:center;text-align:center;gap:8px;font-size:10px}
     .cf-grid{grid-template-columns:1fr}
     .cf-panel{padding:24px}
@@ -540,6 +544,9 @@
 <div class="hero" id="hero">
   <video class="hero-video" autoplay muted loop playsinline preload="auto">
     <source src="/images/recruitment-video.mp4" type="video/mp4">
+  </video>
+  <video class="hero-video hero-video-mobile" autoplay muted loop playsinline preload="auto">
+    <source src="/images/recruitment-video-mobile.mp4" type="video/mp4">
   </video>
   <div class="inner">
     <p class="eyebrow mono"><svg class="eye-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Manchester, UK</p>
