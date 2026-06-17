@@ -3,333 +3,505 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title id="pg-title">Job — RFT Recruitment</title>
-<meta name="description" id="pg-desc" content="RFT Recruitment — Manchester-based recruitment agency.">
+<title id="pg-title">Jobs in Manchester | RFT Recruitment</title>
+<meta name="description" id="pg-desc" content="Browse permanent and contract vacancies in Manchester. Roles across Digital &amp; Marketing, Sales, Office Support, Commercial, Rec2Rec and White Collar Construction.">
 <link rel="canonical" id="pg-canonical" href="https://www.rftrecruitment.co.uk/jobs/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="RFT Recruitment">
+<meta property="og:title" id="og-title" content="Jobs in Manchester | RFT Recruitment">
+<meta property="og:description" id="og-desc" content="Browse permanent and contract vacancies across Manchester's top sectors.">
+<meta name="robots" content="index,follow">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6bff'/%3E%3Ctext x='16' y='23' font-family='Archivo,Arial,sans-serif' font-size='21' font-weight='900' fill='%23ffffff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<script type="application/ld+json" id="job-schema"></script>
 <style>
-  :root{
-    --char:#16181b; --char2:#1f2227; --off:#f4f2ee; --off2:#eceae4;
-    --blue:#2f6bff; --ink:#16181b; --muted:#6c727a; --line:#dad7d0; --lineD:#2c3036;
-    --green:#1a7f4f; --green-bg:rgba(26,127,79,.1);
-    --amber:#b45309; --amber-bg:rgba(180,83,9,.1);
-    --sans:"Archivo",system-ui,sans-serif;
-    --serif:"Instrument Serif",Georgia,serif;
-    --mono:"Space Mono",ui-monospace,monospace;
-  }
-  *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{font-family:var(--sans);color:var(--ink);background:var(--off);-webkit-font-smoothing:antialiased;line-height:1.5}
-  a{color:inherit;text-decoration:none}
-  :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
-  .wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+:root{
+  --char:#16181b;--char2:#1f2227;--off:#f4f2ee;--off2:#eceae4;
+  --blue:#2f6bff;--ink:#16181b;--muted:#6c727a;--line:#dad7d0;--lineD:#2c3036;
+  --green:#1a7f4f;--green-bg:rgba(26,127,79,.1);
+  --amber:#b45309;--amber-bg:rgba(180,83,9,.1);
+  --sans:"Archivo",system-ui,sans-serif;
+  --serif:"Instrument Serif",Georgia,serif;
+  --mono:"Space Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--ink);background:var(--off);-webkit-font-smoothing:antialiased;line-height:1.5}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin:0 auto;padding:0 40px}
 
-  /* ── NAV (identical to main site) ─────────────────── */
-  header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(22,24,28,.82),rgba(18,20,23,.7));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 34px -16px rgba(0,0,0,.6);transition:background .35s,box-shadow .35s}
-  header.nav.scrolled{background:linear-gradient(180deg,rgba(17,19,22,.96),rgba(14,16,19,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 16px 40px -18px rgba(0,0,0,.75)}
-  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:74px;transition:height .35s}
-  header.nav.scrolled .wrap{height:64px}
-  .nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),#7aa0ff);box-shadow:0 0 12px rgba(47,107,255,.7);will-change:transform}
-  .logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em;font-size:20px;color:var(--off)}
-  .logo .mk{position:relative;width:38px;height:38px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:10px;font-size:17px;font-weight:900;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
-  .logo .mk::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transition:left .6s cubic-bezier(.4,0,.2,1)}
-  .logo:hover .mk{transform:rotate(-7deg) scale(1.06);box-shadow:0 8px 22px -6px rgba(47,107,255,.7)}
-  .logo:hover .mk::after{left:130%}
-  .logo .lk{display:flex;flex-direction:column;line-height:1}
-  .logo .lk b{font-weight:900;letter-spacing:-.045em;font-size:21px}
-  .logo .lk .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:#9aa3ad;margin-top:4px}
-  nav.links{display:flex;gap:3px}
-  nav.links a{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
-  nav.links a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
-  nav.links a:hover{color:#fff;background:rgba(255,255,255,.05)}
-  nav.links a:hover::after{transform:scaleX(1)}
-  .nav-drop-wrap{position:relative;display:flex;align-items:center}
-  .nav-drop-trigger{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:color .2s,background .2s;-webkit-user-select:none;user-select:none}
-  .nav-drop-trigger:hover{color:#fff;background:rgba(255,255,255,.05)}
-  .drop-caret{width:13px;height:13px;transition:transform .25s}
-  .nav-drop-wrap:focus-within .drop-caret,.nav-drop-wrap:hover .drop-caret{transform:rotate(180deg)}
-  .nav-drop-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a1d22;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:8px;min-width:240px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s;transform:translateX(-50%) translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
-  .nav-drop-wrap:hover .nav-drop-menu,.nav-drop-wrap:focus-within .nav-drop-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0)}
-  .nav-drop-menu a{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:#a7adb6;padding:9px 12px;border-radius:8px;transition:color .15s,background .15s}
-  .nav-drop-menu a:hover{color:#fff;background:rgba(255,255,255,.07)}
-  .drop-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--blue);opacity:.7;min-width:18px}
-  .nav-cta{display:flex;gap:10px;align-items:center}
-  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;border-radius:10px;padding:12px 20px;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:transform .18s,background .2s,color .2s}
-  .btn:hover{transform:translateY(-2px)}
-  .btn-primary{background:var(--blue);color:#fff}
-  .btn-ghost-l{background:transparent;border-color:rgba(244,242,238,.4);color:var(--off)}
-  .btn-ghost-l:hover{border-color:rgba(244,242,238,.65);background:rgba(255,255,255,.04)}
-  .btn svg{width:15px;height:15px}
-  .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
-  .menu-btn{display:none;position:relative;z-index:120;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.04);cursor:pointer;padding:0 12px}
-  .menu-btn span{display:block;height:2px;width:100%;background:var(--off);border-radius:2px;transition:transform .3s,opacity .2s}
-  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
-  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
-  .mobile-panel{position:fixed;inset:0;z-index:110;background:linear-gradient(180deg,#16181b,#0d0f12);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;display:flex;flex-direction:column;overflow:hidden}
-  .mobile-panel.open{opacity:1;visibility:visible}
-  .mobile-panel::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:54px 54px;opacity:.4;pointer-events:none}
-  .mobile-panel .m-inner{position:relative;width:100%;max-width:520px;margin:0 auto;flex:1;overflow-y:auto;padding:88px 30px 56px}
-  .mobile-panel a.m-link{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),color .2s}
-  .mobile-panel.open a.m-link{opacity:1;transform:none}
-  .mobile-panel.open a.m-link:nth-child(1){transition-delay:.05s}
-  .mobile-panel.open a.m-link:nth-child(2){transition-delay:.10s}
-  .mobile-panel.open a.m-link:nth-child(3){transition-delay:.15s}
-  .mobile-panel.open a.m-link:nth-child(4){transition-delay:.20s}
-  .mobile-panel.open a.m-link:nth-child(5){transition-delay:.25s}
-  .mobile-panel a.m-link .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue)}
-  .mobile-panel a.m-link:hover{color:#fff}
-  .m-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.06);cursor:pointer;display:grid;place-items:center;color:var(--off);z-index:10}
-  .m-close svg{width:20px;height:20px}
-  .mobile-panel .m-cta{display:flex;flex-direction:column;gap:11px;margin-top:32px;opacity:0;transform:translateY(20px);transition:opacity .5s .35s,transform .5s .35s}
-  .mobile-panel.open .m-cta{opacity:1;transform:none}
-  .mobile-panel .m-cta .btn{justify-content:center;padding:15px}
-  .m-logo{position:absolute;top:18px;left:22px;z-index:10}
-  @media(max-width:860px){.nav-cta,.links{display:none}.menu-btn{display:flex}}
+/* ══════════════════════════════════════════════════
+   NAV (identical to main site)
+══════════════════════════════════════════════════ */
+header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(22,24,28,.82),rgba(18,20,23,.7));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.10);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 12px 34px -16px rgba(0,0,0,.6);transition:background .35s,box-shadow .35s}
+header.nav.scrolled{background:linear-gradient(180deg,rgba(17,19,22,.96),rgba(14,16,19,.9));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),0 16px 40px -18px rgba(0,0,0,.75)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:74px;transition:height .35s}
+header.nav.scrolled .wrap{height:64px}
+.nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),#7aa0ff);box-shadow:0 0 12px rgba(47,107,255,.7);will-change:transform}
+.logo{display:flex;align-items:center;gap:12px;font-weight:900;letter-spacing:-.03em;font-size:20px;color:var(--off)}
+.logo .mk{position:relative;width:38px;height:38px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:10px;font-size:17px;font-weight:900;overflow:hidden;transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.logo .mk::after{content:"";position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transition:left .6s cubic-bezier(.4,0,.2,1)}
+.logo:hover .mk{transform:rotate(-7deg) scale(1.06);box-shadow:0 8px 22px -6px rgba(47,107,255,.7)}
+.logo:hover .mk::after{left:130%}
+.logo .lk{display:flex;flex-direction:column;line-height:1}
+.logo .lk b{font-weight:900;letter-spacing:-.045em;font-size:21px}
+.logo .lk .tag{font-family:var(--mono);font-size:8.5px;letter-spacing:.24em;text-transform:uppercase;color:#9aa3ad;margin-top:4px}
+nav.links{display:flex;gap:3px}
+nav.links a{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
+nav.links a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+nav.links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+nav.links a:hover::after,nav.links a.active::after{transform:scaleX(1)}
+nav.links a.active{color:#fff}
+.nav-drop-wrap{position:relative;display:flex;align-items:center}
+.nav-drop-trigger{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;cursor:pointer;display:flex;align-items:center;gap:5px;transition:color .2s,background .2s;-webkit-user-select:none;user-select:none}
+.nav-drop-trigger:hover{color:#fff;background:rgba(255,255,255,.05)}
+.drop-caret{width:13px;height:13px;transition:transform .25s}
+.nav-drop-wrap:hover .drop-caret{transform:rotate(180deg)}
+.nav-drop-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a1d22;border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:8px;min-width:240px;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .2s,transform .2s;transform:translateX(-50%) translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.nav-drop-wrap:hover .nav-drop-menu{opacity:1;visibility:visible;pointer-events:all;transform:translateX(-50%) translateY(0)}
+.nav-drop-menu a{display:flex;align-items:center;gap:10px;font-size:13px;font-weight:600;color:#a7adb6;padding:9px 12px;border-radius:8px;transition:color .15s,background .15s}
+.nav-drop-menu a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.drop-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--blue);opacity:.7;min-width:18px}
+.nav-cta{display:flex;gap:10px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;border-radius:10px;padding:12px 20px;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:transform .18s,background .2s,color .2s,border-color .2s;font-family:var(--sans)}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#1a55e8}
+.btn-ghost-l{background:transparent;border-color:rgba(244,242,238,.4);color:var(--off)}
+.btn-ghost-l:hover{border-color:rgba(244,242,238,.65);background:rgba(255,255,255,.04)}
+.btn svg{width:15px;height:15px}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.menu-btn{display:none;position:relative;z-index:120;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.04);cursor:pointer;padding:0 12px}
+.menu-btn span{display:block;height:2px;width:100%;background:var(--off);border-radius:2px;transition:transform .3s,opacity .2s}
+.menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+.menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-panel{position:fixed;inset:0;z-index:110;background:linear-gradient(180deg,#16181b,#0d0f12);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;display:flex;flex-direction:column;overflow:hidden}
+.mobile-panel.open{opacity:1;visibility:visible}
+.mobile-panel::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:54px 54px;opacity:.4;pointer-events:none}
+.mobile-panel .m-inner{position:relative;width:100%;max-width:520px;margin:0 auto;flex:1;overflow-y:auto;padding:88px 30px 56px}
+.mobile-panel a.m-link{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),color .2s}
+.mobile-panel.open a.m-link{opacity:1;transform:none}
+.mobile-panel.open a.m-link:nth-child(1){transition-delay:.05s}
+.mobile-panel.open a.m-link:nth-child(2){transition-delay:.10s}
+.mobile-panel.open a.m-link:nth-child(3){transition-delay:.15s}
+.mobile-panel.open a.m-link:nth-child(4){transition-delay:.20s}
+.mobile-panel.open a.m-link:nth-child(5){transition-delay:.25s}
+.mobile-panel a.m-link .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue)}
+.mobile-panel a.m-link:hover{color:#fff}
+.m-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.06);cursor:pointer;display:grid;place-items:center;color:var(--off);z-index:10}
+.m-close svg{width:20px;height:20px}
+.mobile-panel .m-cta{display:flex;flex-direction:column;gap:11px;margin-top:32px;opacity:0;transform:translateY(20px);transition:opacity .5s .35s,transform .5s .35s}
+.mobile-panel.open .m-cta{opacity:1;transform:none}
+.mobile-panel .m-cta .btn{justify-content:center;padding:15px}
+.m-logo{position:absolute;top:18px;left:22px;z-index:10}
 
-  /* ── BREADCRUMB ─────────────────────────────────── */
-  .breadcrumb{padding:18px 0 0;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  .breadcrumb a{color:var(--muted);transition:color .15s}
-  .breadcrumb a:hover{color:var(--ink)}
-  .breadcrumb-sep{opacity:.4}
+/* ══════════════════════════════════════════════════
+   PAGE STATE ROUTING
+══════════════════════════════════════════════════ */
+.page-state{display:none}
+.page-state.show{display:block}
 
-  /* ── JOB LAYOUT ─────────────────────────────────── */
-  .job-layout{
-    display:grid;
-    grid-template-columns:1fr 340px;
-    gap:32px;
-    padding:28px 0 80px;
-    align-items:start;
-  }
+/* ══════════════════════════════════════════════════
+   JOBS BOARD
+══════════════════════════════════════════════════ */
 
-  /* ── JOB MAIN ───────────────────────────────────── */
-  .job-main{}
+/* Hero */
+.board-hero{
+  background:var(--char);color:var(--off);
+  position:relative;overflow:hidden;
+  padding:72px 0 60px;
+}
+.board-hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);
+  background-size:64px 64px;opacity:.5;
+  -webkit-mask-image:radial-gradient(ellipse 80% 100% at 50% 0%,#000 40%,transparent 80%);
+  mask-image:radial-gradient(ellipse 80% 100% at 50% 0%,#000 40%,transparent 80%);
+  pointer-events:none;
+}
+.board-hero .wrap{position:relative;z-index:2}
+.bh-kicker{
+  font-family:var(--mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--blue);display:inline-flex;align-items:center;gap:10px;margin-bottom:18px;
+}
+.bh-kicker::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 rgba(47,107,255,.5);animation:blink 2.4s infinite}
+@keyframes blink{0%{box-shadow:0 0 0 0 rgba(47,107,255,.45)}70%{box-shadow:0 0 0 8px rgba(47,107,255,0)}100%{box-shadow:0 0 0 0 rgba(47,107,255,0)}}
+.bh-title{font-size:clamp(36px,5vw,62px);font-weight:900;letter-spacing:-.04em;line-height:1.02;margin-bottom:10px}
+.bh-title em{font-style:normal;color:var(--blue)}
+.bh-sub{font-size:14px;color:#8a9ab4;margin-bottom:30px;font-family:var(--mono);letter-spacing:.04em}
+.bh-sub strong{color:#d0d8e8}
 
-  .job-hero{background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 36px 32px;margin-bottom:20px}
+/* Search bar */
+.bh-search{
+  display:flex;gap:0;max-width:600px;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  border-radius:13px;overflow:hidden;
+  transition:border-color .2s,box-shadow .2s;
+}
+.bh-search:focus-within{border-color:rgba(47,107,255,.6);box-shadow:0 0 0 3px rgba(47,107,255,.18)}
+.bh-search-input{
+  flex:1;background:transparent;border:none;outline:none;
+  font-family:var(--sans);font-size:15px;font-weight:500;
+  color:var(--off);padding:15px 18px;
+}
+.bh-search-input::placeholder{color:#4a5260}
+.bh-search-btn{
+  background:var(--blue);color:#fff;border:none;
+  padding:14px 22px;cursor:pointer;
+  font-family:var(--sans);font-size:14px;font-weight:700;
+  transition:background .18s;display:flex;align-items:center;gap:8px;white-space:nowrap;
+}
+.bh-search-btn:hover{background:#1a55e8}
+.bh-search-btn svg{width:15px;height:15px}
 
-  .company-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
-  .company-logo{width:46px;height:46px;background:var(--blue);border-radius:11px;display:grid;place-items:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
-  .company-name{font-size:14px;font-weight:700;color:var(--ink)}
-  .company-type{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
+/* Sector quick-picks */
+.bh-sectors{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.bh-sector-pill{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:7px 13px;border-radius:7px;border:1px solid rgba(255,255,255,.14);
+  background:transparent;color:#6c7580;cursor:pointer;
+  transition:background .18s,color .18s,border-color .18s;white-space:nowrap;
+  font-weight:400;
+}
+.bh-sector-pill:hover{background:rgba(255,255,255,.07);color:#c8cdd3;border-color:rgba(255,255,255,.25)}
+.bh-sector-pill.active{background:rgba(47,107,255,.18);color:#7aa0ff;border-color:rgba(47,107,255,.4)}
 
-  .job-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
-  .job-title{font-size:clamp(26px,3.8vw,40px);font-weight:800;line-height:1.08;letter-spacing:-.03em;color:var(--char);margin-bottom:18px}
+/* Board body */
+.board-body{
+  display:grid;grid-template-columns:220px 1fr 240px;
+  gap:28px;padding:36px 0 80px;align-items:start;
+}
 
-  .job-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  .chip{
-    display:inline-flex;align-items:center;gap:6px;
-    font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;
-    padding:7px 13px;border-radius:8px;border:1px solid var(--line);background:var(--off);color:var(--muted);
-    white-space:nowrap;
-  }
-  .chip svg{width:12px;height:12px;opacity:.7}
-  .chip-blue{background:rgba(47,107,255,.08);color:#2050d0;border-color:rgba(47,107,255,.22)}
-  .chip-green{background:var(--green-bg);color:var(--green);border-color:rgba(26,127,79,.25)}
+/* Filter sidebar */
+.filter-sidebar{
+  position:sticky;top:90px;
+  background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;
+}
+.fs-section{margin-bottom:24px}
+.fs-section:last-child{margin-bottom:0}
+.fs-label{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;display:block;
+}
+.fs-types{display:flex;flex-direction:column;gap:4px}
+.fs-type-btn{
+  display:flex;align-items:center;gap:9px;
+  padding:9px 11px;border-radius:9px;border:none;background:transparent;
+  font-family:var(--sans);font-size:13.5px;font-weight:600;color:var(--muted);
+  cursor:pointer;text-align:left;transition:background .15s,color .15s;width:100%;
+}
+.fs-type-btn.active{background:rgba(47,107,255,.09);color:var(--blue)}
+.fs-type-btn .fs-dot{width:8px;height:8px;border-radius:50%;background:var(--line);flex-shrink:0;transition:background .15s}
+.fs-type-btn.active .fs-dot{background:var(--blue)}
+.fs-sectors{display:flex;flex-direction:column;gap:2px}
+.fs-sector-btn{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:8px 11px;border-radius:9px;border:none;background:transparent;
+  font-family:var(--sans);font-size:13px;font-weight:600;color:var(--muted);
+  cursor:pointer;text-align:left;transition:background .15s,color .15s;width:100%;
+}
+.fs-sector-btn.active{background:rgba(47,107,255,.09);color:var(--blue)}
+.fs-sector-btn .fs-count{
+  font-family:var(--mono);font-size:9.5px;color:var(--muted);
+  background:var(--off2);padding:2px 6px;border-radius:5px;
+  transition:background .15s,color .15s;
+}
+.fs-sector-btn.active .fs-count{background:rgba(47,107,255,.14);color:var(--blue)}
+.fs-clear{
+  font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);background:none;border:none;cursor:pointer;padding:0;
+  transition:color .15s;
+}
+.fs-clear:hover{color:var(--blue)}
 
-  .salary-line{font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--char);margin-bottom:20px}
+/* Results bar */
+.results-bar{
+  display:flex;align-items:center;justify-content:space-between;
+  margin-bottom:16px;flex-wrap:wrap;gap:10px;
+}
+.results-count{
+  font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+}
+.results-count strong{color:var(--ink)}
+.sort-select{
+  font-family:var(--mono);font-size:10.5px;padding:7px 12px;
+  border:1px solid var(--line);border-radius:8px;outline:none;
+  background:#fff;color:var(--ink);cursor:pointer;letter-spacing:.05em;
+  -webkit-appearance:none;appearance:none;
+}
 
-  .job-desc-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-  .job-description{font-size:15px;line-height:1.75;color:#2a2d32}
-  .job-description p{margin-bottom:14px}
-  .job-description p:last-child{margin-bottom:0}
+/* Mobile filter bar */
+.mobile-filter-bar{display:none;gap:8px;overflow-x:auto;padding:16px 20px 0;scrollbar-width:none}
+.mobile-filter-bar::-webkit-scrollbar{display:none}
+.mfb-pill{
+  font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 14px;border-radius:8px;border:1px solid var(--line);
+  background:#fff;color:var(--muted);cursor:pointer;white-space:nowrap;
+  transition:background .15s,color .15s,border-color .15s;flex-shrink:0;
+}
+.mfb-pill.active{background:rgba(47,107,255,.1);color:var(--blue);border-color:rgba(47,107,255,.3)}
+.mfb-pill.mfb-search{display:flex;align-items:center;gap:6px}
+.mfb-pill.mfb-search svg{width:11px;height:11px}
 
-  .job-tags-section{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
-  .job-tags-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-  .tags{display:flex;flex-wrap:wrap;gap:7px}
-  .tag{
-    font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;
-    padding:5px 10px;border-radius:6px;border:1px solid var(--line);
-    background:var(--off2);color:var(--muted);
-  }
+/* Job rows */
+.jobs-list{display:flex;flex-direction:column;gap:0}
+.job-row{
+  background:#fff;border:1px solid var(--line);
+  border-radius:0;border-bottom:none;
+  display:grid;grid-template-columns:1fr auto;
+  gap:12px;padding:22px 24px;
+  cursor:pointer;transition:background .15s,border-color .15s,padding-left .2s;
+  position:relative;
+}
+.job-row::before{
+  content:"";position:absolute;left:0;top:0;bottom:0;width:3px;
+  background:var(--blue);border-radius:0;opacity:0;transition:opacity .18s;
+}
+.job-row:hover{background:#fafaf8;padding-left:27px}
+.job-row:hover::before{opacity:1}
+.jobs-list .job-row:first-child{border-radius:16px 16px 0 0}
+.jobs-list .job-row:last-child{border-bottom:1px solid var(--line);border-radius:0 0 16px 16px}
+.jobs-list .job-row:only-child{border-radius:16px;border-bottom:1px solid var(--line)}
 
-  /* ── APPLY CARD (sticky sidebar) ───────────────── */
-  .apply-card{
-    background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;
-    position:sticky;top:90px;
-  }
+.jr-main{min-width:0}
+.jr-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap}
+.jr-sector{
+  font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;
+  background:rgba(47,107,255,.09);color:#2050d0;
+  padding:4px 8px;border-radius:5px;white-space:nowrap;
+}
+.jr-type{
+  font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);white-space:nowrap;
+}
+.jr-title{
+  font-size:17px;font-weight:800;letter-spacing:-.02em;color:var(--char);
+  line-height:1.2;margin-bottom:8px;
+  transition:color .15s;
+}
+.job-row:hover .jr-title{color:var(--blue)}
+.jr-meta{display:flex;align-items:center;gap:14px;flex-wrap:wrap;font-size:13px;color:var(--muted)}
+.jr-meta span{display:flex;align-items:center;gap:5px}
+.jr-meta svg{width:12px;height:12px;opacity:.6;flex-shrink:0}
+.jr-salary{font-weight:700;color:var(--ink)}
 
-  .ac-salary{font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--char);margin-bottom:4px;line-height:1.1}
-  .ac-salary-empty{font-size:14px;color:var(--muted);margin-bottom:4px}
-  .ac-type{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.jr-right{display:flex;flex-direction:column;align-items:flex-end;justify-content:space-between;gap:10px;flex-shrink:0}
+.jr-date{font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
+.jr-arr{
+  width:34px;height:34px;border-radius:9px;border:1px solid var(--line);
+  background:#fff;display:grid;place-items:center;color:var(--muted);
+  transition:background .15s,color .15s,border-color .15s;flex-shrink:0;
+}
+.job-row:hover .jr-arr{background:var(--blue);color:#fff;border-color:var(--blue)}
+.jr-arr svg{width:14px;height:14px}
 
-  .ac-facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:22px;display:flex;flex-direction:column;gap:11px}
-  .ac-fact{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink)}
-  .ac-fact svg{width:15px;height:15px;color:var(--muted);flex-shrink:0}
-  .ac-fact-lbl{font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-right:auto;min-width:56px}
+/* New badge */
+.jr-new{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;
+  background:rgba(47,107,255,.12);color:var(--blue);
+  padding:3px 7px;border-radius:4px;
+}
 
-  .apply-btn-main{
-    width:100%;padding:15px;border:none;border-radius:12px;
-    background:var(--blue);color:#fff;
-    font-family:var(--sans);font-size:15px;font-weight:800;letter-spacing:-.01em;
-    cursor:pointer;transition:background .18s,transform .15s;
-    display:flex;align-items:center;justify-content:center;gap:9px;
-    margin-bottom:12px;
-  }
-  .apply-btn-main:hover{background:#1a55e8;transform:translateY(-1px)}
-  .apply-btn-main svg{width:15px;height:15px}
+/* Empty / loading states */
+.board-empty{
+  background:#fff;border:1px solid var(--line);border-radius:16px;
+  text-align:center;padding:72px 24px;
+}
+.board-empty svg{width:44px;height:44px;opacity:.2;margin:0 auto 18px;display:block}
+.board-empty h3{font-size:18px;font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+.board-empty p{font-size:14px;color:var(--muted);line-height:1.65;max-width:38ch;margin:0 auto 20px}
 
-  .ac-via{text-align:center;font-size:11.5px;color:var(--muted)}
-  .ac-via strong{color:var(--ink)}
+.skel{background:linear-gradient(90deg,#e9e6df 25%,#eeebe5 50%,#e9e6df 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:6px}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
-  .ac-share{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:8px}
-  .share-btn{
-    flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
-    font-family:var(--sans);font-size:12px;font-weight:600;padding:9px 12px;
-    border:1px solid var(--line);border-radius:9px;background:var(--off);
-    cursor:pointer;color:var(--muted);transition:background .15s,color .15s,border-color .15s;
-  }
-  .share-btn:hover{background:var(--off2);color:var(--ink);border-color:#bbb}
-  .share-btn svg{width:13px;height:13px}
+.board-skeletons{display:flex;flex-direction:column;gap:0}
+.skel-row{
+  background:#fff;border:1px solid var(--line);border-bottom:none;
+  padding:22px 24px;
+}
+.skel-row:first-child{border-radius:16px 16px 0 0}
+.skel-row:last-child{border-bottom:1px solid var(--line);border-radius:0 0 16px 16px}
+.skel-row-h{height:12px;margin-bottom:12px;border-radius:4px}
+.skel-row-title{height:20px;width:65%;margin-bottom:10px}
+.skel-row-meta{height:11px;width:45%}
 
-  /* ── SIMILAR ROLES ──────────────────────────────── */
-  .similar-section{padding:52px 0 80px}
-  .similar-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:26px;gap:12px}
-  .similar-head h2{font-size:22px;font-weight:800;letter-spacing:-.025em}
-  .similar-head a{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .15s}
-  .similar-head a:hover{color:var(--ink)}
+/* Register CTA panel */
+.register-panel{
+  position:sticky;top:90px;
+  background:var(--char);border-radius:16px;padding:28px;color:var(--off);
+  margin-top:0;
+}
+.rp-kicker{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:12px}
+.rp-title{font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1.15;margin-bottom:10px}
+.rp-body{font-size:13.5px;color:#a0a8b4;line-height:1.65;margin-bottom:22px}
+.rp-btn{
+  display:flex;align-items:center;justify-content:center;gap:8px;width:100%;
+  padding:13px;border:none;border-radius:11px;background:var(--blue);color:#fff;
+  font-family:var(--sans);font-size:14px;font-weight:700;cursor:pointer;
+  transition:background .18s;text-decoration:none;
+}
+.rp-btn:hover{background:#1a55e8}
+.rp-btn svg{width:14px;height:14px}
+.rp-divider{border:none;border-top:1px solid var(--lineD);margin:18px 0}
+.rp-employer{font-size:12.5px;color:#4a5260;text-align:center}
+.rp-employer a{color:#6c7580;font-weight:600;transition:color .15s}
+.rp-employer a:hover{color:var(--off)}
 
-  .similar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .sim-card{
-    background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;
-    display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s;
-    cursor:pointer;
-  }
-  .sim-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.07);border-color:#c8c4bc}
-  .sim-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
-  .sim-sector{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:rgba(47,107,255,.08);padding:4px 8px;border-radius:5px}
-  .sim-type{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  .sim-title{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:8px;color:var(--char)}
-  .sim-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:12px}
-  .sim-meta span{display:flex;align-items:center;gap:4px}
-  .sim-meta svg{width:11px;height:11px;opacity:.6}
-  .sim-sal{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--char);margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+/* ══════════════════════════════════════════════════
+   JOB DETAIL
+══════════════════════════════════════════════════ */
+.breadcrumb{padding:18px 0 0;display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.breadcrumb a{color:var(--muted);transition:color .15s}
+.breadcrumb a:hover{color:var(--ink)}
+.breadcrumb-sep{opacity:.4}
 
-  /* ── STATES ─────────────────────────────────────── */
-  #state-loading,#state-notfound,#state-content{display:none}
-  #state-loading.show,#state-notfound.show,#state-content.show{display:block}
+.job-layout{display:grid;grid-template-columns:1fr 340px;gap:32px;padding:28px 0 80px;align-items:start}
 
-  .skeleton-hero{background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px;margin-bottom:20px}
-  .skel{background:linear-gradient(90deg,#e9e6df 25%,#f0ede7 50%,#e9e6df 75%);background-size:200% 100%;animation:shimmer 1.4s infinite;border-radius:6px}
-  @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
-  .skel-h{height:14px;margin-bottom:10px;border-radius:4px}
-  .skel-title{height:46px;width:75%;margin-bottom:22px}
-  .skel-line{height:12px;margin-bottom:8px}
-  .skel-line:last-child{width:60%}
+.job-hero{background:#fff;border:1px solid var(--line);border-radius:20px;padding:36px 36px 32px;margin-bottom:20px}
+.company-row{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.company-logo{width:46px;height:46px;background:var(--blue);border-radius:11px;display:grid;place-items:center;font-size:18px;font-weight:900;color:#fff;flex-shrink:0}
+.company-name{font-size:14px;font-weight:700;color:var(--ink)}
+.company-type{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:2px}
 
-  .notfound{text-align:center;padding:100px 24px}
-  .notfound svg{width:52px;height:52px;opacity:.25;margin:0 auto 22px;display:block}
-  .notfound h2{font-size:24px;font-weight:800;margin-bottom:10px}
-  .notfound p{font-size:15px;color:var(--muted);margin-bottom:28px;max-width:40ch;margin-left:auto;margin-right:auto;line-height:1.65}
+.job-kicker{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.job-title{font-size:clamp(26px,3.8vw,40px);font-weight:800;line-height:1.08;letter-spacing:-.03em;color:var(--char);margin-bottom:18px}
 
-  /* ── APPLY MODAL ────────────────────────────────── */
-  .cvm-overlay{
-    position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;
-    display:none;align-items:center;justify-content:center;padding:20px;
-    backdrop-filter:blur(3px);
-  }
-  .cvm-overlay.open{display:flex}
-  .cvm-box{
-    background:#fff;border-radius:24px;width:100%;max-width:580px;
-    max-height:90vh;overflow-y:auto;
-    box-shadow:0 40px 100px rgba(0,0,0,.22);
-  }
-  .cvm-head{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:24px 28px;border-bottom:1px solid var(--line);
-    position:sticky;top:0;background:#fff;z-index:2;
-  }
-  .cvm-head h3{font-size:18px;font-weight:800;letter-spacing:-.025em}
-  .cvm-close{
-    width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
-    background:#fff;cursor:pointer;display:grid;place-items:center;
-    color:var(--muted);transition:background .15s;
-  }
-  .cvm-close:hover{background:var(--off)}
-  .cvm-close svg{width:16px;height:16px}
-  .cvm-body{padding:28px}
-  .cvm-job-ref{
-    display:flex;align-items:center;gap:10px;padding:12px 14px;
-    background:rgba(47,107,255,.06);border:1px solid rgba(47,107,255,.2);border-radius:10px;
-    margin-bottom:22px;font-size:13px;
-  }
-  .cvm-job-ref svg{width:14px;height:14px;color:var(--blue);flex-shrink:0}
-  .cvm-job-ref span{color:var(--muted)}
-  .cvm-job-ref strong{color:var(--blue)}
-  .cvm-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
-  .cvm-field{display:flex;flex-direction:column;gap:5px}
-  .cvm-field.full{grid-column:1/-1}
-  .cvm-field label{font-size:12px;font-weight:600;color:#555}
-  .cvm-field input,.cvm-field select,.cvm-field textarea{
-    font-family:var(--sans);font-size:14px;padding:11px 13px;
-    border:1px solid var(--line);border-radius:9px;outline:none;
-    background:var(--off);color:var(--ink);
-    transition:border-color .2s,box-shadow .2s;
-    -webkit-appearance:none;appearance:none;
-  }
-  .cvm-field textarea{resize:vertical;min-height:90px}
-  .cvm-field input:focus,.cvm-field select:focus,.cvm-field textarea:focus{
-    border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,107,255,.14);background:#fff;
-  }
-  .cvm-foot{
-    display:flex;align-items:center;justify-content:space-between;
-    padding:18px 28px;border-top:1px solid var(--line);
-    position:sticky;bottom:0;background:#fff;
-  }
-  .cvm-hint{font-size:11.5px;color:var(--muted)}
-  .cvm-submit{
-    font-family:var(--sans);font-weight:700;font-size:14px;
-    padding:12px 24px;border:none;border-radius:10px;
-    background:var(--ink);color:#fff;cursor:pointer;
-    transition:background .18s,transform .15s;
-  }
-  .cvm-submit:hover{background:#000;transform:translateY(-1px)}
-  .cvm-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
-  .cvm-success{
-    display:none;text-align:center;padding:52px 24px;
-  }
-  .cvm-success svg{width:44px;height:44px;color:var(--green);margin:0 auto 16px;display:block}
-  .cvm-success h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
-  .cvm-success p{font-size:14px;color:var(--muted);line-height:1.65;max-width:36ch;margin:0 auto}
+.job-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.chip{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:400;padding:7px 13px;border-radius:8px;border:1px solid var(--line);background:var(--off);color:var(--muted);white-space:nowrap}
+.chip svg{width:12px;height:12px;opacity:.7}
+.chip-blue{background:rgba(47,107,255,.08);color:#2050d0;border-color:rgba(47,107,255,.22)}
 
-  /* ── TOAST ──────────────────────────────────────── */
-  .toast{
-    position:fixed;bottom:24px;right:24px;z-index:400;
-    background:var(--char);color:var(--off);
-    font-size:13.5px;font-weight:600;padding:12px 18px;border-radius:11px;
-    box-shadow:0 8px 28px rgba(0,0,0,.3);
-    transform:translateY(80px);opacity:0;
-    transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s;
-    pointer-events:none;
-  }
-  .toast.show{transform:none;opacity:1}
+.salary-line{font-size:24px;font-weight:800;letter-spacing:-.03em;color:var(--char);margin-bottom:20px}
+.job-desc-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.job-description{font-size:15px;line-height:1.75;color:#2a2d32}
+.job-description p{margin-bottom:14px}
+.job-description p:last-child{margin-bottom:0}
+.job-tags-section{margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+.job-tags-label{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.tags{display:flex;flex-wrap:wrap;gap:7px}
+.tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.07em;text-transform:uppercase;padding:5px 10px;border-radius:6px;border:1px solid var(--line);background:var(--off2);color:var(--muted)}
 
-  /* ── FOOTER STRIP ───────────────────────────────── */
-  .foot-strip{background:var(--char);color:var(--off);padding:40px 0}
-  .foot-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
-  .foot-logo{display:flex;align-items:center;gap:11px}
-  .foot-logo .mk{width:32px;height:32px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:8px;font-size:14px;font-weight:900;flex-shrink:0}
-  .foot-logo b{font-size:16px;font-weight:900;letter-spacing:-.04em}
-  .foot-copy{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#4a5260}
-  .foot-links{display:flex;gap:20px;font-size:13px;color:#4a5260}
-  .foot-links a{transition:color .15s}
-  .foot-links a:hover{color:var(--off)}
+.apply-card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px;position:sticky;top:90px}
+.ac-salary{font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--char);margin-bottom:4px;line-height:1.1}
+.ac-salary-empty{font-size:14px;color:var(--muted);margin-bottom:4px}
+.ac-type{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:22px}
+.ac-facts{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:16px 0;margin-bottom:22px;display:flex;flex-direction:column;gap:11px}
+.ac-fact{display:flex;align-items:center;gap:10px;font-size:13.5px;color:var(--ink)}
+.ac-fact svg{width:15px;height:15px;color:var(--muted);flex-shrink:0}
+.ac-fact-lbl{font-size:11px;color:var(--muted);font-family:var(--mono);letter-spacing:.1em;text-transform:uppercase;margin-right:auto;min-width:56px}
+.apply-btn-main{width:100%;padding:15px;border:none;border-radius:12px;background:var(--blue);color:#fff;font-family:var(--sans);font-size:15px;font-weight:800;letter-spacing:-.01em;cursor:pointer;transition:background .18s,transform .15s;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:12px}
+.apply-btn-main:hover{background:#1a55e8;transform:translateY(-1px)}
+.apply-btn-main svg{width:15px;height:15px}
+.ac-via{text-align:center;font-size:11.5px;color:var(--muted)}
+.ac-via strong{color:var(--ink)}
+.ac-share{margin-top:18px;padding-top:16px;border-top:1px solid var(--line);display:flex;gap:8px}
+.share-btn{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;font-family:var(--sans);font-size:12px;font-weight:600;padding:9px 12px;border:1px solid var(--line);border-radius:9px;background:var(--off);cursor:pointer;color:var(--muted);transition:background .15s,color .15s,border-color .15s}
+.share-btn:hover{background:var(--off2);color:var(--ink);border-color:#bbb}
+.share-btn svg{width:13px;height:13px}
 
-  /* ── RESPONSIVE ─────────────────────────────────── */
-  @media(max-width:900px){
-    .job-layout{grid-template-columns:1fr;gap:20px}
-    .apply-card{position:static;order:-1}
-    .similar-grid{grid-template-columns:1fr 1fr}
-    .nav-links,.nav-cta{display:none}
-  }
-  @media(max-width:600px){
-    .wrap{padding:0 20px}
-    .similar-grid{grid-template-columns:1fr}
-    .job-hero{padding:24px}
-    .cvm-grid{grid-template-columns:1fr}
-  }
+/* Similar */
+.similar-section{padding:52px 0 80px}
+.similar-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:26px;gap:12px}
+.similar-head h2{font-size:22px;font-weight:800;letter-spacing:-.025em}
+.similar-head a{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);transition:color .15s}
+.similar-head a:hover{color:var(--ink)}
+.similar-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.sim-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s;cursor:pointer}
+.sim-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.07);border-color:#c8c4bc}
+.sim-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.sim-sector{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);background:rgba(47,107,255,.08);padding:4px 8px;border-radius:5px}
+.sim-type{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.sim-title{font-size:16px;font-weight:800;letter-spacing:-.02em;line-height:1.25;margin-bottom:8px;color:var(--char)}
+.sim-meta{display:flex;gap:10px;flex-wrap:wrap;font-size:12.5px;color:var(--muted);margin-bottom:12px}
+.sim-meta span{display:flex;align-items:center;gap:4px}
+.sim-meta svg{width:11px;height:11px;opacity:.6}
+.sim-sal{font-size:17px;font-weight:800;letter-spacing:-.01em;color:var(--char);margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+
+/* Not found */
+.notfound{text-align:center;padding:100px 24px}
+.notfound svg{width:52px;height:52px;opacity:.25;margin:0 auto 22px;display:block}
+.notfound h2{font-size:24px;font-weight:800;margin-bottom:10px}
+.notfound p{font-size:15px;color:var(--muted);margin-bottom:28px;max-width:40ch;margin-left:auto;margin-right:auto;line-height:1.65}
+
+/* ══════════════════════════════════════════════════
+   APPLY MODAL
+══════════════════════════════════════════════════ */
+.cvm-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(3px)}
+.cvm-overlay.open{display:flex}
+.cvm-box{background:#fff;border-radius:24px;width:100%;max-width:580px;max-height:90vh;overflow-y:auto;box-shadow:0 40px 100px rgba(0,0,0,.22)}
+.cvm-head{display:flex;align-items:center;justify-content:space-between;padding:24px 28px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2}
+.cvm-head h3{font-size:18px;font-weight:800;letter-spacing:-.025em}
+.cvm-close{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:#fff;cursor:pointer;display:grid;place-items:center;color:var(--muted);transition:background .15s}
+.cvm-close:hover{background:var(--off)}
+.cvm-close svg{width:16px;height:16px}
+.cvm-body{padding:28px}
+.cvm-job-ref{display:flex;align-items:center;gap:10px;padding:12px 14px;background:rgba(47,107,255,.06);border:1px solid rgba(47,107,255,.2);border-radius:10px;margin-bottom:22px;font-size:13px}
+.cvm-job-ref svg{width:14px;height:14px;color:var(--blue);flex-shrink:0}
+.cvm-job-ref span{color:var(--muted)}
+.cvm-job-ref strong{color:var(--blue)}
+.cvm-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.cvm-field{display:flex;flex-direction:column;gap:5px}
+.cvm-field.full{grid-column:1/-1}
+.cvm-field label{font-size:12px;font-weight:600;color:#555}
+.cvm-field input,.cvm-field select,.cvm-field textarea{font-family:var(--sans);font-size:14px;padding:11px 13px;border:1px solid var(--line);border-radius:9px;outline:none;background:var(--off);color:var(--ink);transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.cvm-field textarea{resize:vertical;min-height:90px}
+.cvm-field input:focus,.cvm-field select:focus,.cvm-field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,107,255,.14);background:#fff}
+.cvm-foot{display:flex;align-items:center;justify-content:space-between;padding:18px 28px;border-top:1px solid var(--line);position:sticky;bottom:0;background:#fff}
+.cvm-hint{font-size:11.5px;color:var(--muted)}
+.cvm-submit{font-family:var(--sans);font-weight:700;font-size:14px;padding:12px 24px;border:none;border-radius:10px;background:var(--ink);color:#fff;cursor:pointer;transition:background .18s,transform .15s}
+.cvm-submit:hover{background:#000;transform:translateY(-1px)}
+.cvm-submit:disabled{opacity:.5;cursor:not-allowed;transform:none}
+.cvm-success{display:none;text-align:center;padding:52px 24px}
+.cvm-success svg{width:44px;height:44px;color:var(--green);margin:0 auto 16px;display:block}
+.cvm-success h3{font-size:22px;font-weight:800;letter-spacing:-.02em;margin-bottom:10px}
+.cvm-success p{font-size:14px;color:var(--muted);line-height:1.65;max-width:36ch;margin:0 auto}
+
+/* ══════════════════════════════════════════════════
+   SHARED
+══════════════════════════════════════════════════ */
+.toast{position:fixed;bottom:24px;right:24px;z-index:400;background:var(--char);color:var(--off);font-size:13.5px;font-weight:600;padding:12px 18px;border-radius:11px;box-shadow:0 8px 28px rgba(0,0,0,.3);transform:translateY(80px);opacity:0;transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s;pointer-events:none}
+.toast.show{transform:none;opacity:1}
+
+.foot-strip{background:var(--char);color:var(--off);padding:40px 0}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.foot-logo{display:flex;align-items:center;gap:11px}
+.foot-logo .mk{width:32px;height:32px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:8px;font-size:14px;font-weight:900;flex-shrink:0}
+.foot-logo b{font-size:16px;font-weight:900;letter-spacing:-.04em}
+.foot-copy{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#4a5260}
+.foot-links{display:flex;gap:20px;font-size:13px;color:#4a5260}
+.foot-links a{transition:color .15s}
+.foot-links a:hover{color:var(--off)}
+
+/* ══════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════ */
+@media(max-width:960px){
+  .nav-cta,.links{display:none}
+  .menu-btn{display:flex}
+  .board-body{grid-template-columns:1fr}
+  .filter-sidebar{display:none}
+  .mobile-filter-bar{display:flex}
+  .register-panel{display:none}
+  .job-layout{grid-template-columns:1fr}
+  .apply-card{position:static;order:-1}
+  .similar-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:640px){
+  .wrap{padding:0 20px}
+  .board-hero{padding:50px 0 44px}
+  .bh-title{font-size:34px}
+  .board-body{padding:20px 0 60px}
+  .job-row{padding:18px 18px;grid-template-columns:1fr auto}
+  .jr-title{font-size:15px}
+  .similar-grid{grid-template-columns:1fr}
+  .job-hero{padding:24px}
+  .job-layout{padding:20px 0 60px}
+  .cvm-grid{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -355,7 +527,7 @@
           <a href="/sectors/construction.html"><span class="drop-num">06</span>White Collar Construction</a>
         </div>
       </div>
-      <a href="/#jobs" class="active">Jobs</a>
+      <a href="/jobs/" class="active">Jobs</a>
       <a href="/employers">Employers</a>
       <a href="/submit-cv">Submit CV</a>
       <a href="/contact.html">Contact</a>
@@ -383,7 +555,7 @@
   <div class="m-inner">
     <a class="m-link" href="/"><span>Home</span><span class="ix">01</span></a>
     <a class="m-link" href="/about"><span>About</span><span class="ix">02</span></a>
-    <a class="m-link" href="/#jobs"><span>Jobs</span><span class="ix">03</span></a>
+    <a class="m-link" href="/jobs/"><span>Jobs</span><span class="ix">03</span></a>
     <a class="m-link" href="/employers"><span>Employers</span><span class="ix">04</span></a>
     <a class="m-link" href="/contact.html"><span>Contact</span><span class="ix">05</span></a>
     <div class="m-cta">
@@ -393,65 +565,113 @@
   </div>
 </div>
 
-<!-- ── LOADING STATE ──────────────────────────────── -->
-<div id="state-loading" class="show">
+<!-- ══════════════════════════════════════════════════
+     STATE: JOBS BOARD
+══════════════════════════════════════════════════ -->
+<div id="state-board" class="page-state">
+
+  <!-- Hero -->
+  <div class="board-hero" role="banner">
+    <div class="wrap">
+      <p class="bh-kicker">Manchester · Live Roles</p>
+      <h1 class="bh-title">Find your <em>next role.</em></h1>
+      <p class="bh-sub" id="bh-count"><strong>Loading</strong> live roles&hellip;</p>
+      <div class="bh-search" role="search">
+        <input class="bh-search-input" type="search" id="bh-search-input" placeholder="Search job titles, sectors, keywords&hellip;" aria-label="Search jobs">
+        <button class="bh-search-btn" onclick="triggerSearch()" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          Search
+        </button>
+      </div>
+      <div class="bh-sectors" id="bh-sectors" role="group" aria-label="Filter by sector"></div>
+    </div>
+  </div>
+
+  <!-- Mobile filter bar -->
+  <div class="mobile-filter-bar" id="mobile-filter-bar" role="group" aria-label="Filter jobs"></div>
+
+  <!-- Board body -->
   <div class="wrap">
-    <div class="job-layout">
-      <div>
-        <div class="breadcrumb" style="margin-bottom:4px">
-          <span class="skel skel-h" style="width:160px;display:inline-block"></span>
-        </div>
-        <div class="skeleton-hero">
-          <div class="skel skel-h" style="width:100px;margin-bottom:16px"></div>
-          <div class="skel skel-title"></div>
-          <div style="display:flex;gap:8px;margin-bottom:22px">
-            <div class="skel skel-h" style="width:90px"></div>
-            <div class="skel skel-h" style="width:110px"></div>
-            <div class="skel skel-h" style="width:80px"></div>
+    <div class="board-body">
+
+      <!-- Sidebar -->
+      <aside class="filter-sidebar" aria-label="Job filters">
+        <div class="fs-section">
+          <span class="fs-label">Contract Type</span>
+          <div class="fs-types">
+            <button class="fs-type-btn active" data-type="all">
+              <span class="fs-dot"></span>All Types
+            </button>
+            <button class="fs-type-btn" data-type="permanent">
+              <span class="fs-dot"></span>Permanent
+            </button>
+            <button class="fs-type-btn" data-type="contract">
+              <span class="fs-dot"></span>Contract
+            </button>
           </div>
-          <div class="skel skel-line"></div>
-          <div class="skel skel-line"></div>
-          <div class="skel skel-line"></div>
-          <div class="skel skel-line"></div>
         </div>
-      </div>
-      <div>
-        <div style="background:#fff;border:1px solid var(--line);border-radius:20px;padding:28px">
-          <div class="skel skel-h" style="width:140px;height:32px;margin-bottom:8px"></div>
-          <div class="skel skel-h" style="width:90px;margin-bottom:22px"></div>
-          <div class="skel" style="height:50px;border-radius:12px"></div>
+        <div class="fs-section">
+          <span class="fs-label">Sector</span>
+          <div class="fs-sectors" id="fs-sectors"></div>
         </div>
+        <div class="fs-section" id="fs-clear-wrap" style="display:none">
+          <button class="fs-clear" onclick="clearFilters()">Clear all filters</button>
+        </div>
+      </aside>
+
+      <!-- Main listing -->
+      <main>
+        <div class="results-bar">
+          <p class="results-count" id="results-count" aria-live="polite"></p>
+        </div>
+
+        <!-- Skeleton loading -->
+        <div class="board-skeletons" id="board-skeletons">
+          <div class="skel-row"><div class="skel skel-row-h" style="width:90px"></div><div class="skel skel-row-title"></div><div class="skel skel-row-meta"></div></div>
+          <div class="skel-row"><div class="skel skel-row-h" style="width:120px"></div><div class="skel skel-row-title" style="width:55%"></div><div class="skel skel-row-meta" style="width:38%"></div></div>
+          <div class="skel-row"><div class="skel skel-row-h" style="width:100px"></div><div class="skel skel-row-title" style="width:70%"></div><div class="skel skel-row-meta" style="width:50%"></div></div>
+          <div class="skel-row" style="border-radius:0 0 16px 16px;border-bottom:1px solid var(--line)"><div class="skel skel-row-h" style="width:80px"></div><div class="skel skel-row-title" style="width:60%"></div><div class="skel skel-row-meta" style="width:42%"></div></div>
+        </div>
+
+        <div class="jobs-list" id="jobs-list" style="display:none"></div>
+        <div class="board-empty" id="board-empty" style="display:none">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+          <h3 id="empty-title">No roles found</h3>
+          <p id="empty-body">Try adjusting your filters or search term.</p>
+          <button class="btn btn-primary" onclick="clearFilters()">Clear filters <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        </div>
+      </main>
+
+      <!-- Register CTA -->
+      <div class="register-panel" aria-label="Register interest">
+        <p class="rp-kicker">Can't see the right role?</p>
+        <h2 class="rp-title">Register your interest</h2>
+        <p class="rp-body">We place candidates into roles before they're ever advertised. Tell us what you're looking for and we'll come to you.</p>
+        <a class="rp-btn" href="/submit-cv">
+          Submit Your CV
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <hr class="rp-divider">
+        <p class="rp-employer">Hiring? <a href="/employers">Let's talk →</a></p>
       </div>
+
     </div>
   </div>
 </div>
 
-<!-- ── NOT FOUND STATE ────────────────────────────── -->
-<div id="state-notfound">
-  <div class="wrap">
-    <div class="notfound">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="18" r=".5" fill="currentColor"/></svg>
-      <h2>This role is no longer available</h2>
-      <p>It may have been filled or taken down. Browse our current vacancies to find your next move.</p>
-      <a class="btn btn-primary" href="/#jobs">View All Roles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-    </div>
-  </div>
-</div>
-
-<!-- ── JOB CONTENT ────────────────────────────────── -->
-<div id="state-content">
+<!-- ══════════════════════════════════════════════════
+     STATE: JOB DETAIL
+══════════════════════════════════════════════════ -->
+<div id="state-detail" class="page-state">
   <div class="wrap">
     <div class="breadcrumb">
       <a href="/">RFT Recruitment</a>
       <span class="breadcrumb-sep">›</span>
-      <a href="/#jobs">Roles</a>
+      <a href="/jobs/">All Roles</a>
       <span class="breadcrumb-sep">›</span>
-      <span id="bc-title">Loading…</span>
+      <span id="bc-title">Loading&hellip;</span>
     </div>
-
     <div class="job-layout">
-
-      <!-- ── LEFT: Job detail ──────────────────── -->
       <div class="job-main">
         <div class="job-hero">
           <div class="company-row">
@@ -461,24 +681,17 @@
               <div class="company-type">Recruitment Agency · Manchester</div>
             </div>
           </div>
-
           <p class="job-kicker" id="jd-sector"></p>
-          <h1 class="job-title" id="jd-title">Loading…</h1>
-
+          <h1 class="job-title" id="jd-title">Loading&hellip;</h1>
           <div class="job-chips" id="jd-chips"></div>
-
           <div class="salary-line" id="jd-salary" style="display:none"></div>
-
           <p class="job-desc-label">About the Role</p>
           <div class="job-description" id="jd-description"></div>
-
           <div class="job-tags-section" id="jd-tags-section" style="display:none">
             <p class="job-tags-label">Skills &amp; Keywords</p>
             <div class="tags" id="jd-tags"></div>
           </div>
         </div>
-
-        <!-- About RFT card -->
         <div style="background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;align-items:flex-start;gap:16px">
           <div style="width:42px;height:42px;background:var(--blue);border-radius:10px;display:grid;place-items:center;flex-shrink:0">
             <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" style="width:18px;height:18px" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
@@ -489,8 +702,6 @@
           </div>
         </div>
       </div>
-
-      <!-- ── RIGHT: Apply card ──────────────────── -->
       <div>
         <div class="apply-card">
           <div id="ac-salary-wrap">
@@ -498,39 +709,41 @@
             <div class="ac-salary-empty" id="ac-salary-empty" style="display:none">Competitive salary</div>
           </div>
           <div class="ac-type" id="ac-type"></div>
-
           <div class="ac-facts" id="ac-facts"></div>
-
           <button class="apply-btn-main" id="openApplyBtn">
             Apply for This Role
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </button>
-
           <p class="ac-via">Via <strong>RFT Recruitment</strong> · We handle your application directly</p>
-
           <div class="ac-share">
-            <button class="share-btn" onclick="shareJob()">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-              Share
-            </button>
-            <button class="share-btn" onclick="copyJobLink(this)">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
-              Copy Link
-            </button>
+            <button class="share-btn" onclick="shareJob()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>Share</button>
+            <button class="share-btn" id="copyLinkBtn" onclick="copyJobLink(this)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Copy Link</button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- ── SIMILAR ROLES ──────────────────────────── -->
   <div id="similar-section" class="similar-section" style="display:none">
     <div class="wrap">
       <div class="similar-head">
         <h2>More Roles You Might Like</h2>
-        <a href="/#jobs">View all roles →</a>
+        <a href="/jobs/">View all roles →</a>
       </div>
       <div class="similar-grid" id="similar-grid"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════
+     STATE: NOT FOUND
+══════════════════════════════════════════════════ -->
+<div id="state-notfound" class="page-state">
+  <div class="wrap">
+    <div class="notfound">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><circle cx="12" cy="18" r=".5" fill="currentColor"/></svg>
+      <h2>This role is no longer available</h2>
+      <p>It may have been filled or taken down. Browse our current vacancies to find your next move.</p>
+      <a class="btn btn-primary" href="/jobs/">Browse All Roles <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
   </div>
 </div>
@@ -552,25 +765,13 @@
         </div>
         <form id="applyForm" novalidate>
           <div class="cvm-grid">
-            <div class="cvm-field">
-              <label for="am-first">First Name *</label>
-              <input type="text" id="am-first" name="first_name" required autocomplete="given-name">
-            </div>
-            <div class="cvm-field">
-              <label for="am-last">Last Name *</label>
-              <input type="text" id="am-last" name="last_name" required autocomplete="family-name">
-            </div>
-            <div class="cvm-field">
-              <label for="am-email">Email Address *</label>
-              <input type="email" id="am-email" name="email" required autocomplete="email">
-            </div>
-            <div class="cvm-field">
-              <label for="am-phone">Phone Number</label>
-              <input type="tel" id="am-phone" name="phone" autocomplete="tel">
-            </div>
+            <div class="cvm-field"><label for="am-first">First Name *</label><input type="text" id="am-first" required autocomplete="given-name"></div>
+            <div class="cvm-field"><label for="am-last">Last Name *</label><input type="text" id="am-last" required autocomplete="family-name"></div>
+            <div class="cvm-field"><label for="am-email">Email Address *</label><input type="email" id="am-email" required autocomplete="email"></div>
+            <div class="cvm-field"><label for="am-phone">Phone Number</label><input type="tel" id="am-phone" autocomplete="tel"></div>
             <div class="cvm-field">
               <label for="am-sector">Sector</label>
-              <select id="am-sector" name="sector">
+              <select id="am-sector">
                 <option value="">Select…</option>
                 <option value="Digital &amp; Marketing">Digital &amp; Marketing</option>
                 <option value="Office Support">Office Support</option>
@@ -580,18 +781,9 @@
                 <option value="White Collar Construction">White Collar Construction</option>
               </select>
             </div>
-            <div class="cvm-field">
-              <label for="am-jobtitle">Current Job Title</label>
-              <input type="text" id="am-jobtitle" name="job_title" placeholder="e.g. Marketing Manager">
-            </div>
-            <div class="cvm-field full">
-              <label for="am-cv">Upload Your CV *</label>
-              <input type="file" id="am-cv" name="cv" accept=".pdf,.doc,.docx" required>
-            </div>
-            <div class="cvm-field full">
-              <label for="am-msg">Cover Note <span style="font-weight:400;color:var(--muted)">(optional)</span></label>
-              <textarea id="am-msg" name="message" placeholder="A few lines about yourself or why this role interests you…"></textarea>
-            </div>
+            <div class="cvm-field"><label for="am-jobtitle">Current Job Title</label><input type="text" id="am-jobtitle" placeholder="e.g. Marketing Manager"></div>
+            <div class="cvm-field full"><label for="am-cv">Upload Your CV *</label><input type="file" id="am-cv" accept=".pdf,.doc,.docx" required></div>
+            <div class="cvm-field full"><label for="am-msg">Cover Note <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="am-msg" placeholder="A few lines about yourself or why this role interests you…"></textarea></div>
           </div>
         </form>
       </div>
@@ -612,21 +804,12 @@
 <footer class="foot-strip">
   <div class="wrap">
     <div class="foot-inner">
-      <div class="foot-logo">
-        <div class="mk" aria-hidden="true">R</div>
-        <b>RFT Recruitment</b>
-      </div>
+      <div class="foot-logo"><div class="mk" aria-hidden="true">R</div><b>RFT Recruitment</b></div>
       <span class="foot-copy">© 2025 RFT Recruitment · Manchester</span>
-      <nav class="foot-links" aria-label="Footer">
-        <a href="/contact.html">Contact</a>
-        <a href="/privacy-policy">Privacy</a>
-        <a href="/terms">Terms</a>
-      </nav>
+      <nav class="foot-links" aria-label="Footer"><a href="/contact.html">Contact</a><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a></nav>
     </div>
   </div>
 </footer>
-
-<!-- ── TOAST ──────────────────────────────────────── -->
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
@@ -639,291 +822,24 @@ var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSI
 var db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 var currentJob = null;
+var allJobs = [];
+var boardFilter = { sector: '', type: 'all', search: '' };
+
+var SECTORS = [
+  'Digital & Marketing','Office Support','Sales',
+  'Commercial','Rec2Rec','White Collar Construction'
+];
 
 function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
+function fmtDate(ts){ return ts ? new Date(ts).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}) : ''; }
+function fmtDateShort(ts){ return ts ? new Date(ts).toLocaleDateString('en-GB',{day:'numeric',month:'short'}) : ''; }
+function isNew(ts){ return ts && (Date.now() - new Date(ts).getTime()) < 7 * 24 * 60 * 60 * 1000; }
 
 function showState(name){
-  ['loading','notfound','content'].forEach(function(n){
+  ['board','detail','notfound'].forEach(function(n){
     var el = document.getElementById('state-'+n);
-    if(el) el.className = el.className.replace(' show','').replace('show','').trim() + (n===name ? ' show' : '');
+    if(el) el.className = 'page-state' + (n===name ? ' show' : '');
   });
-}
-
-// ── Load job ────────────────────────────────────────
-var params = new URLSearchParams(window.location.search);
-var slug = params.get('slug');
-var jobId = params.get('id');
-
-if(!slug && !jobId){
-  showState('notfound');
-} else {
-  var query = db.from('job_listings').select('*').eq('published', true);
-  if(slug) query = query.eq('slug', slug);
-  else query = query.eq('id', jobId);
-
-  query.maybeSingle().then(function(r){
-    if(r.error || !r.data){
-      showState('notfound');
-      return;
-    }
-    currentJob = r.data;
-    renderJob(currentJob);
-    loadSimilar(currentJob);
-    showState('content');
-  });
-}
-
-function renderJob(j){
-  // Page meta
-  document.title = j.title + ' — RFT Recruitment';
-  var desc = (j.description||'').slice(0,155);
-  var metaDesc = document.getElementById('pg-desc');
-  if(metaDesc) metaDesc.setAttribute('content', j.title + ' · ' + (j.location||'Manchester') + ' · RFT Recruitment. ' + desc);
-  var canonical = document.getElementById('pg-canonical');
-  if(canonical && j.slug) canonical.setAttribute('href', 'https://www.rftrecruitment.co.uk/jobs/?slug=' + j.slug);
-
-  // Breadcrumb
-  var bc = document.getElementById('bc-title');
-  if(bc) bc.textContent = j.title;
-
-  // Kicker + title
-  var kicker = document.getElementById('jd-sector');
-  if(kicker) kicker.textContent = j.sector || '';
-  var title = document.getElementById('jd-title');
-  if(title) title.textContent = j.title;
-
-  // Chips
-  var chips = document.getElementById('jd-chips');
-  if(chips){
-    var html = '';
-    if(j.location){
-      html += '<span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'+esc(j.location)+'</span>';
-    }
-    var ctype = j.contract_type === 'contract' ? 'Contract' : 'Permanent';
-    html += '<span class="chip chip-blue">'+ctype+'</span>';
-    if(j.sector){
-      html += '<span class="chip">'+esc(j.sector)+'</span>';
-    }
-    chips.innerHTML = html;
-  }
-
-  // Salary
-  if(j.salary){
-    var salLine = document.getElementById('jd-salary');
-    if(salLine){ salLine.textContent = j.salary; salLine.style.display = ''; }
-    var acSal = document.getElementById('ac-salary');
-    if(acSal){ acSal.textContent = j.salary; acSal.style.display = ''; }
-  } else {
-    var acEmpty = document.getElementById('ac-salary-empty');
-    if(acEmpty) acEmpty.style.display = '';
-  }
-
-  // Apply card type
-  var acType = document.getElementById('ac-type');
-  if(acType) acType.textContent = (j.contract_type==='contract'?'Contract':'Permanent') + (j.location ? ' · ' + j.location : '');
-
-  // Apply card facts
-  var facts = document.getElementById('ac-facts');
-  if(facts){
-    var fhtml = '';
-    if(j.location){
-      fhtml += '<div class="ac-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="ac-fact-lbl">Location</span>'+esc(j.location)+'</div>';
-    }
-    fhtml += '<div class="ac-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><span class="ac-fact-lbl">Type</span>'+(j.contract_type==='contract'?'Contract':'Permanent')+'</div>';
-    fhtml += '<div class="ac-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10H3M16 2v4M8 2v4M3 6h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg><span class="ac-fact-lbl">Posted</span>'+fmtDate(j.created_at)+'</div>';
-    facts.innerHTML = fhtml;
-  }
-
-  // Description
-  var desc2 = document.getElementById('jd-description');
-  if(desc2){
-    var raw = (j.description || '');
-    var paras = raw.split(/\n\n+/).filter(Boolean);
-    if(paras.length > 1){
-      desc2.innerHTML = paras.map(function(p){ return '<p>'+esc(p.trim())+'</p>'; }).join('');
-    } else {
-      desc2.innerHTML = '<p>'+esc(raw).replace(/\n/g,'<br>')+'</p>';
-    }
-  }
-
-  // Tags
-  var tags = j.tags || [];
-  if(tags.length){
-    var tagsSection = document.getElementById('jd-tags-section');
-    var tagsEl = document.getElementById('jd-tags');
-    if(tagsSection) tagsSection.style.display = '';
-    if(tagsEl) tagsEl.innerHTML = tags.map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join('');
-  }
-
-  // Pre-fill modal sector
-  var sectorSel = document.getElementById('am-sector');
-  if(sectorSel && j.sector){
-    for(var i=0;i<sectorSel.options.length;i++){
-      if(sectorSel.options[i].value === j.sector){
-        sectorSel.selectedIndex = i;
-        break;
-      }
-    }
-  }
-  // Pre-fill apply-job-title-ref
-  var ref = document.getElementById('apply-job-title-ref');
-  if(ref) ref.textContent = j.title;
-}
-
-function fmtDate(ts){
-  if(!ts) return '';
-  return new Date(ts).toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'});
-}
-
-// ── Similar roles ────────────────────────────────────
-function loadSimilar(j){
-  db.from('job_listings')
-    .select('id,title,sector,location,salary,contract_type,slug')
-    .eq('published', true)
-    .neq('id', j.id)
-    .eq('sector', j.sector)
-    .order('created_at',{ascending:false})
-    .limit(3)
-    .then(function(r){
-      var rows = (r.data||[]);
-      // Pad with any-sector if fewer than 2
-      if(rows.length < 2){
-        db.from('job_listings')
-          .select('id,title,sector,location,salary,contract_type,slug')
-          .eq('published', true)
-          .neq('id', j.id)
-          .neq('sector', j.sector)
-          .order('created_at',{ascending:false})
-          .limit(3 - rows.length)
-          .then(function(r2){
-            rows = rows.concat(r2.data||[]);
-            if(rows.length) renderSimilar(rows.slice(0,3));
-          });
-      } else {
-        renderSimilar(rows);
-      }
-    });
-}
-
-function renderSimilar(jobs){
-  if(!jobs.length) return;
-  var sec = document.getElementById('similar-section');
-  var grid = document.getElementById('similar-grid');
-  if(!sec||!grid) return;
-  sec.style.display = '';
-  grid.innerHTML = jobs.map(function(j){
-    var href = j.slug ? '/jobs/?slug='+esc(j.slug) : '/jobs/?id='+esc(j.id);
-    var ctype = j.contract_type==='contract'?'Contract':'Permanent';
-    return '<a class="sim-card" href="'+href+'" aria-label="View role: '+esc(j.title)+'">'
-      +'<div class="sim-top"><span class="sim-sector">'+esc(j.sector)+'</span><span class="sim-type">'+ctype+'</span></div>'
-      +'<h3 class="sim-title">'+esc(j.title)+'</h3>'
-      +(j.location?'<div class="sim-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'+esc(j.location)+'</span></div>':'')
-      +(j.salary?'<div class="sim-sal">'+esc(j.salary)+'</div>':'')
-      +'</a>';
-  }).join('');
-}
-
-// ── Apply modal ──────────────────────────────────────
-document.getElementById('openApplyBtn').addEventListener('click', function(){
-  openApplyModal();
-});
-document.getElementById('applyClose').addEventListener('click', function(){
-  document.getElementById('applyModal').classList.remove('open');
-});
-document.getElementById('applyModal').addEventListener('click', function(e){
-  if(e.target === this) this.classList.remove('open');
-});
-document.addEventListener('keydown', function(e){
-  if(e.key==='Escape') document.getElementById('applyModal').classList.remove('open');
-});
-
-function openApplyModal(){
-  document.getElementById('applySuccess').style.display = 'none';
-  document.getElementById('applyFormWrap').style.display = '';
-  document.getElementById('applyModal').classList.add('open');
-  document.getElementById('am-first').focus();
-}
-
-window.submitApply = function(){
-  var first  = document.getElementById('am-first').value.trim();
-  var last   = document.getElementById('am-last').value.trim();
-  var email  = document.getElementById('am-email').value.trim();
-  var phone  = document.getElementById('am-phone').value.trim();
-  var sector = document.getElementById('am-sector').value;
-  var jt     = document.getElementById('am-jobtitle').value.trim();
-  var msg    = document.getElementById('am-msg').value.trim();
-  var cvFile = document.getElementById('am-cv').files[0];
-  var btn    = document.getElementById('applySubmitBtn');
-
-  if(!first||!last||!email){ showToast('Please fill in name and email'); return; }
-  if(!cvFile){ showToast('Please attach your CV'); return; }
-
-  btn.disabled = true;
-  btn.textContent = 'Sending…';
-
-  var fileName = Date.now()+'-'+cvFile.name.replace(/[^a-zA-Z0-9.\-_]/g,'_');
-
-  db.storage.from('cvs').upload(fileName, cvFile, {contentType: cvFile.type}).then(function(up){
-    if(up.error){ onErr(); return; }
-
-    var payload = {
-      name: first+' '+last,
-      email: email,
-      phone: phone||null,
-      sector: sector||null,
-      job_title: (currentJob && currentJob.title)||jt||null,
-      cv_url: up.data.path,
-      cv_filename: cvFile.name,
-      message: msg||null,
-      status: 'new'
-    };
-
-    db.from('cv_submissions').insert(payload).then(function(r){
-      if(r.error){ onErr(); return; }
-
-      // Upsert lead (fire-and-forget)
-      db.from('leads').upsert({
-        email: email, name: first+' '+last,
-        phone: phone||null, type: 'candidate',
-        sector: sector||null,
-        source: 'job-page'+(currentJob&&currentJob.slug?'-'+currentJob.slug:'')
-      },{onConflict:'email',ignoreDuplicates:true});
-
-      btn.disabled = false;
-      btn.textContent = 'Send Application';
-      document.getElementById('applyFormWrap').style.display = 'none';
-      document.getElementById('applySuccess').style.display = '';
-    });
-  });
-
-  function onErr(){
-    btn.disabled = false;
-    btn.textContent = 'Send Application';
-    showToast('Something went wrong — please try again');
-  }
-};
-
-// ── Share / copy ─────────────────────────────────────
-window.shareJob = function(){
-  if(navigator.share && currentJob){
-    navigator.share({
-      title: (currentJob.title||'Job')+' — RFT Recruitment',
-      url: window.location.href
-    }).catch(function(){});
-  } else {
-    copyToClipboard(window.location.href, 'Link copied!');
-  }
-};
-
-window.copyJobLink = function(btn){
-  copyToClipboard(window.location.href, 'Copied!');
-  if(btn){ btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Copied!'; setTimeout(function(){ btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link'; }, 2000); }
-};
-
-function copyToClipboard(text, msg){
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(text).then(function(){ showToast(msg||'Copied!'); });
-  }
 }
 
 function showToast(msg){
@@ -933,37 +849,460 @@ function showToast(msg){
   setTimeout(function(){ el.classList.remove('show'); }, 3000);
 }
 
-})();
+// ── ROUTE ───────────────────────────────────────────
+var params = new URLSearchParams(window.location.search);
+var slug = params.get('slug');
+var jobId = params.get('id');
 
-// ── Nav scroll + mobile ──────────────────────────────
-(function(){
-  var nav = document.getElementById('siteNav');
-  var progress = document.getElementById('navProgress');
-  window.addEventListener('scroll', function(){
-    var s = window.scrollY;
-    nav.classList.toggle('scrolled', s > 40);
-    if(progress){
-      var h = document.documentElement.scrollHeight - window.innerHeight;
-      progress.style.transform = 'scaleX('+(h > 0 ? s/h : 0)+')';
+if(slug || jobId){
+  showState('detail');
+  loadDetail(slug, jobId);
+} else {
+  showState('board');
+  loadBoard();
+}
+
+// ══════════════════════════════════════════════════
+// BOARD
+// ══════════════════════════════════════════════════
+function loadBoard(){
+  db.from('job_listings')
+    .select('*')
+    .eq('published', true)
+    .order('created_at',{ascending:false})
+    .then(function(r){
+      var skels = document.getElementById('board-skeletons');
+      if(skels) skels.style.display = 'none';
+
+      if(r.error || !r.data){ renderBoard([]); return; }
+      allJobs = r.data;
+
+      // Hero count
+      updateBoardMeta();
+      buildSectorFilters();
+      buildMobileFilters();
+      renderBoard(getFilteredJobs());
+      injectBoardSchema(allJobs);
+    });
+}
+
+function updateBoardMeta(){
+  var count = allJobs.length;
+  var bhCount = document.getElementById('bh-count');
+  if(bhCount) bhCount.innerHTML = '<strong>'+count+'</strong> live role'+(count!==1?'s':'')+' across Manchester';
+}
+
+function buildSectorFilters(){
+  // Count per sector
+  var counts = {};
+  SECTORS.forEach(function(s){ counts[s] = 0; });
+  allJobs.forEach(function(j){ if(j.sector && counts[j.sector]!==undefined) counts[j.sector]++; });
+
+  // Hero pills
+  var hero = document.getElementById('bh-sectors');
+  if(hero){
+    hero.innerHTML = SECTORS.filter(function(s){ return counts[s]>0; }).map(function(s){
+      return '<button class="bh-sector-pill" data-sector="'+esc(s)+'" onclick="filterBySector(\''+esc(s)+'\')">'
+        +esc(s)+' <span style="opacity:.5">'+counts[s]+'</span></button>';
+    }).join('');
+  }
+
+  // Sidebar
+  var sidebar = document.getElementById('fs-sectors');
+  if(sidebar){
+    sidebar.innerHTML = SECTORS.filter(function(s){ return counts[s]>0; }).map(function(s){
+      return '<button class="fs-sector-btn" data-sector="'+esc(s)+'" onclick="filterBySector(\''+esc(s)+'\')">'
+        +esc(s)+'<span class="fs-count">'+counts[s]+'</span></button>';
+    }).join('');
+  }
+}
+
+function buildMobileFilters(){
+  var bar = document.getElementById('mobile-filter-bar');
+  if(!bar) return;
+  var types = ['All Types','Permanent','Contract'];
+  var typeHtml = types.map(function(t,i){
+    var val = i===0?'all':t.toLowerCase();
+    return '<button class="mfb-pill'+(i===0?' active':'')+'" data-mtype="'+val+'" onclick="filterByType(\''+val+'\')">'
+      +t+'</button>';
+  }).join('');
+  var sectHtml = SECTORS.map(function(s){
+    return '<button class="mfb-pill" data-msector="'+esc(s)+'" onclick="filterBySector(\''+esc(s)+'\')">'
+      +esc(s)+'</button>';
+  }).join('');
+  bar.innerHTML = typeHtml + sectHtml;
+}
+
+window.filterBySector = function(sector){
+  boardFilter.sector = boardFilter.sector === sector ? '' : sector;
+  syncFilterUI();
+  renderBoard(getFilteredJobs());
+  updatePageTitle();
+};
+
+window.filterByType = function(type){
+  boardFilter.type = type;
+  syncFilterUI();
+  renderBoard(getFilteredJobs());
+};
+
+window.triggerSearch = function(){
+  boardFilter.search = document.getElementById('bh-search-input').value.trim();
+  renderBoard(getFilteredJobs());
+  updatePageTitle();
+};
+
+window.clearFilters = function(){
+  boardFilter = {sector:'', type:'all', search:''};
+  var inp = document.getElementById('bh-search-input');
+  if(inp) inp.value = '';
+  syncFilterUI();
+  renderBoard(getFilteredJobs());
+  updatePageTitle();
+};
+
+document.getElementById('bh-search-input').addEventListener('keydown', function(e){
+  if(e.key==='Enter') window.triggerSearch();
+});
+document.getElementById('bh-search-input').addEventListener('input', function(){
+  boardFilter.search = this.value.trim();
+  renderBoard(getFilteredJobs());
+});
+
+// Type filter sidebar
+document.querySelectorAll('[data-type]').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    window.filterByType(btn.dataset.type);
+  });
+});
+
+function syncFilterUI(){
+  // Sidebar type
+  document.querySelectorAll('[data-type]').forEach(function(b){
+    b.classList.toggle('active', b.dataset.type === boardFilter.type);
+  });
+  // Sidebar sector
+  document.querySelectorAll('[data-sector]').forEach(function(b){
+    b.classList.toggle('active', b.dataset.sector === boardFilter.sector);
+  });
+  // Hero pills
+  document.querySelectorAll('.bh-sector-pill').forEach(function(b){
+    b.classList.toggle('active', b.dataset.sector === boardFilter.sector);
+  });
+  // Mobile type
+  document.querySelectorAll('[data-mtype]').forEach(function(b){
+    b.classList.toggle('active', b.dataset.mtype === boardFilter.type);
+  });
+  // Mobile sector
+  document.querySelectorAll('[data-msector]').forEach(function(b){
+    b.classList.toggle('active', b.dataset.msector === boardFilter.sector);
+  });
+  // Clear button
+  var hasFilter = boardFilter.sector || boardFilter.type!=='all' || boardFilter.search;
+  var clearWrap = document.getElementById('fs-clear-wrap');
+  if(clearWrap) clearWrap.style.display = hasFilter ? '' : 'none';
+}
+
+function getFilteredJobs(){
+  return allJobs.filter(function(j){
+    if(boardFilter.sector && j.sector !== boardFilter.sector) return false;
+    if(boardFilter.type !== 'all' && j.contract_type !== boardFilter.type) return false;
+    if(boardFilter.search){
+      var q = boardFilter.search.toLowerCase();
+      var hay = [j.title, j.sector, j.location, j.description, (j.tags||[]).join(' ')]
+        .filter(Boolean).join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
     }
-  }, {passive:true});
+    return true;
+  });
+}
 
-  var menuBtn = document.getElementById('menuBtn');
-  var mClose  = document.getElementById('mClose');
-  var panel   = document.getElementById('mobilePanel');
-  function openMenu(){
-    panel.classList.add('open');
-    menuBtn.setAttribute('aria-expanded','true');
-    document.body.style.overflow='hidden';
+function renderBoard(jobs){
+  var list = document.getElementById('jobs-list');
+  var empty = document.getElementById('board-empty');
+  var count = document.getElementById('results-count');
+  var hasFilter = boardFilter.sector || boardFilter.type!=='all' || boardFilter.search;
+
+  if(count){
+    count.innerHTML = jobs.length > 0
+      ? '<strong>'+jobs.length+'</strong> role'+(jobs.length!==1?'s':'')+(hasFilter?' matching your search':' available')
+      : '0 roles found';
   }
-  function closeMenu(){
-    panel.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded','false');
-    document.body.style.overflow='';
+
+  if(!jobs.length){
+    list.style.display = 'none';
+    empty.style.display = '';
+    var emptyTitle = document.getElementById('empty-title');
+    var emptyBody = document.getElementById('empty-body');
+    if(hasFilter){
+      if(emptyTitle) emptyTitle.textContent = 'No roles match your search';
+      if(emptyBody) emptyBody.textContent = 'Try adjusting your filters or search terms. New roles are added regularly.';
+    } else {
+      if(emptyTitle) emptyTitle.textContent = 'No live roles right now';
+      if(emptyBody) emptyBody.textContent = "We're always placing candidates. Submit your CV and we'll match you when the right role comes in.";
+    }
+    return;
   }
-  if(menuBtn) menuBtn.addEventListener('click', openMenu);
-  if(mClose)  mClose.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeMenu(); });
+
+  empty.style.display = 'none';
+  list.style.display = '';
+
+  list.innerHTML = jobs.map(function(j){
+    var href = j.slug ? '/jobs/?slug='+esc(j.slug) : '/jobs/?id='+esc(j.id);
+    var ctype = j.contract_type === 'contract' ? 'Contract' : 'Permanent';
+    var newBadge = isNew(j.created_at) ? '<span class="jr-new">New</span>' : '';
+    return '<a class="job-row" href="'+href+'" aria-label="'+esc(j.title)+', '+esc(j.sector)+', '+ctype+'">'
+      +'<div class="jr-main">'
+        +'<div class="jr-top">'
+          +'<span class="jr-sector">'+esc(j.sector)+'</span>'
+          +'<span class="jr-type">'+ctype+'</span>'
+          +newBadge
+        +'</div>'
+        +'<h2 class="jr-title">'+esc(j.title)+'</h2>'
+        +'<div class="jr-meta">'
+          +(j.location?'<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'+esc(j.location)+'</span>':'')
+          +(j.salary?'<span class="jr-salary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>'+esc(j.salary)+'</span>':'')
+        +'</div>'
+      +'</div>'
+      +'<div class="jr-right">'
+        +'<span class="jr-date">'+fmtDateShort(j.created_at)+'</span>'
+        +'<span class="jr-arr" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>'
+      +'</div>'
+      +'</a>';
+  }).join('');
+}
+
+function updatePageTitle(){
+  var base = 'Jobs in Manchester | RFT Recruitment';
+  if(boardFilter.sector){
+    var t = boardFilter.sector+' Jobs in Manchester | RFT Recruitment';
+    document.title = t;
+    var ogT = document.getElementById('og-title'); if(ogT) ogT.content = t;
+  } else {
+    document.title = base;
+    var ogT2 = document.getElementById('og-title'); if(ogT2) ogT2.content = base;
+  }
+}
+
+function injectBoardSchema(jobs){
+  var schema = document.getElementById('job-schema');
+  if(!schema) return;
+  var items = jobs.slice(0,10).map(function(j){
+    return {
+      '@type':'JobPosting',
+      'title': j.title,
+      'description': j.description||'',
+      'datePosted': j.created_at ? j.created_at.split('T')[0] : '',
+      'hiringOrganization':{'@type':'Organization','name':'RFT Recruitment','sameAs':'https://www.rftrecruitment.co.uk'},
+      'jobLocation':{'@type':'Place','address':{'@type':'PostalAddress','addressLocality':j.location||'Manchester','addressCountry':'GB'}},
+      'employmentType': j.contract_type==='contract' ? 'CONTRACTOR' : 'FULL_TIME',
+      'baseSalary': j.salary ? {'@type':'MonetaryAmount','currency':'GBP','value':{'@type':'QuantitativeValue','value':j.salary}} : undefined,
+      'url':'https://www.rftrecruitment.co.uk/jobs/'+(j.slug?'?slug='+j.slug:'?id='+j.id)
+    };
+  });
+  schema.type = 'application/ld+json';
+  schema.textContent = JSON.stringify({'@context':'https://schema.org','@graph':items});
+}
+
+// ══════════════════════════════════════════════════
+// DETAIL
+// ══════════════════════════════════════════════════
+function loadDetail(slug, jobId){
+  var query = db.from('job_listings').select('*').eq('published', true);
+  if(slug) query = query.eq('slug', slug);
+  else query = query.eq('id', jobId);
+  query.maybeSingle().then(function(r){
+    if(r.error || !r.data){ showState('notfound'); return; }
+    currentJob = r.data;
+    renderDetail(currentJob);
+    loadSimilar(currentJob);
+  });
+}
+
+function renderDetail(j){
+  document.title = j.title + ' | RFT Recruitment';
+  var ogT = document.getElementById('og-title'); if(ogT) ogT.content = j.title+' | RFT Recruitment';
+  var pgDesc = document.getElementById('pg-desc');
+  if(pgDesc) pgDesc.content = j.title+' · '+(j.location||'Manchester')+' · '+(j.contract_type==='contract'?'Contract':'Permanent')+(j.salary?' · '+j.salary:'')+'. Apply via RFT Recruitment.';
+  var can = document.getElementById('pg-canonical');
+  if(can && j.slug) can.href = 'https://www.rftrecruitment.co.uk/jobs/?slug='+j.slug;
+
+  // Inject JobPosting schema
+  var schema = document.getElementById('job-schema');
+  if(schema){
+    schema.type = 'application/ld+json';
+    schema.textContent = JSON.stringify({
+      '@context':'https://schema.org','@type':'JobPosting',
+      'title':j.title,'description':j.description||'',
+      'datePosted':j.created_at?j.created_at.split('T')[0]:'',
+      'hiringOrganization':{'@type':'Organization','name':'RFT Recruitment','sameAs':'https://www.rftrecruitment.co.uk'},
+      'jobLocation':{'@type':'Place','address':{'@type':'PostalAddress','addressLocality':j.location||'Manchester','addressCountry':'GB'}},
+      'employmentType':j.contract_type==='contract'?'CONTRACTOR':'FULL_TIME',
+      'url':'https://www.rftrecruitment.co.uk/jobs/'+(j.slug?'?slug='+j.slug:'?id='+j.id)
+    });
+  }
+
+  var bc = document.getElementById('bc-title'); if(bc) bc.textContent = j.title;
+  var kicker = document.getElementById('jd-sector'); if(kicker) kicker.textContent = j.sector||'';
+  var title = document.getElementById('jd-title'); if(title) title.textContent = j.title;
+
+  var chips = document.getElementById('jd-chips');
+  if(chips){
+    var html = '';
+    if(j.location) html += '<span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'+esc(j.location)+'</span>';
+    html += '<span class="chip chip-blue">'+(j.contract_type==='contract'?'Contract':'Permanent')+'</span>';
+    if(j.sector) html += '<span class="chip">'+esc(j.sector)+'</span>';
+    chips.innerHTML = html;
+  }
+
+  if(j.salary){
+    var sl = document.getElementById('jd-salary'); if(sl){ sl.textContent = j.salary; sl.style.display = ''; }
+    var as = document.getElementById('ac-salary'); if(as){ as.textContent = j.salary; as.style.display = ''; }
+  } else {
+    var ae = document.getElementById('ac-salary-empty'); if(ae) ae.style.display = '';
+  }
+
+  var acType = document.getElementById('ac-type');
+  if(acType) acType.textContent = (j.contract_type==='contract'?'Contract':'Permanent')+(j.location?' · '+j.location:'');
+
+  var facts = document.getElementById('ac-facts');
+  if(facts){
+    var fh = '';
+    if(j.location) fh += '<div class="ac-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span class="ac-fact-lbl">Location</span>'+esc(j.location)+'</div>';
+    fh += '<div class="ac-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg><span class="ac-fact-lbl">Type</span>'+(j.contract_type==='contract'?'Contract':'Permanent')+'</div>';
+    fh += '<div class="ac-fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10H3M16 2v4M8 2v4M3 6h18a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg><span class="ac-fact-lbl">Posted</span>'+fmtDate(j.created_at)+'</div>';
+    facts.innerHTML = fh;
+  }
+
+  var descEl = document.getElementById('jd-description');
+  if(descEl){
+    var raw = j.description||'';
+    var paras = raw.split(/\n\n+/).filter(Boolean);
+    descEl.innerHTML = paras.length > 1
+      ? paras.map(function(p){ return '<p>'+esc(p.trim())+'</p>'; }).join('')
+      : '<p>'+esc(raw).replace(/\n/g,'<br>')+'</p>';
+  }
+
+  var tags = j.tags||[];
+  if(tags.length){
+    var ts = document.getElementById('jd-tags-section'); if(ts) ts.style.display = '';
+    var te = document.getElementById('jd-tags'); if(te) te.innerHTML = tags.map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join('');
+  }
+
+  var sectorSel = document.getElementById('am-sector');
+  if(sectorSel && j.sector){
+    for(var i=0;i<sectorSel.options.length;i++){
+      if(sectorSel.options[i].value===j.sector){ sectorSel.selectedIndex=i; break; }
+    }
+  }
+  var titleRef = document.getElementById('apply-job-title-ref'); if(titleRef) titleRef.textContent = j.title;
+}
+
+function loadSimilar(j){
+  db.from('job_listings').select('id,title,sector,location,salary,contract_type,slug')
+    .eq('published',true).neq('id',j.id).eq('sector',j.sector)
+    .order('created_at',{ascending:false}).limit(3).then(function(r){
+      var rows = r.data||[];
+      if(rows.length < 2){
+        db.from('job_listings').select('id,title,sector,location,salary,contract_type,slug')
+          .eq('published',true).neq('id',j.id).neq('sector',j.sector)
+          .order('created_at',{ascending:false}).limit(3-rows.length).then(function(r2){
+            rows = rows.concat(r2.data||[]);
+            if(rows.length) renderSimilar(rows.slice(0,3));
+          });
+      } else { renderSimilar(rows); }
+    });
+}
+
+function renderSimilar(jobs){
+  if(!jobs.length) return;
+  var sec = document.getElementById('similar-section'); if(sec) sec.style.display = '';
+  var grid = document.getElementById('similar-grid');
+  if(!grid) return;
+  grid.innerHTML = jobs.map(function(j){
+    var href = j.slug ? '/jobs/?slug='+esc(j.slug) : '/jobs/?id='+esc(j.id);
+    return '<a class="sim-card" href="'+href+'">'
+      +'<div class="sim-top"><span class="sim-sector">'+esc(j.sector)+'</span><span class="sim-type">'+(j.contract_type==='contract'?'Contract':'Permanent')+'</span></div>'
+      +'<h3 class="sim-title">'+esc(j.title)+'</h3>'
+      +(j.location?'<div class="sim-meta"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'+esc(j.location)+'</span></div>':'')
+      +(j.salary?'<div class="sim-sal">'+esc(j.salary)+'</div>':'')
+      +'</a>';
+  }).join('');
+}
+
+// ── Apply modal ──────────────────────────────────────
+document.getElementById('openApplyBtn').addEventListener('click', openApplyModal);
+document.getElementById('applyClose').addEventListener('click', function(){ document.getElementById('applyModal').classList.remove('open'); });
+document.getElementById('applyModal').addEventListener('click', function(e){ if(e.target===this) this.classList.remove('open'); });
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') document.getElementById('applyModal').classList.remove('open'); });
+
+function openApplyModal(){
+  document.getElementById('applySuccess').style.display = 'none';
+  document.getElementById('applyFormWrap').style.display = '';
+  document.getElementById('applyModal').classList.add('open');
+  setTimeout(function(){ document.getElementById('am-first').focus(); },100);
+}
+
+window.submitApply = function(){
+  var first = document.getElementById('am-first').value.trim();
+  var last  = document.getElementById('am-last').value.trim();
+  var email = document.getElementById('am-email').value.trim();
+  var phone = document.getElementById('am-phone').value.trim();
+  var sector = document.getElementById('am-sector').value;
+  var jt    = document.getElementById('am-jobtitle').value.trim();
+  var msg   = document.getElementById('am-msg').value.trim();
+  var cvFile = document.getElementById('am-cv').files[0];
+  var btn   = document.getElementById('applySubmitBtn');
+  if(!first||!last||!email){ showToast('Please fill in name and email'); return; }
+  if(!cvFile){ showToast('Please attach your CV'); return; }
+  btn.disabled = true; btn.textContent = 'Sending…';
+  var fileName = Date.now()+'-'+cvFile.name.replace(/[^a-zA-Z0-9.\-_]/g,'_');
+  db.storage.from('cvs').upload(fileName, cvFile, {contentType:cvFile.type}).then(function(up){
+    if(up.error){ onApplyErr(); return; }
+    db.from('cv_submissions').insert({
+      name:first+' '+last, email:email, phone:phone||null, sector:sector||null,
+      job_title:(currentJob&&currentJob.title)||jt||null,
+      cv_url:up.data.path, cv_filename:cvFile.name, message:msg||null, status:'new'
+    }).then(function(r){
+      if(r.error){ onApplyErr(); return; }
+      db.from('leads').upsert({email:email,name:first+' '+last,phone:phone||null,type:'candidate',sector:sector||null,source:'job-page'+(currentJob&&currentJob.slug?'-'+currentJob.slug:'')},{onConflict:'email',ignoreDuplicates:true});
+      btn.disabled = false; btn.textContent = 'Send Application';
+      document.getElementById('applyFormWrap').style.display = 'none';
+      document.getElementById('applySuccess').style.display = '';
+    });
+  });
+  function onApplyErr(){ btn.disabled=false; btn.textContent='Send Application'; showToast('Something went wrong — please try again'); }
+};
+
+window.shareJob = function(){
+  if(navigator.share && currentJob){
+    navigator.share({title:(currentJob.title||'Job')+' — RFT Recruitment',url:window.location.href}).catch(function(){});
+  } else { copyToClipboard(window.location.href,'Link copied!'); }
+};
+window.copyJobLink = function(btn){
+  copyToClipboard(window.location.href,'Copied!');
+  if(btn){ btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6 9 17l-5-5"/></svg> Copied!'; setTimeout(function(){ btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Copy Link'; },2000); }
+};
+function copyToClipboard(text,msg){ if(navigator.clipboard) navigator.clipboard.writeText(text).then(function(){ showToast(msg||'Copied!'); }); }
+
+// ── Nav ──────────────────────────────────────────────
+var nav = document.getElementById('siteNav');
+var progress = document.getElementById('navProgress');
+window.addEventListener('scroll', function(){
+  var s = window.scrollY;
+  nav.classList.toggle('scrolled', s > 40);
+  if(progress){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    progress.style.transform = 'scaleX('+(h>0?s/h:0)+')';
+  }
+},{passive:true});
+
+var menuBtn = document.getElementById('menuBtn');
+var mClose  = document.getElementById('mClose');
+var panel   = document.getElementById('mobilePanel');
+if(menuBtn) menuBtn.addEventListener('click', function(){ panel.classList.add('open'); menuBtn.setAttribute('aria-expanded','true'); document.body.style.overflow='hidden'; });
+if(mClose)  mClose.addEventListener('click',  function(){ panel.classList.remove('open'); menuBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; });
+
 })();
 </script>
 </body>
