@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Dashboard — RFT Recruitment</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%232f6bff'/%3E%3Ctext x='16' y='23' text-anchor='middle' font-family='Archivo,sans-serif' font-weight='900' font-size='20' fill='white'%3ER%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue:#2f6bff;--char:#16181b;--char2:#1f2227;--off:#f4f2ee;--off2:#eceae4;
+    --ink:#16181b;--muted:#6c727a;--line:#dad7d0;--lineD:#2c3036;
+    --sans:"Archivo",system-ui,sans-serif;--mono:"Space Mono",monospace;
+    --sidebar:240px;
+    --green:#1a7f4f;--green-bg:rgba(26,127,79,.1);
+    --amber:#b45309;--amber-bg:rgba(180,83,9,.1);
+    --purple:#6b46c1;--purple-bg:rgba(107,70,193,.1);
+    --red:#c53030;--red-bg:rgba(197,48,48,.1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{font-family:var(--sans);background:var(--off);color:var(--ink);display:flex;-webkit-font-smoothing:antialiased}
+
+  /* ── SIDEBAR ───────────────────────────────────── */
+  .sidebar{
+    width:var(--sidebar);flex-shrink:0;background:var(--char);color:var(--off);
+    display:flex;flex-direction:column;height:100vh;position:sticky;top:0;
+    border-right:1px solid var(--lineD);
+  }
+  .sidebar-top{flex:1;overflow-y:auto;padding:24px 16px 16px}
+  .sidebar-bottom{padding:16px;border-top:1px solid var(--lineD)}
+
+  .s-logo{display:flex;align-items:center;gap:11px;padding:4px 8px 24px;border-bottom:1px solid var(--lineD);margin-bottom:20px}
+  .s-logo .mk{width:36px;height:36px;background:var(--blue);color:#fff;display:grid;place-items:center;border-radius:9px;font-size:16px;font-weight:900;flex-shrink:0}
+  .s-logo-text b{display:block;font-size:17px;font-weight:900;letter-spacing:-.035em;line-height:1;color:var(--off)}
+  .s-logo-text .tag{font-family:var(--mono);font-size:7.5px;letter-spacing:.2em;text-transform:uppercase;color:#5a6270;margin-top:2px;display:block}
+
+  .s-label{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:#3d4450;padding:0 10px 10px;display:block}
+
+  .nav-item{
+    width:100%;display:flex;align-items:center;gap:11px;
+    padding:10px 12px;border-radius:10px;border:none;background:none;
+    color:#6c7580;font-family:var(--sans);font-size:13.5px;font-weight:600;
+    cursor:pointer;transition:background .18s,color .18s;text-align:left;
+    position:relative;margin-bottom:2px;
+  }
+  .nav-item svg{width:16px;height:16px;flex-shrink:0;opacity:.7}
+  .nav-item:hover{background:rgba(255,255,255,.06);color:#c8cdd3}
+  .nav-item.active{background:rgba(47,107,255,.14);color:#fff}
+  .nav-item.active svg{opacity:1}
+  .nav-badge{
+    margin-left:auto;background:var(--blue);color:#fff;
+    font-family:var(--mono);font-size:10px;font-weight:700;
+    padding:2px 7px;border-radius:20px;letter-spacing:.02em;
+  }
+  .nav-badge:empty{display:none}
+
+  .user-row{display:flex;align-items:center;gap:10px;padding:10px 10px 14px}
+  .user-avatar{width:30px;height:30px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-weight:700;font-size:12px;flex-shrink:0}
+  .user-email{font-size:12px;color:#5a6270;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .signout-btn{
+    width:100%;display:flex;align-items:center;justify-content:center;gap:8px;
+    padding:9px 12px;border-radius:9px;border:1px solid var(--lineD);
+    background:transparent;color:#5a6270;font-family:var(--sans);font-size:13px;font-weight:600;
+    cursor:pointer;transition:background .18s,color .18s,border-color .18s;
+  }
+  .signout-btn:hover{background:rgba(255,255,255,.05);color:#c8cdd3;border-color:#3d4450}
+  .signout-btn svg{width:14px;height:14px}
+
+  /* ── MAIN ──────────────────────────────────────── */
+  .main{flex:1;min-width:0;display:flex;flex-direction:column;overflow:hidden}
+
+  .top-bar{
+    background:#fff;border-bottom:1px solid var(--line);
+    padding:0 36px;height:60px;display:flex;align-items:center;
+    justify-content:space-between;flex-shrink:0;
+  }
+  .top-bar h1{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .top-bar-right{display:flex;align-items:center;gap:14px}
+  .top-tag{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);background:var(--off);padding:5px 10px;border-radius:6px;border:1px solid var(--line)}
+
+  .content{flex:1;overflow-y:auto;padding:32px 36px}
+
+  /* ── SECTIONS ──────────────────────────────────── */
+  .section{display:none}
+  .section.active{display:block}
+
+  /* ── SECTION HEADER ────────────────────────────── */
+  .sec-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px}
+  .sec-head h2{font-size:22px;font-weight:800;letter-spacing:-.025em}
+
+  /* ── STAT CARDS ────────────────────────────────── */
+  .stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+  .stat-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+  .stat-n{display:block;font-size:28px;font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--ink)}
+  .stat-l{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+
+  /* ── FILTERS BAR ───────────────────────────────── */
+  .filters-bar{display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap}
+  .filter-group{display:flex;gap:3px;background:var(--off2);border:1px solid var(--line);border-radius:9px;padding:3px}
+  .filter-btn{
+    font-family:var(--sans);font-size:12.5px;font-weight:600;
+    padding:6px 13px;border:none;border-radius:7px;background:transparent;
+    cursor:pointer;color:var(--muted);transition:background .18s,color .18s;white-space:nowrap;
+  }
+  .filter-btn.active{background:#fff;color:var(--ink);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+  .search-input{
+    font-family:var(--sans);font-size:13.5px;padding:8px 13px;
+    border:1px solid var(--line);border-radius:9px;outline:none;background:#fff;
+    transition:border-color .2s,box-shadow .2s;min-width:200px;
+  }
+  .search-input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,107,255,.12)}
+
+  /* ── TABLE ─────────────────────────────────────── */
+  .table-wrap{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  table{width:100%;border-collapse:collapse}
+  thead th{
+    text-align:left;padding:13px 16px;
+    font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--muted);border-bottom:1px solid var(--line);background:#fafaf9;font-weight:400;
+  }
+  tbody tr{transition:background .15s;cursor:pointer}
+  tbody tr:hover td{background:#fafaf9}
+  tbody td{padding:14px 16px;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--ink);vertical-align:middle}
+  tbody tr:last-child td{border-bottom:none}
+  .td-date{font-family:var(--mono);font-size:11px;color:var(--muted);white-space:nowrap}
+  .td-name{font-weight:600}
+  .td-muted{color:var(--muted)}
+  .td-email{color:var(--muted);font-size:13px}
+  .empty-cell{text-align:center;padding:48px 24px;color:var(--muted);font-size:14px}
+  .loading-cell{text-align:center;padding:48px 24px;color:var(--muted);font-size:14px}
+
+  .row-arr{
+    display:inline-flex;align-items:center;justify-content:center;
+    width:28px;height:28px;border-radius:7px;border:1px solid var(--line);
+    background:#fff;color:var(--muted);font-size:14px;transition:background .15s,color .15s,border-color .15s;
+  }
+  tr:hover .row-arr{background:var(--blue);color:#fff;border-color:var(--blue)}
+
+  /* ── BADGES ─────────────────────────────────────── */
+  .badge{
+    display:inline-block;font-family:var(--mono);font-size:9.5px;
+    letter-spacing:.08em;text-transform:uppercase;font-weight:700;
+    padding:4px 9px;border-radius:6px;white-space:nowrap;
+  }
+  .badge-new{background:rgba(47,107,255,.1);color:#2050d0}
+  .badge-contacted{background:var(--amber-bg);color:var(--amber)}
+  .badge-closed{background:var(--green-bg);color:var(--green)}
+  .badge-reviewed{background:var(--amber-bg);color:var(--amber)}
+  .badge-shortlisted{background:var(--purple-bg);color:var(--purple)}
+  .badge-placed{background:var(--green-bg);color:var(--green)}
+  .badge-employer{background:rgba(47,107,255,.08);color:#2f6bff}
+  .badge-candidate{background:rgba(22,24,27,.07);color:#4c525a}
+  .badge-published{background:var(--green-bg);color:var(--green)}
+  .badge-draft{background:rgba(22,24,27,.07);color:#4c525a}
+  .badge-permanent{background:rgba(47,107,255,.08);color:#2f6bff}
+  .badge-contract{background:rgba(107,70,193,.1);color:var(--purple)}
+
+  /* ── DETAIL PANEL ──────────────────────────────── */
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:90;display:none;backdrop-filter:blur(2px)}
+  .overlay.show{display:block}
+  .detail-panel{
+    position:fixed;right:-540px;top:0;bottom:0;width:520px;
+    background:#fff;z-index:100;overflow-y:auto;
+    box-shadow:-20px 0 60px rgba(0,0,0,.12);
+    transition:right .35s cubic-bezier(.2,.7,.2,1);
+  }
+  .detail-panel.open{right:0}
+  .dp-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:22px 28px;border-bottom:1px solid var(--line);position:sticky;top:0;background:#fff;z-index:2
+  }
+  .dp-head h3{font-size:17px;font-weight:800;letter-spacing:-.02em}
+  .dp-close{
+    width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
+    background:#fff;cursor:pointer;display:grid;place-items:center;
+    color:var(--muted);transition:background .15s,border-color .15s;
+  }
+  .dp-close:hover{background:var(--off);border-color:#bbb}
+  .dp-close svg{width:16px;height:16px}
+  .dp-body{padding:28px}
+  .dp-meta{
+    font-family:var(--mono);font-size:10px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:24px;
+    display:flex;align-items:center;gap:10px
+  }
+  .dp-field{margin-bottom:20px}
+  .dp-field .dp-lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+  .dp-field .dp-val{font-size:14.5px;line-height:1.55;word-break:break-word}
+  .dp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+  .dp-status-section{padding-top:24px;border-top:1px solid var(--line)}
+  .dp-status-section .dp-lbl{font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+  .status-btns{display:flex;gap:8px;flex-wrap:wrap}
+  .status-btn{
+    font-family:var(--sans);font-size:13px;font-weight:700;
+    padding:8px 16px;border-radius:9px;border:1px solid var(--line);
+    background:#fff;cursor:pointer;transition:background .15s,color .15s,border-color .15s;
+    color:var(--muted);
+  }
+  .status-btn:hover{border-color:#aaa;color:var(--ink)}
+  .status-btn.active-new{background:rgba(47,107,255,.1);color:#2050d0;border-color:rgba(47,107,255,.3)}
+  .status-btn.active-contacted{background:var(--amber-bg);color:var(--amber);border-color:rgba(180,83,9,.3)}
+  .status-btn.active-closed{background:var(--green-bg);color:var(--green);border-color:rgba(26,127,79,.3)}
+  .status-btn.active-reviewed{background:var(--amber-bg);color:var(--amber);border-color:rgba(180,83,9,.3)}
+  .status-btn.active-shortlisted{background:var(--purple-bg);color:var(--purple);border-color:rgba(107,70,193,.3)}
+  .status-btn.active-placed{background:var(--green-bg);color:var(--green);border-color:rgba(26,127,79,.3)}
+
+  /* ── JOB CARDS ─────────────────────────────────── */
+  .job-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px}
+  .job-card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;
+    display:flex;flex-direction:column;transition:box-shadow .2s,border-color .2s;
+  }
+  .job-card:hover{box-shadow:0 8px 28px rgba(0,0,0,.07);border-color:#c8c4bc}
+  .job-card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .job-card h3{font-size:17px;font-weight:800;letter-spacing:-.02em;line-height:1.2;flex:1}
+  .job-card-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+  .job-card-info{display:flex;flex-wrap:wrap;gap:14px;font-size:13px;color:var(--muted);margin-bottom:16px}
+  .job-card-info span{display:flex;align-items:center;gap:5px}
+  .job-card-info svg{width:13px;height:13px;opacity:.6}
+  .job-card-salary{font-size:20px;font-weight:800;letter-spacing:-.02em;margin-bottom:16px}
+  .job-card-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:auto;padding-top:16px;border-top:1px solid var(--line)}
+  .btn{
+    display:inline-flex;align-items:center;gap:7px;
+    font-family:var(--sans);font-size:13px;font-weight:700;
+    padding:8px 14px;border-radius:9px;border:1px solid transparent;
+    cursor:pointer;transition:background .15s,color .15s,border-color .15s,transform .15s;white-space:nowrap;
+  }
+  .btn:hover{transform:translateY(-1px)}
+  .btn svg{width:13px;height:13px}
+  .btn-primary{background:var(--blue);color:#fff;border-color:var(--blue)}
+  .btn-primary:hover{background:#1a55e8;border-color:#1a55e8}
+  .btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}
+  .btn-ghost:hover{border-color:#aaa;background:var(--off)}
+  .btn-danger{background:#fff;color:var(--red);border-color:rgba(197,48,48,.25)}
+  .btn-danger:hover{background:var(--red-bg);border-color:rgba(197,48,48,.4)}
+  .btn-publish{background:var(--green-bg);color:var(--green);border-color:rgba(26,127,79,.3)}
+  .btn-publish:hover{background:rgba(26,127,79,.18)}
+  .btn-unpublish{background:var(--amber-bg);color:var(--amber);border-color:rgba(180,83,9,.25)}
+  .btn-unpublish:hover{background:rgba(180,83,9,.18)}
+
+  /* ── JOB MODAL ─────────────────────────────────── */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:200;
+    display:none;align-items:center;justify-content:center;padding:24px;
+    backdrop-filter:blur(3px);
+  }
+  .modal-overlay.open{display:flex}
+  .modal-box{
+    background:#fff;border-radius:22px;width:100%;max-width:600px;
+    max-height:90vh;overflow-y:auto;
+    box-shadow:0 40px 100px rgba(0,0,0,.22);
+  }
+  .modal-head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:24px 28px;border-bottom:1px solid var(--line);
+    position:sticky;top:0;background:#fff;z-index:2;
+  }
+  .modal-head h3{font-size:18px;font-weight:800;letter-spacing:-.025em}
+  .modal-close{
+    width:34px;height:34px;border-radius:8px;border:1px solid var(--line);
+    background:#fff;cursor:pointer;display:grid;place-items:center;
+    color:var(--muted);transition:background .15s;
+  }
+  .modal-close:hover{background:var(--off)}
+  .modal-close svg{width:16px;height:16px}
+  .modal-body{padding:28px}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .form-field{display:flex;flex-direction:column;gap:6px}
+  .form-field.full{grid-column:1/-1}
+  .form-field label{font-size:12.5px;font-weight:600;color:#555}
+  .form-field input,.form-field select,.form-field textarea{
+    font-family:var(--sans);font-size:14px;padding:11px 13px;
+    border:1px solid var(--line);border-radius:9px;outline:none;
+    background:var(--off);color:var(--ink);
+    transition:border-color .2s,box-shadow .2s;
+    -webkit-appearance:none;appearance:none;
+  }
+  .form-field textarea{resize:vertical;min-height:100px}
+  .form-field input:focus,.form-field select:focus,.form-field textarea:focus{
+    border-color:var(--blue);box-shadow:0 0 0 3px rgba(47,107,255,.14);background:#fff;
+  }
+  .form-hint{font-size:11.5px;color:var(--muted);margin-top:2px}
+  .modal-foot{
+    display:flex;align-items:center;justify-content:flex-end;gap:10px;
+    padding:20px 28px;border-top:1px solid var(--line);
+    position:sticky;bottom:0;background:#fff;
+  }
+
+  /* ── CV VIEW LINK ──────────────────────────────── */
+  .cv-link{
+    display:inline-flex;align-items:center;gap:5px;
+    font-size:13px;font-weight:600;color:var(--blue);
+    padding:5px 10px;border-radius:7px;border:1px solid rgba(47,107,255,.25);
+    background:rgba(47,107,255,.06);transition:background .15s;
+    cursor:pointer;text-decoration:none;
+  }
+  .cv-link:hover{background:rgba(47,107,255,.12)}
+  .cv-link svg{width:12px;height:12px}
+  .no-cv{font-size:12px;color:var(--muted)}
+
+  /* ── TOAST ─────────────────────────────────────── */
+  .toast{
+    position:fixed;bottom:24px;right:24px;z-index:300;
+    background:var(--char);color:var(--off);
+    font-size:13.5px;font-weight:600;padding:12px 18px;border-radius:11px;
+    box-shadow:0 8px 28px rgba(0,0,0,.3);
+    transform:translateY(80px);opacity:0;
+    transition:transform .3s cubic-bezier(.2,.7,.2,1),opacity .3s;
+    pointer-events:none;
+  }
+  .toast.show{transform:none;opacity:1}
+  .toast.error{background:var(--red)}
+
+  /* ── TAGS ──────────────────────────────────────── */
+  .tag{
+    font-family:var(--mono);font-size:9px;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--muted);background:var(--off);padding:4px 8px;border-radius:5px;border:1px solid var(--line);
+    display:inline-block;
+  }
+  .tags{display:flex;flex-wrap:wrap;gap:5px}
+
+  /* ── EMPTY STATE ───────────────────────────────── */
+  .empty-state{
+    text-align:center;padding:72px 24px;color:var(--muted);
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+  }
+  .empty-state svg{width:40px;height:40px;opacity:.3;margin:0 auto 16px;display:block}
+  .empty-state h3{font-size:17px;font-weight:700;color:var(--ink);margin-bottom:8px}
+  .empty-state p{font-size:14px;line-height:1.6;max-width:36ch;margin:0 auto}
+</style>
+</head>
+<body>
+
+<!-- ── SIDEBAR ─────────────────────────────────── -->
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="s-logo">
+      <div class="mk" aria-hidden="true">R</div>
+      <div class="s-logo-text">
+        <b>RFT</b>
+        <span class="tag">Admin</span>
+      </div>
+    </div>
+    <span class="s-label">Navigation</span>
+    <button class="nav-item active" data-section="overview" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+      Overview
+    </button>
+    <button class="nav-item" data-section="enquiries">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Enquiries
+      <span class="nav-badge" id="badge-enquiries"></span>
+    </button>
+    <button class="nav-item" data-section="cvs">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      CV Submissions
+      <span class="nav-badge" id="badge-cvs"></span>
+    </button>
+    <button class="nav-item" data-section="jobs">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>
+      Job Listings
+    </button>
+    <button class="nav-item" data-section="crm">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      CRM
+    </button>
+    <button class="nav-item" data-section="cvdb">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+      CV Database
+    </button>
+  </div>
+  <div class="sidebar-bottom">
+    <div class="user-row">
+      <div class="user-avatar" id="userAvatar">?</div>
+      <span class="user-email" id="userEmail"></span>
+    </div>
+    <button class="signout-btn" id="signoutBtn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></svg>
+      Sign Out
+    </button>
+  </div>
+</aside>
+
+<!-- ── MAIN ─────────────────────────────────────── -->
+<div class="main">
+  <div class="top-bar">
+    <h1 id="sectionTitle">Enquiries</h1>
+    <div class="top-bar-right">
+      <a href="/" target="_blank" class="top-tag">View Site ↗</a>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ── OVERVIEW SECTION ──────────────────── -->
+    <section class="section active" id="sec-overview">
+      <div class="sec-head" style="margin-bottom:20px">
+        <h2>Overview</h2>
+        <span id="ov-date" style="font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;color:var(--muted);text-transform:uppercase"></span>
+      </div>
+
+      <!-- Schema setup banner -->
+      <div id="schema-banner" style="display:none;background:rgba(180,83,9,.07);border:1px solid rgba(180,83,9,.25);border-radius:14px;padding:18px 22px;margin-bottom:24px">
+        <div style="display:flex;align-items:flex-start;gap:14px">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:20px;height:20px;flex-shrink:0;color:var(--amber);margin-top:1px" aria-hidden="true"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <div style="flex:1;min-width:0">
+            <p style="font-size:13.5px;font-weight:700;color:var(--amber);margin-bottom:4px">Schema update required</p>
+            <p style="font-size:13px;color:var(--ink);line-height:1.5;margin-bottom:12px">The notes, CV categories, and leads features need a one-time SQL migration. Open your <a href="https://supabase.com/dashboard/project/npbfhpzjsaxesewsucbz/sql/new" target="_blank" style="color:var(--blue);font-weight:600">Supabase SQL editor</a>, paste this and run it:</p>
+            <div style="position:relative">
+              <pre id="schema-sql" style="font-family:var(--mono);font-size:11px;line-height:1.6;background:rgba(0,0,0,.04);border:1px solid rgba(0,0,0,.08);border-radius:9px;padding:14px 16px;overflow-x:auto;color:var(--ink);white-space:pre-wrap;word-break:break-all;max-height:160px;overflow-y:auto">ALTER TABLE enquiries ADD COLUMN IF NOT EXISTS notes TEXT;
+ALTER TABLE cv_submissions ADD COLUMN IF NOT EXISTS notes TEXT;
+ALTER TABLE cv_submissions ADD COLUMN IF NOT EXISTS cv_category TEXT;
+CREATE TABLE IF NOT EXISTS cv_categories (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), name TEXT UNIQUE NOT NULL, created_at TIMESTAMPTZ DEFAULT NOW());
+ALTER TABLE cv_categories ENABLE ROW LEVEL SECURITY;
+CREATE POLICY IF NOT EXISTS "auth manage cv_categories" ON cv_categories FOR ALL TO authenticated USING (true) WITH CHECK (true);
+CREATE TABLE IF NOT EXISTS leads (id UUID PRIMARY KEY DEFAULT gen_random_uuid(), email TEXT UNIQUE NOT NULL, name TEXT, phone TEXT, type TEXT DEFAULT 'candidate', company TEXT, sector TEXT, notes TEXT, status TEXT DEFAULT 'new', source TEXT, created_at TIMESTAMPTZ DEFAULT NOW(), updated_at TIMESTAMPTZ DEFAULT NOW());
+ALTER TABLE leads ENABLE ROW LEVEL SECURITY;
+CREATE POLICY IF NOT EXISTS "anon insert leads" ON leads FOR INSERT TO anon WITH CHECK (true);
+CREATE POLICY IF NOT EXISTS "auth full leads" ON leads FOR ALL TO authenticated USING (true) WITH CHECK (true);</pre>
+              <button onclick="copySchema()" id="copy-schema-btn" style="position:absolute;top:8px;right:8px;font-family:var(--sans);font-size:11.5px;font-weight:700;padding:5px 11px;border:none;border-radius:6px;background:var(--amber);color:#fff;cursor:pointer;transition:opacity .15s">Copy SQL</button>
+            </div>
+            <button onclick="document.getElementById('schema-banner').style.display='none'" style="margin-top:10px;font-family:var(--sans);font-size:12px;color:var(--muted);background:none;border:none;cursor:pointer;padding:0">Dismiss</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-row" style="margin-bottom:28px">
+        <div class="stat-card" style="cursor:pointer" onclick="showSection('enquiries')">
+          <span class="stat-n" id="ov-new-enqs" style="color:var(--blue)">—</span>
+          <span class="stat-l">New Enquiries</span>
+        </div>
+        <div class="stat-card" style="cursor:pointer" onclick="showSection('cvs')">
+          <span class="stat-n" id="ov-new-cvs" style="color:var(--blue)">—</span>
+          <span class="stat-l">New CVs</span>
+        </div>
+        <div class="stat-card" style="cursor:pointer" onclick="showSection('jobs')">
+          <span class="stat-n" id="ov-live-jobs" style="color:var(--green)">—</span>
+          <span class="stat-l">Live Jobs</span>
+        </div>
+        <div class="stat-card" style="cursor:pointer" onclick="showSection('crm')">
+          <span class="stat-n" id="ov-total">—</span>
+          <span class="stat-l">Total Contacts</span>
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start">
+        <!-- Recent activity -->
+        <div>
+          <h3 style="font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px">Recent Activity</h3>
+          <div class="table-wrap" id="ov-recent-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>When</th><th>Type</th><th>Name</th><th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="ov-recent-tbody">
+                <tr><td colspan="4" class="loading-cell">Loading…</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- Quick actions -->
+        <div>
+          <h3 style="font-size:14px;font-weight:700;letter-spacing:-.01em;margin-bottom:12px">Quick Actions</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <button onclick="showSection('enquiries')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:13px;cursor:pointer;text-align:left;transition:box-shadow .15s,border-color .15s;width:100%" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)';this.style.borderColor='#c0bcb6'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--line)'">
+              <div style="width:36px;height:36px;border-radius:9px;background:rgba(47,107,255,.1);display:grid;place-items:center;flex-shrink:0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--blue)" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div>
+                <div style="font-size:13.5px;font-weight:700;color:var(--ink)">Review Enquiries</div>
+                <div style="font-size:12px;color:var(--muted)">Update status on new contacts</div>
+              </div>
+            </button>
+            <button onclick="showSection('cvs')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:13px;cursor:pointer;text-align:left;transition:box-shadow .15s,border-color .15s;width:100%" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)';this.style.borderColor='#c0bcb6'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--line)'">
+              <div style="width:36px;height:36px;border-radius:9px;background:rgba(107,70,193,.1);display:grid;place-items:center;flex-shrink:0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--purple)" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <div>
+                <div style="font-size:13.5px;font-weight:700;color:var(--ink)">Process CV Submissions</div>
+                <div style="font-size:12px;color:var(--muted)">Review, categorise and shortlist</div>
+              </div>
+            </button>
+            <button onclick="openJobForm(null)" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:13px;cursor:pointer;text-align:left;transition:box-shadow .15s,border-color .15s;width:100%" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)';this.style.borderColor='#c0bcb6'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--line)'">
+              <div style="width:36px;height:36px;border-radius:9px;background:rgba(26,127,79,.1);display:grid;place-items:center;flex-shrink:0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--green)" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </div>
+              <div>
+                <div style="font-size:13.5px;font-weight:700;color:var(--ink)">Post a New Job</div>
+                <div style="font-size:12px;color:var(--muted)">Add a vacancy to the live job board</div>
+              </div>
+            </button>
+            <button onclick="showSection('crm')" style="display:flex;align-items:center;gap:14px;padding:16px 18px;background:#fff;border:1px solid var(--line);border-radius:13px;cursor:pointer;text-align:left;transition:box-shadow .15s,border-color .15s;width:100%" onmouseover="this.style.boxShadow='0 4px 16px rgba(0,0,0,.08)';this.style.borderColor='#c0bcb6'" onmouseout="this.style.boxShadow='';this.style.borderColor='var(--line)'">
+              <div style="width:36px;height:36px;border-radius:9px;background:rgba(22,24,27,.07);display:grid;place-items:center;flex-shrink:0">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;color:var(--muted)" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div style="font-size:13.5px;font-weight:700;color:var(--ink)">Open CRM</div>
+                <div style="font-size:12px;color:var(--muted)">View all clients and candidates</div>
+              </div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── ENQUIRIES SECTION ──────────────────── -->
+    <section class="section" id="sec-enquiries">
+      <div class="sec-head">
+        <h2>All Enquiries</h2>
+      </div>
+      <div class="stats-row" id="enquiries-stats">
+        <div class="stat-card"><span class="stat-n" id="eq-total">—</span><span class="stat-l">Total</span></div>
+        <div class="stat-card"><span class="stat-n" id="eq-new">—</span><span class="stat-l">New</span></div>
+        <div class="stat-card"><span class="stat-n" id="eq-employers">—</span><span class="stat-l">Employers</span></div>
+        <div class="stat-card"><span class="stat-n" id="eq-candidates">—</span><span class="stat-l">Candidates</span></div>
+      </div>
+      <div class="filters-bar">
+        <div class="filter-group" role="group" aria-label="Filter by type">
+          <button class="filter-btn active" data-filter="eq-type" data-val="all">All</button>
+          <button class="filter-btn" data-filter="eq-type" data-val="employer">Employers</button>
+          <button class="filter-btn" data-filter="eq-type" data-val="candidate">Candidates</button>
+        </div>
+        <div class="filter-group" role="group" aria-label="Filter by status">
+          <button class="filter-btn active" data-filter="eq-status" data-val="all">All</button>
+          <button class="filter-btn" data-filter="eq-status" data-val="new">New</button>
+          <button class="filter-btn" data-filter="eq-status" data-val="contacted">Contacted</button>
+          <button class="filter-btn" data-filter="eq-status" data-val="closed">Closed</button>
+        </div>
+        <input class="search-input" type="search" id="eq-search" placeholder="Search name, email, company…" aria-label="Search enquiries">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Type</th>
+              <th>Name</th>
+              <th>Company / Sector</th>
+              <th>Email</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="enquiries-tbody">
+            <tr><td colspan="7" class="loading-cell">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── CV SUBMISSIONS SECTION ─────────────── -->
+    <section class="section" id="sec-cvs">
+      <div class="sec-head">
+        <h2>CV Submissions</h2>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><span class="stat-n" id="cv-total">—</span><span class="stat-l">Total</span></div>
+        <div class="stat-card"><span class="stat-n" id="cv-new">—</span><span class="stat-l">New</span></div>
+        <div class="stat-card"><span class="stat-n" id="cv-shortlisted">—</span><span class="stat-l">Shortlisted</span></div>
+        <div class="stat-card"><span class="stat-n" id="cv-placed">—</span><span class="stat-l">Placed</span></div>
+      </div>
+      <div class="filters-bar">
+        <div class="filter-group" role="group" aria-label="Filter by status">
+          <button class="filter-btn active" data-filter="cv-status" data-val="all">All</button>
+          <button class="filter-btn" data-filter="cv-status" data-val="new">New</button>
+          <button class="filter-btn" data-filter="cv-status" data-val="reviewed">Reviewed</button>
+          <button class="filter-btn" data-filter="cv-status" data-val="shortlisted">Shortlisted</button>
+          <button class="filter-btn" data-filter="cv-status" data-val="placed">Placed</button>
+        </div>
+        <input class="search-input" type="search" id="cv-search" placeholder="Search name, email, sector…" aria-label="Search CV submissions">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Sector</th>
+              <th>Job Title</th>
+              <th>CV</th>
+              <th>Status</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="cvs-tbody">
+            <tr><td colspan="8" class="loading-cell">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── JOBS SECTION ───────────────────────── -->
+    <section class="section" id="sec-jobs">
+      <div class="sec-head">
+        <h2>Job Listings</h2>
+        <button class="btn btn-primary" id="addJobBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+          Add Job
+        </button>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><span class="stat-n" id="job-total">—</span><span class="stat-l">Total</span></div>
+        <div class="stat-card"><span class="stat-n" id="job-published">—</span><span class="stat-l">Published</span></div>
+        <div class="stat-card"><span class="stat-n" id="job-drafts">—</span><span class="stat-l">Drafts</span></div>
+        <div class="stat-card"><span class="stat-n" id="job-contract">—</span><span class="stat-l">Contract</span></div>
+      </div>
+      <div id="jobs-grid" class="job-grid">
+        <div style="text-align:center;padding:48px;color:var(--muted);grid-column:1/-1">Loading…</div>
+      </div>
+    </section>
+
+    <!-- ── CV DATABASE SECTION ──────────────────── -->
+    <section class="section" id="sec-cvdb">
+      <div class="sec-head">
+        <h2>CV Database</h2>
+      </div>
+      <div class="filters-bar">
+        <select class="search-input" id="cvdb-cat-filter" style="min-width:180px">
+          <option value="">All Categories</option>
+        </select>
+        <input class="search-input" type="search" id="cvdb-search" placeholder="Search name, email, sector…" aria-label="Search CV database">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th><th>Name</th><th>Email</th><th>Sector</th><th>Job Title</th><th>Category</th><th>CV</th><th>Status</th><th></th>
+            </tr>
+          </thead>
+          <tbody id="cvdb-tbody">
+            <tr><td colspan="9" class="loading-cell">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ── CRM SECTION ──────────────────────────── -->
+    <section class="section" id="sec-crm">
+      <div class="sec-head">
+        <h2>CRM</h2>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><span class="stat-n" id="crm-total-clients">—</span><span class="stat-l">Clients</span></div>
+        <div class="stat-card"><span class="stat-n" id="crm-total-candidates">—</span><span class="stat-l">Candidates</span></div>
+        <div class="stat-card"><span class="stat-n" id="crm-new">—</span><span class="stat-l">New</span></div>
+        <div class="stat-card"><span class="stat-n" id="crm-with-cv">—</span><span class="stat-l">With CV</span></div>
+      </div>
+      <div class="filters-bar">
+        <div class="filter-group" role="group" aria-label="View contacts">
+          <button class="filter-btn active" data-crm-view="clients">Clients</button>
+          <button class="filter-btn" data-crm-view="candidates">Candidates</button>
+        </div>
+        <input class="search-input" type="search" id="crm-search" placeholder="Search name, email, company…" aria-label="Search contacts">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead id="crm-thead">
+            <tr><th>Date</th><th>Name</th><th>Company</th><th>Email</th><th>Phone</th><th>Sector</th><th>Roles</th><th>Status</th><th>Notes</th><th></th></tr>
+          </thead>
+          <tbody id="crm-tbody">
+            <tr><td colspan="10" class="loading-cell">Loading…</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </div><!-- /.content -->
+</div><!-- /.main -->
+
+<!-- ── DETAIL PANEL ─────────────────────────────── -->
+<div class="overlay" id="overlay"></div>
+<div class="detail-panel" id="detailPanel" role="dialog" aria-modal="true" aria-label="Enquiry detail">
+  <div class="dp-head">
+    <h3 id="dp-title">Enquiry</h3>
+    <button class="dp-close" id="dpClose" aria-label="Close panel">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+  <div class="dp-body" id="dp-body"></div>
+</div>
+
+<!-- ── JOB FORM MODAL ───────────────────────────── -->
+<div class="modal-overlay" id="jobModal" role="dialog" aria-modal="true" aria-label="Job form">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modalTitle">Add Job</h3>
+      <button class="modal-close" id="modalClose" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <form id="jobForm" novalidate>
+      <div class="modal-body">
+        <div class="form-grid">
+          <div class="form-field full">
+            <label for="jf-title">Job Title *</label>
+            <input type="text" id="jf-title" name="title" required placeholder="e.g. Digital Marketing Executive">
+          </div>
+          <div class="form-field">
+            <label for="jf-sector">Sector *</label>
+            <select id="jf-sector" name="sector" required>
+              <option value="">Select…</option>
+              <option value="Digital &amp; Marketing">Digital &amp; Marketing</option>
+              <option value="Office Support">Office Support</option>
+              <option value="Sales">Sales</option>
+              <option value="Commercial">Commercial</option>
+              <option value="Rec2Rec">Rec2Rec</option>
+              <option value="White Collar Construction">White Collar Construction</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="jf-type">Contract Type</label>
+            <select id="jf-type" name="contract_type">
+              <option value="permanent">Permanent</option>
+              <option value="contract">Contract</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label for="jf-location">Location</label>
+            <input type="text" id="jf-location" name="location" placeholder="e.g. Manchester (Hybrid)">
+          </div>
+          <div class="form-field">
+            <label for="jf-salary">Salary / Rate</label>
+            <input type="text" id="jf-salary" name="salary" placeholder="e.g. £30k–£36k or £350/day">
+          </div>
+          <div class="form-field full">
+            <label for="jf-desc">Description</label>
+            <textarea id="jf-desc" name="description" rows="5" placeholder="Describe the role, responsibilities and what good looks like…"></textarea>
+          </div>
+          <div class="form-field full">
+            <label for="jf-tags">Tags</label>
+            <input type="text" id="jf-tags" name="tags" placeholder="PPC, Analytics, B2B  (comma-separated)">
+            <span class="form-hint">Comma-separated — shown as pills on the job card</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-ghost" id="modalCancel">Cancel</button>
+        <button type="submit" class="btn btn-ghost" name="action" value="draft" id="saveDraftBtn">Save Draft</button>
+        <button type="submit" class="btn btn-primary" name="action" value="publish" id="savePublishBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+          Save &amp; Publish
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- ── TOAST ────────────────────────────────────── -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+(function(){
+'use strict';
+
+// ── Config ──────────────────────────────────────────────────
+var SUPABASE_URL='https://npbfhpzjsaxesewsucbz.supabase.co';
+var SUPABASE_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5wYmZocHpqc2F4ZXNld3N1Y2J6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODE2OTEzMzQsImV4cCI6MjA5NzI2NzMzNH0.F_e0A_rgYPj3Tn2nSy6rwrWNT_WywMcG7XdApz80cR8';
+
+// ── State ───────────────────────────────────────────────────
+var db, currentUser;
+var data = { enquiries:[], cvs:[], jobs:[] };
+var crmData = { clients:[], candidates:[] };
+var eqFilter = { type:'all', status:'all', search:'' };
+var cvFilter = { status:'all', search:'' };
+var crmView = 'clients';
+var crmSearch = '';
+var crmSetupDone = false;
+var activeSection = 'overview';
+var openDetailId = null;
+var editingJobId = null;
+var lastClickedSubmit = 'draft';
+
+var SECTION_TITLES = { overview:'Overview', enquiries:'Enquiries', cvs:'CV Submissions', jobs:'Job Listings', crm:'CRM', cvdb:'CV Database' };
+
+// ── Init ────────────────────────────────────────────────────
+db = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+db.auth.getSession().then(function(r){
+  if(!r.data||!r.data.session){
+    window.location.replace('/admin/');
+    return;
+  }
+  currentUser = r.data.session.user;
+  var email = currentUser.email||'';
+  document.getElementById('userEmail').textContent = email;
+  document.getElementById('userAvatar').textContent = email.charAt(0).toUpperCase();
+  setupNav();
+  setupFilters();
+  setupDetailPanel();
+  setupJobModal();
+  setupSignOut();
+  loadCVCategories();
+  var d = new Date();
+  var ovDate = document.getElementById('ov-date');
+  if(ovDate) ovDate.textContent = d.toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  loadSection('overview');
+});
+
+// ── Navigation ──────────────────────────────────────────────
+function setupNav(){
+  document.querySelectorAll('[data-section]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      showSection(btn.dataset.section);
+    });
+  });
+}
+
+window.showSection = function(name){
+  activeSection = name;
+  document.querySelectorAll('[data-section]').forEach(function(b){
+    b.classList.toggle('active', b.dataset.section===name);
+    b.setAttribute('aria-current', b.dataset.section===name ? 'page' : '');
+  });
+  document.querySelectorAll('.section').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('sec-'+name).classList.add('active');
+  document.getElementById('sectionTitle').textContent = SECTION_TITLES[name]||name;
+  loadSection(name);
+}
+
+function loadSection(name){
+  if(name==='overview') loadOverview();
+  else if(name==='enquiries') loadEnquiries();
+  else if(name==='cvs') loadCVs();
+  else if(name==='jobs') loadJobs();
+  else if(name==='crm') loadCRM();
+  else if(name==='cvdb') loadCVDB();
+}
+
+// ── Overview ────────────────────────────────────────────────
+function loadOverview(){
+  var tbody = document.getElementById('ov-recent-tbody');
+  if(tbody) tbody.innerHTML = '<tr><td colspan="4" class="loading-cell">Loading…</td></tr>';
+  Promise.all([
+    db.from('enquiries').select('id,name,type,status,company,sector,created_at').order('created_at',{ascending:false}).limit(20),
+    db.from('cv_submissions').select('id,name,sector,job_title,status,created_at').order('created_at',{ascending:false}).limit(20),
+    db.from('job_listings').select('id').eq('published',true)
+  ]).then(function(rs){
+    var enqs = rs[0].data||[];
+    var cvs  = rs[1].data||[];
+    var jobs = rs[2].data||[];
+
+    var newEnqs = enqs.filter(function(e){return e.status==='new';}).length;
+    var newCVs  = cvs.filter(function(c){return c.status==='new';}).length;
+
+    var el = document.getElementById('ov-new-enqs'); if(el) el.textContent = newEnqs;
+    el = document.getElementById('ov-new-cvs');  if(el) el.textContent = newCVs;
+    el = document.getElementById('ov-live-jobs'); if(el) el.textContent = jobs.length;
+    el = document.getElementById('ov-total');    if(el) el.textContent = enqs.length + cvs.length;
+
+    updateBadge('enquiries', newEnqs);
+    updateBadge('cvs', newCVs);
+
+    var recent = enqs.map(function(e){
+      return {kind:'enquiry', typeLabel:e.type==='employer'?'Employer':'Candidate', name:e.name, detail:e.company||e.sector||'', status:e.status, ts:e.created_at};
+    }).concat(cvs.map(function(c){
+      return {kind:'cv', typeLabel:'CV Sub', name:c.name, detail:c.sector||c.job_title||'', status:c.status, ts:c.created_at};
+    })).sort(function(a,b){return new Date(b.ts)-new Date(a.ts);}).slice(0,10);
+
+    if(tbody){
+      if(!recent.length){
+        tbody.innerHTML='<tr><td colspan="4" class="empty-cell">No activity yet — forms on the site will appear here.</td></tr>';
+      } else {
+        tbody.innerHTML = recent.map(function(r){
+          var typeColor = r.kind==='cv' ? 'badge-shortlisted' : r.typeLabel==='Employer' ? 'badge-employer' : 'badge-candidate';
+          return '<tr>'
+            +'<td class="td-date">'+fmtDateShort(r.ts)+'</td>'
+            +'<td>'+badge(typeColor.replace('badge-',''), r.typeLabel)+'</td>'
+            +'<td class="td-name">'+esc(r.name)+'<span class="td-muted" style="font-weight:400;margin-left:6px;font-size:12px">'+esc(r.detail)+'</span></td>'
+            +'<td>'+statusBadge(r.status)+'</td>'
+            +'</tr>';
+        }).join('');
+      }
+    }
+
+    // Detect if schema has been applied by checking for notes column
+    db.from('enquiries').select('notes').limit(1).then(function(r){
+      var banner = document.getElementById('schema-banner');
+      if(!banner) return;
+      if(r.error && r.error.message && r.error.message.indexOf('notes')!==-1){
+        banner.style.display='block';
+      }
+    });
+  });
+}
+
+window.copySchema = function(){
+  var sql = document.getElementById('schema-sql');
+  if(!sql) return;
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(sql.textContent.trim()).then(function(){
+      var btn = document.getElementById('copy-schema-btn');
+      if(btn){ btn.textContent='Copied!'; setTimeout(function(){ btn.textContent='Copy SQL'; },2000); }
+    });
+  }
+};
+
+// ── Sign Out ────────────────────────────────────────────────
+function setupSignOut(){
+  document.getElementById('signoutBtn').addEventListener('click',function(){
+    db.auth.signOut().then(function(){ window.location.href='/admin/'; });
+  });
+}
+
+// ── Filters ─────────────────────────────────────────────────
+function setupFilters(){
+  document.querySelectorAll('.filter-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var group = btn.dataset.filter;
+      document.querySelectorAll('[data-filter="'+group+'"]').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var val = btn.dataset.val;
+      if(group==='eq-type'){ eqFilter.type=val; renderEnquiries(); }
+      else if(group==='eq-status'){ eqFilter.status=val; renderEnquiries(); }
+      else if(group==='cv-status'){ cvFilter.status=val; renderCVs(); }
+    });
+  });
+  var eqSearch = document.getElementById('eq-search');
+  if(eqSearch) eqSearch.addEventListener('input',function(){ eqFilter.search=this.value; renderEnquiries(); });
+  var cvSearch = document.getElementById('cv-search');
+  if(cvSearch) cvSearch.addEventListener('input',function(){ cvFilter.search=this.value; renderCVs(); });
+}
+
+// ── Helpers ─────────────────────────────────────────────────
+function esc(s){ if(!s) return ''; return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function fmtDate(ts){
+  if(!ts) return '—';
+  var d=new Date(ts);
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+}
+
+function fmtDateShort(ts){
+  if(!ts) return '—';
+  var d=new Date(ts);
+  return d.toLocaleDateString('en-GB',{day:'numeric',month:'short'});
+}
+
+function badge(cls,label){ return '<span class="badge badge-'+cls+'">'+label+'</span>'; }
+
+function statusBadge(status){
+  var m={new:'New',contacted:'Contacted',closed:'Closed',reviewed:'Reviewed',shortlisted:'Shortlisted',placed:'Placed'};
+  return badge(status, m[status]||status);
+}
+
+function showToast(msg,isError){
+  var el=document.getElementById('toast');
+  el.textContent=msg;
+  el.classList.toggle('error',!!isError);
+  el.classList.add('show');
+  setTimeout(function(){ el.classList.remove('show'); },3000);
+}
+
+// ── Enquiries ───────────────────────────────────────────────
+function loadEnquiries(){
+  document.getElementById('enquiries-tbody').innerHTML='<tr><td colspan="7" class="loading-cell">Loading…</td></tr>';
+  db.from('enquiries').select('*').order('created_at',{ascending:false}).then(function(r){
+    if(r.error){ showToast('Failed to load enquiries',true); return; }
+    data.enquiries = r.data||[];
+    updateEnquiriesStats();
+    renderEnquiries();
+    updateBadge('enquiries', data.enquiries.filter(function(e){ return e.status==='new'; }).length);
+  });
+}
+
+function updateEnquiriesStats(){
+  var all=data.enquiries;
+  document.getElementById('eq-total').textContent=all.length;
+  document.getElementById('eq-new').textContent=all.filter(function(e){return e.status==='new';}).length;
+  document.getElementById('eq-employers').textContent=all.filter(function(e){return e.type==='employer';}).length;
+  document.getElementById('eq-candidates').textContent=all.filter(function(e){return e.type==='candidate';}).length;
+}
+
+function getFilteredEnquiries(){
+  return data.enquiries.filter(function(e){
+    if(eqFilter.type!=='all'&&e.type!==eqFilter.type) return false;
+    if(eqFilter.status!=='all'&&e.status!==eqFilter.status) return false;
+    if(eqFilter.search){
+      var q=eqFilter.search.toLowerCase();
+      var hay=[e.name,e.email,e.company,e.sector].filter(Boolean).join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function renderEnquiries(){
+  var rows=getFilteredEnquiries();
+  var tbody=document.getElementById('enquiries-tbody');
+  if(!rows.length){
+    tbody.innerHTML='<tr><td colspan="7" class="empty-cell">No enquiries match your filters.</td></tr>';
+    return;
+  }
+  tbody.innerHTML=rows.map(function(e){
+    var co = e.type==='employer' ? (e.company||'—') : (e.sector||'—');
+    return '<tr class="data-row" data-id="'+e.id+'">'
+      +'<td class="td-date">'+fmtDateShort(e.created_at)+'</td>'
+      +'<td>'+badge(e.type, e.type==='employer'?'Employer':'Candidate')+'</td>'
+      +'<td class="td-name">'+esc(e.name)+'</td>'
+      +'<td class="td-muted">'+esc(co)+'</td>'
+      +'<td class="td-email">'+esc(e.email)+'</td>'
+      +'<td>'+statusBadge(e.status)+'</td>'
+      +'<td><span class="row-arr" aria-hidden="true">→</span></td>'
+      +'</tr>';
+  }).join('');
+  tbody.querySelectorAll('tr[data-id]').forEach(function(row){
+    row.addEventListener('click',function(){ openEnquiryDetail(row.dataset.id); });
+  });
+}
+
+function openEnquiryDetail(id){
+  var e=data.enquiries.find(function(x){ return x.id===id; });
+  if(!e) return;
+  openDetailId = id;
+
+  var typeLabel = e.type==='employer' ? 'Employer Enquiry' : 'Candidate Enquiry';
+  document.getElementById('dp-title').textContent = typeLabel;
+
+  var html = '<div class="dp-meta">'+fmtDate(e.created_at)+' &nbsp;·&nbsp; '+badge(e.type,e.type==='employer'?'Employer':'Candidate')+'</div>';
+
+  html += '<div class="dp-grid">';
+  html += dpField('Name', e.name);
+  html += dpField('Email', '<a href="mailto:'+esc(e.email)+'">'+esc(e.email)+'</a>');
+  html += dpField('Phone', e.phone||'—');
+  if(e.type==='employer'){
+    html += dpField('Company', e.company||'—');
+  } else {
+    html += dpField('Sector', e.sector||'—');
+    html += dpField('Role Type', e.role_type||'—');
+  }
+  html += '</div>';
+
+  if(e.type==='employer'&&e.roles){
+    html += '<div class="dp-field"><div class="dp-lbl">Roles to Fill</div><div class="dp-val">'+esc(e.roles)+'</div></div>';
+  }
+  if(e.message){
+    html += '<div class="dp-field"><div class="dp-lbl">Message</div><div class="dp-val">'+esc(e.message)+'</div></div>';
+  }
+
+  html += '<div class="dp-status-section">';
+  html += '<div class="dp-lbl">Update Status</div>';
+  html += '<div class="status-btns">';
+  ['new','contacted','closed'].forEach(function(s){
+    var labels={new:'New',contacted:'Contacted',closed:'Closed'};
+    var cls = e.status===s ? 'status-btn active-'+s : 'status-btn';
+    html += '<button class="'+cls+'" data-status="'+s+'" onclick="updateEnquiryStatus(\''+e.id+'\',\''+s+'\')">'+labels[s]+'</button>';
+  });
+  html += '</div></div>';
+  html += notesSection(e.id, 'enquiries', e.notes||'');
+  html += deleteButton(e.id, 'enquiries', e.type==='employer'?'client enquiry':'candidate enquiry');
+
+  document.getElementById('dp-body').innerHTML = html;
+  document.getElementById('detailPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+}
+
+function dpField(lbl,val){
+  return '<div class="dp-field"><div class="dp-lbl">'+lbl+'</div><div class="dp-val">'+(val||'—')+'</div></div>';
+}
+
+window.updateEnquiryStatus = function(id, status){
+  db.from('enquiries').update({status:status}).eq('id',id).then(function(r){
+    if(r.error){ showToast('Update failed',true); return; }
+    var e=data.enquiries.find(function(x){ return x.id===id; });
+    if(e){ e.status=status; }
+    renderEnquiries();
+    updateEnquiriesStats();
+    if(openDetailId===id) openEnquiryDetail(id);
+    updateBadge('enquiries', data.enquiries.filter(function(x){ return x.status==='new'; }).length);
+    showToast('Status updated');
+  });
+};
+
+// ── CV Submissions ──────────────────────────────────────────
+function loadCVs(){
+  document.getElementById('cvs-tbody').innerHTML='<tr><td colspan="8" class="loading-cell">Loading…</td></tr>';
+  db.from('cv_submissions').select('*').order('created_at',{ascending:false}).then(function(r){
+    if(r.error){ showToast('Failed to load CV submissions',true); return; }
+    data.cvs = r.data||[];
+    updateCVStats();
+    renderCVs();
+    updateBadge('cvs', data.cvs.filter(function(c){ return c.status==='new'; }).length);
+  });
+}
+
+function updateCVStats(){
+  var all=data.cvs;
+  document.getElementById('cv-total').textContent=all.length;
+  document.getElementById('cv-new').textContent=all.filter(function(c){return c.status==='new';}).length;
+  document.getElementById('cv-shortlisted').textContent=all.filter(function(c){return c.status==='shortlisted';}).length;
+  document.getElementById('cv-placed').textContent=all.filter(function(c){return c.status==='placed';}).length;
+}
+
+function getFilteredCVs(){
+  return data.cvs.filter(function(c){
+    if(cvFilter.status!=='all'&&c.status!==cvFilter.status) return false;
+    if(cvFilter.search){
+      var q=cvFilter.search.toLowerCase();
+      var hay=[c.name,c.email,c.sector,c.job_title].filter(Boolean).join(' ').toLowerCase();
+      if(!hay.includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+function renderCVs(){
+  var rows=getFilteredCVs();
+  var tbody=document.getElementById('cvs-tbody');
+  if(!rows.length){
+    tbody.innerHTML='<tr><td colspan="8" class="empty-cell">No CV submissions found.</td></tr>';
+    return;
+  }
+  tbody.innerHTML=rows.map(function(c){
+    var cvCell = c.cv_url
+      ? '<button class="cv-link" onclick="viewCV(\''+esc(c.id)+'\',\''+esc(c.cv_url)+'\',\''+esc(c.cv_filename||'CV')+'\');event.stopPropagation()">'+
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>'+
+        'Download</button>'
+      : '<span class="no-cv">No file</span>';
+
+    var statusSel='<select class="filter-btn" style="border:1px solid var(--line);border-radius:7px;padding:5px 8px;font-size:12px;cursor:pointer;background:#fff" onchange="updateCVStatus(\''+c.id+'\',this.value);event.stopPropagation()">'
+      +['new','reviewed','shortlisted','placed'].map(function(s){
+        return '<option value="'+s+'"'+(c.status===s?' selected':'')+'>'+s.charAt(0).toUpperCase()+s.slice(1)+'</option>';
+      }).join('')
+      +'</select>';
+
+    return '<tr>'
+      +'<td class="td-date">'+fmtDateShort(c.created_at)+'</td>'
+      +'<td class="td-name">'+esc(c.name)+'</td>'
+      +'<td class="td-email">'+esc(c.email)+'</td>'
+      +'<td class="td-muted">'+esc(c.sector||'—')+'</td>'
+      +'<td class="td-muted">'+esc(c.job_title||'—')+'</td>'
+      +'<td>'+cvCell+'</td>'
+      +'<td>'+statusSel+'</td>'
+      +'<td><span class="row-arr" style="cursor:pointer" onclick="openCVDetail(\''+c.id+'\')">→</span></td>'
+      +'</tr>';
+  }).join('');
+}
+
+window.viewCV = function(id, path, filename){
+  db.storage.from('cvs').createSignedUrl(path,300).then(function(r){
+    if(r.error){ showToast('Could not generate CV link',true); return; }
+    var a=document.createElement('a');
+    a.href=r.data.signedUrl;
+    a.download=filename;
+    a.target='_blank';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+};
+
+window.updateCVStatus = function(id, status){
+  db.from('cv_submissions').update({status:status}).eq('id',id).then(function(r){
+    if(r.error){ showToast('Update failed',true); return; }
+    var c=data.cvs.find(function(x){ return x.id===id; });
+    if(c){ c.status=status; }
+    updateCVStats();
+    updateBadge('cvs', data.cvs.filter(function(x){ return x.status==='new'; }).length);
+    showToast('Status updated');
+  });
+};
+
+window.openCVDetail = function(id){
+  var c=data.cvs.find(function(x){ return x.id===id; });
+  if(!c) return;
+  openDetailId = id;
+  document.getElementById('dp-title').textContent = 'CV Submission';
+  var html = '<div class="dp-meta">'+fmtDate(c.created_at)+'</div>';
+  html += '<div class="dp-grid">';
+  html += dpField('Name', c.name);
+  html += dpField('Email','<a href="mailto:'+esc(c.email)+'">'+esc(c.email)+'</a>');
+  html += dpField('Phone', c.phone||'—');
+  html += dpField('Sector', c.sector||'—');
+  html += dpField('Job Title', c.job_title||'—');
+  html += '</div>';
+  if(c.message) html += '<div class="dp-field"><div class="dp-lbl">Message</div><div class="dp-val">'+esc(c.message)+'</div></div>';
+  if(c.cv_url){
+    html += '<div class="dp-field"><div class="dp-lbl">CV File</div><div class="dp-val"><button class="cv-link" onclick="viewCV(\''+esc(c.id)+'\',\''+esc(c.cv_url)+'\',\''+esc(c.cv_filename||'CV')+'\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download '+esc(c.cv_filename||'CV')+'</button></div></div>';
+  }
+  html += '<div class="dp-field"><div class="dp-lbl" style="margin-bottom:8px">Category</div>'
+    +'<div style="display:flex;gap:8px;align-items:center">'
+    +'<input id="cv-cat-input" list="cat-datalist" value="'+esc(c.cv_category||'')+'" style="font-family:var(--sans);font-size:14px;padding:9px 12px;border:1px solid var(--line);border-radius:8px;outline:none;flex:1;background:var(--off);color:var(--ink);transition:border-color .2s,box-shadow .2s" placeholder="Type or select a category…" onfocus="this.style.borderColor=\'var(--blue)\';this.style.boxShadow=\'0 0 0 3px rgba(47,107,255,.12)\'" onblur="this.style.borderColor=\'var(--line)\';this.style.boxShadow=\'\'">'
+    +'<datalist id="cat-datalist">'+cvCategories.map(function(cat){return'<option value="'+esc(cat.name)+'">';}).join('')+'</datalist>'
+    +'<button onclick="saveCategory(\''+esc(c.id)+'\')" style="font-family:var(--sans);font-size:13px;font-weight:700;padding:9px 16px;border:none;border-radius:8px;background:var(--blue);color:#fff;cursor:pointer;white-space:nowrap;transition:background .15s" onmouseover="this.style.background=\'#1a55e8\'" onmouseout="this.style.background=\'var(--blue)\'">Save</button>'
+    +'</div></div>';
+  html += '<div class="dp-status-section"><div class="dp-lbl">Update Status</div><div class="status-btns">';
+  ['new','reviewed','shortlisted','placed'].forEach(function(s){
+    var labels={new:'New',reviewed:'Reviewed',shortlisted:'Shortlisted',placed:'Placed'};
+    var cls = c.status===s ? 'status-btn active-'+s : 'status-btn';
+    html += '<button class="'+cls+'" onclick="updateCVStatus(\''+c.id+'\',\''+s+'\')">'+labels[s]+'</button>';
+  });
+  html += '</div></div>';
+  html += notesSection(c.id, 'cv_submissions', c.notes||'');
+  html += deleteButton(c.id, 'cv_submissions', 'CV submission');
+  document.getElementById('dp-body').innerHTML = html;
+  document.getElementById('detailPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+};
+
+// ── Jobs ────────────────────────────────────────────────────
+function loadJobs(){
+  document.getElementById('jobs-grid').innerHTML='<div style="text-align:center;padding:48px;color:var(--muted);grid-column:1/-1">Loading…</div>';
+  db.from('job_listings').select('*').order('created_at',{ascending:false}).then(function(r){
+    if(r.error){ showToast('Failed to load jobs',true); return; }
+    data.jobs = r.data||[];
+    updateJobStats();
+    renderJobs();
+  });
+}
+
+function updateJobStats(){
+  var all=data.jobs;
+  document.getElementById('job-total').textContent=all.length;
+  document.getElementById('job-published').textContent=all.filter(function(j){return j.published;}).length;
+  document.getElementById('job-drafts').textContent=all.filter(function(j){return !j.published;}).length;
+  document.getElementById('job-contract').textContent=all.filter(function(j){return j.contract_type==='contract';}).length;
+}
+
+function renderJobs(){
+  var grid=document.getElementById('jobs-grid');
+  if(!data.jobs.length){
+    grid.innerHTML='<div class="empty-state" style="grid-column:1/-1">'
+      +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>'
+      +'<h3>No job listings yet</h3>'
+      +'<p>Create your first job listing and publish it to the site.</p>'
+      +'</div>';
+    return;
+  }
+  grid.innerHTML=data.jobs.map(function(j){
+    var tags=(j.tags||[]).map(function(t){ return '<span class="tag">'+esc(t)+'</span>'; }).join('');
+    var pubBadge = j.published ? badge('published','Published') : badge('draft','Draft');
+    var togBtn = j.published
+      ? '<button class="btn btn-unpublish" onclick="togglePublish(\''+j.id+'\',false);event.stopPropagation()">Unpublish</button>'
+      : '<button class="btn btn-publish" onclick="togglePublish(\''+j.id+'\',true);event.stopPropagation()">Publish</button>';
+    return '<div class="job-card">'
+      +'<div class="job-card-top"><h3>'+esc(j.title)+'</h3>'+pubBadge+'</div>'
+      +'<div class="job-card-meta">'
+        +badge(j.contract_type, j.contract_type==='contract'?'Contract':'Permanent')
+        +'<span style="margin-left:4px">'+badge('employer',j.sector)+'</span>'
+      +'</div>'
+      +(j.location||j.salary?'<div class="job-card-info">'
+        +(j.location?'<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6 7-11a7 7 0 1 0-14 0c0 5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>'+esc(j.location)+'</span>':'')
+        +(j.salary?'<span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>'+esc(j.salary)+'</span>':'')
+      +'</div>':'')
+      +(tags?'<div class="tags" style="margin-bottom:12px">'+tags+'</div>':'')
+      +(j.description?'<p style="font-size:13.5px;color:var(--muted);line-height:1.55;flex:1;margin-bottom:0">'+esc(j.description).substring(0,140)+(j.description.length>140?'…':'')+'</p>':'')
+      +(j.slug&&j.published?'<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;padding:8px 10px;background:var(--off);border:1px solid var(--line);border-radius:8px">'
+        +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:12px;height:12px;color:var(--muted);flex-shrink:0"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>'
+        +'<span style="font-family:var(--mono);font-size:10px;color:var(--muted);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">/jobs/?slug='+esc(j.slug)+'</span>'
+        +'<a href="/jobs/?slug='+esc(j.slug)+'" target="_blank" style="font-family:var(--mono);font-size:9.5px;color:var(--blue);white-space:nowrap;text-decoration:none;font-weight:700">View ↗</a>'
+        +'</div>':'')
+      +'<div class="job-card-actions">'
+        +'<button class="btn btn-ghost" onclick="openJobForm(\''+j.id+'\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Edit</button>'
+        +togBtn
+        +'<button class="btn btn-danger" onclick="deleteJob(\''+j.id+'\',\''+esc(j.title)+'\');event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>Delete</button>'
+      +'</div>'
+    +'</div>';
+  }).join('');
+}
+
+window.togglePublish = function(id, published){
+  db.from('job_listings').update({published:published,updated_at:new Date().toISOString()}).eq('id',id).then(function(r){
+    if(r.error){ showToast('Update failed',true); return; }
+    var j=data.jobs.find(function(x){ return x.id===id; });
+    if(j){ j.published=published; }
+    updateJobStats();
+    renderJobs();
+    showToast(published ? 'Job published' : 'Job unpublished');
+  });
+};
+
+window.deleteJob = function(id, title){
+  if(!confirm('Delete "'+title+'"? This cannot be undone.')) return;
+  db.from('job_listings').delete().eq('id',id).then(function(r){
+    if(r.error){ showToast('Delete failed',true); return; }
+    data.jobs = data.jobs.filter(function(j){ return j.id!==id; });
+    updateJobStats();
+    renderJobs();
+    showToast('Job deleted');
+  });
+};
+
+// ── Job Form Modal ───────────────────────────────────────────
+function setupJobModal(){
+  document.getElementById('addJobBtn').addEventListener('click',function(){ openJobForm(null); });
+  document.getElementById('modalClose').addEventListener('click', closeJobModal);
+  document.getElementById('modalCancel').addEventListener('click', closeJobModal);
+  document.getElementById('saveDraftBtn').addEventListener('click',function(){ lastClickedSubmit='draft'; });
+  document.getElementById('savePublishBtn').addEventListener('click',function(){ lastClickedSubmit='publish'; });
+  document.getElementById('jobModal').addEventListener('click',function(e){ if(e.target===this) closeJobModal(); });
+  document.getElementById('jobForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    submitJobForm(lastClickedSubmit==='publish');
+  });
+}
+
+window.openJobForm = function(id){
+  editingJobId = id;
+  var form = document.getElementById('jobForm');
+  form.reset();
+  if(id){
+    var j=data.jobs.find(function(x){ return x.id===id; });
+    if(!j) return;
+    document.getElementById('modalTitle').textContent = 'Edit Job';
+    document.getElementById('jf-title').value = j.title||'';
+    document.getElementById('jf-sector').value = j.sector||'';
+    document.getElementById('jf-type').value = j.contract_type||'permanent';
+    document.getElementById('jf-location').value = j.location||'';
+    document.getElementById('jf-salary').value = j.salary||'';
+    document.getElementById('jf-desc').value = j.description||'';
+    document.getElementById('jf-tags').value = (j.tags||[]).join(', ');
+  } else {
+    document.getElementById('modalTitle').textContent = 'Add Job';
+  }
+  document.getElementById('jobModal').classList.add('open');
+  setTimeout(function(){ document.getElementById('jf-title').focus(); },100);
+};
+
+function closeJobModal(){
+  document.getElementById('jobModal').classList.remove('open');
+  editingJobId = null;
+}
+
+function toSlug(str){
+  return str.toLowerCase().trim()
+    .replace(/[^a-z0-9\s-]/g,'')
+    .replace(/\s+/g,'-')
+    .replace(/-+/g,'-')
+    .replace(/^-|-$/g,'')
+    +'-job';
+}
+
+function submitJobForm(publish){
+  var title = document.getElementById('jf-title').value.trim();
+  var sector = document.getElementById('jf-sector').value;
+  if(!title||!sector){ showToast('Title and sector are required',true); return; }
+
+  var tagsRaw = document.getElementById('jf-tags').value;
+  var tags = tagsRaw ? tagsRaw.split(',').map(function(t){ return t.trim(); }).filter(Boolean) : [];
+
+  var payload = {
+    title: title,
+    sector: sector,
+    contract_type: document.getElementById('jf-type').value||'permanent',
+    location: document.getElementById('jf-location').value.trim()||null,
+    salary: document.getElementById('jf-salary').value.trim()||null,
+    description: document.getElementById('jf-desc').value.trim()||null,
+    tags: tags,
+    published: publish,
+    updated_at: new Date().toISOString()
+  };
+
+  // Only set slug on create (not edit, to preserve existing URLs)
+  if(!editingJobId) payload.slug = toSlug(title);
+
+  var saveDraftBtn=document.getElementById('saveDraftBtn');
+  var savePublishBtn=document.getElementById('savePublishBtn');
+  saveDraftBtn.disabled=true; savePublishBtn.disabled=true;
+
+  var op;
+  if(editingJobId){
+    op = db.from('job_listings').update(payload).eq('id',editingJobId);
+  } else {
+    op = db.from('job_listings').insert(payload).select();
+  }
+
+  op.then(function(r){
+    saveDraftBtn.disabled=false; savePublishBtn.disabled=false;
+    if(r.error){ showToast('Save failed: '+r.error.message,true); return; }
+    closeJobModal();
+    loadJobs();
+    showToast(publish ? 'Job published' : 'Job saved as draft');
+  });
+}
+
+// ── Detail Panel ─────────────────────────────────────────────
+function setupDetailPanel(){
+  document.getElementById('dpClose').addEventListener('click', closeDetailPanel);
+  document.getElementById('overlay').addEventListener('click', closeDetailPanel);
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape') closeDetailPanel();
+  });
+}
+
+function closeDetailPanel(){
+  document.getElementById('detailPanel').classList.remove('open');
+  document.getElementById('overlay').classList.remove('show');
+  openDetailId = null;
+}
+
+// ── Badge helper ─────────────────────────────────────────────
+function updateBadge(section, count){
+  var el=document.getElementById('badge-'+section);
+  if(!el) return;
+  el.textContent = count > 0 ? String(count) : '';
+}
+
+// ── Delete ────────────────────────────────────────────────────
+function deleteButton(id, table, label){
+  return '<div style="margin-top:24px;padding-top:16px;border-top:1px solid #f5f3ef;display:flex;justify-content:flex-end">'
+    +'<button onclick="deleteRecord(\''+id+'\',\''+table+'\',\''+label+'\')" class="btn btn-danger" style="font-size:12.5px">'
+    +'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px" aria-hidden="true"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>'
+    +' Delete</button></div>';
+}
+
+window.deleteRecord = function(id, table, label){
+  if(!confirm('Delete this '+label+'? This cannot be undone.')) return;
+  db.from(table).delete().eq('id',id).then(function(r){
+    if(r.error){ showToast('Delete failed',true); return; }
+    if(table==='enquiries'){
+      data.enquiries=data.enquiries.filter(function(x){return x.id!==id;});
+      crmData.clients=crmData.clients.filter(function(x){return x.id!==id;});
+      crmData.candidates=crmData.candidates.filter(function(x){return!(x.id===id&&x._table==='enquiries');});
+      updateEnquiriesStats();
+      renderEnquiries();
+      updateBadge('enquiries',data.enquiries.filter(function(x){return x.status==='new';}).length);
+    } else if(table==='cv_submissions'){
+      data.cvs=data.cvs.filter(function(x){return x.id!==id;});
+      crmData.candidates=crmData.candidates.filter(function(x){return!(x.id===id&&x._table==='cv_submissions');});
+      updateCVStats();
+      renderCVs();
+      if(activeSection==='cvdb') renderCVDB();
+      updateBadge('cvs',data.cvs.filter(function(x){return x.status==='new';}).length);
+    }
+    if(activeSection==='crm'){ updateCRMStats(); renderCRM(); }
+    closeDetailPanel();
+    showToast('Deleted');
+  });
+};
+
+// ── CV Categories ─────────────────────────────────────────────
+var cvCategories = [];
+
+function loadCVCategories(){
+  db.from('cv_categories').select('*').order('name').then(function(r){
+    if(!r.error) cvCategories = r.data||[];
+    // Refresh datalist if detail panel is open
+    var dl = document.getElementById('cat-datalist');
+    if(dl) dl.innerHTML = cvCategories.map(function(c){ return '<option value="'+esc(c.name)+'">'; }).join('');
+  });
+}
+
+window.saveCategory = function(cvId){
+  var input = document.getElementById('cv-cat-input');
+  if(!input) return;
+  var catName = input.value.trim();
+  if(!catName){ showToast('Enter a category name',true); return; }
+
+  function applyCat(){
+    db.from('cv_submissions').update({cv_category:catName}).eq('id',cvId).then(function(r){
+      if(r.error){ showToast('Failed to save category',true); return; }
+      var c = data.cvs.find(function(x){ return x.id===cvId; });
+      if(c) c.cv_category = catName;
+      crmData.candidates.forEach(function(x){ if(x.id===cvId&&x._table==='cv_submissions') x.cv_category=catName; });
+      if(activeSection==='cvs') renderCVs();
+      if(activeSection==='cvdb') renderCVDB();
+      showToast('Categorised as "'+catName+'"');
+    });
+  }
+
+  var exists = cvCategories.some(function(c){ return c.name.toLowerCase()===catName.toLowerCase(); });
+  if(!exists){
+    db.from('cv_categories').insert({name:catName}).then(function(r){
+      if(!r.error){
+        cvCategories.push({name:catName});
+        cvCategories.sort(function(a,b){ return a.name.localeCompare(b.name); });
+        var dl = document.getElementById('cat-datalist');
+        if(dl) dl.innerHTML = cvCategories.map(function(c){ return '<option value="'+esc(c.name)+'">'; }).join('');
+        // Refresh CV Database filter if open
+        if(activeSection==='cvdb') updateCVDBCatFilter();
+      }
+      applyCat();
+    });
+  } else {
+    applyCat();
+  }
+};
+
+// ── CV Database ────────────────────────────────────────────────
+var cvdbFilter = { category:'', search:'' };
+var cvdbSetupDone = false;
+
+function setupCVDB(){
+  if(cvdbSetupDone) return;
+  cvdbSetupDone = true;
+  var catSel = document.getElementById('cvdb-cat-filter');
+  if(catSel) catSel.addEventListener('change',function(){ cvdbFilter.category=this.value; renderCVDB(); });
+  var srch = document.getElementById('cvdb-search');
+  if(srch) srch.addEventListener('input',function(){ cvdbFilter.search=this.value; renderCVDB(); });
+}
+
+function updateCVDBCatFilter(){
+  var sel = document.getElementById('cvdb-cat-filter');
+  if(!sel) return;
+  var current = sel.value;
+  var cats = [];
+  data.cvs.forEach(function(c){ if(c.cv_category && cats.indexOf(c.cv_category)===-1) cats.push(c.cv_category); });
+  cats.sort();
+  sel.innerHTML = '<option value="">All Categories</option>'
+    + cats.map(function(c){ return '<option value="'+esc(c)+'"'+(current===c?' selected':'')+'>'+esc(c)+'</option>'; }).join('');
+}
+
+function loadCVDB(){
+  setupCVDB();
+  loadCVCategories();
+  document.getElementById('cvdb-tbody').innerHTML='<tr><td colspan="9" class="loading-cell">Loading…</td></tr>';
+  db.from('cv_submissions').select('*').order('created_at',{ascending:false}).then(function(r){
+    if(r.error){ showToast('Failed to load CV database',true); return; }
+    data.cvs = r.data||[];
+    updateCVDBCatFilter();
+    renderCVDB();
+  });
+}
+
+function getFilteredCVDB(){
+  return data.cvs.filter(function(c){
+    if(cvdbFilter.category && c.cv_category!==cvdbFilter.category) return false;
+    if(cvdbFilter.search){
+      var q=cvdbFilter.search.toLowerCase();
+      var hay=[c.name,c.email,c.sector,c.job_title,c.cv_category].filter(Boolean).join(' ').toLowerCase();
+      if(hay.indexOf(q)===-1) return false;
+    }
+    return true;
+  });
+}
+
+function renderCVDB(){
+  var rows = getFilteredCVDB();
+  var tbody = document.getElementById('cvdb-tbody');
+  if(!rows.length){
+    var msg = cvdbFilter.category ? 'No CVs in this category.' : 'No CV submissions yet.';
+    tbody.innerHTML='<tr><td colspan="9" class="empty-cell">'+msg+'</td></tr>';
+    return;
+  }
+  tbody.innerHTML = rows.map(function(c){
+    var catCell = c.cv_category
+      ? '<span class="badge badge-employer" style="font-size:9px">'+esc(c.cv_category)+'</span>'
+      : '<span class="no-cv" style="font-style:italic">Uncategorised</span>';
+    var cvCell = c.cv_url
+      ? '<button class="cv-link" onclick="viewCV(\''+esc(c.id)+'\',\''+esc(c.cv_url)+'\',\''+esc(c.cv_filename||'CV')+'\');event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download</button>'
+      : '<span class="no-cv">—</span>';
+    return '<tr class="data-row" onclick="openCVDetail(\''+c.id+'\')">'
+      +'<td class="td-date">'+fmtDateShort(c.created_at)+'</td>'
+      +'<td class="td-name">'+esc(c.name)+'</td>'
+      +'<td class="td-email">'+esc(c.email)+'</td>'
+      +'<td class="td-muted">'+esc(c.sector||'—')+'</td>'
+      +'<td class="td-muted">'+esc(c.job_title||'—')+'</td>'
+      +'<td>'+catCell+'</td>'
+      +'<td>'+cvCell+'</td>'
+      +'<td>'+statusBadge(c.status)+'</td>'
+      +'<td><span class="row-arr" aria-hidden="true">→</span></td>'
+      +'</tr>';
+  }).join('');
+}
+
+// ── Notes ─────────────────────────────────────────────────────
+function notesSection(id, table, currentNotes){
+  return '<div class="dp-field" style="padding-top:20px;margin-top:4px;border-top:1px solid var(--line)">'
+    +'<div class="dp-lbl" style="margin-bottom:8px">Notes</div>'
+    +'<textarea id="notesTA" style="width:100%;font-family:var(--sans);font-size:13.5px;padding:10px 12px;border:1px solid var(--line);border-radius:9px;outline:none;resize:vertical;min-height:80px;color:var(--ink);background:var(--off);transition:border-color .2s,box-shadow .2s" placeholder="Add internal notes…" onfocus="this.style.borderColor=\'var(--blue)\';this.style.boxShadow=\'0 0 0 3px rgba(47,107,255,.12)\'" onblur="this.style.borderColor=\'var(--line)\';this.style.boxShadow=\'\'">'+esc(currentNotes)+'</textarea>'
+    +'<button onclick="saveNotes(\''+id+'\',\''+table+'\')" style="margin-top:8px;font-family:var(--sans);font-size:13px;font-weight:700;padding:8px 16px;border:none;border-radius:8px;background:var(--ink);color:#fff;cursor:pointer;transition:background .15s" onmouseover="this.style.background=\'#000\'" onmouseout="this.style.background=\'var(--ink)\'">Save Notes</button>'
+    +'</div>';
+}
+
+window.saveNotes = function(id, table){
+  var ta=document.getElementById('notesTA');
+  if(!ta) return;
+  var notes=ta.value;
+  db.from(table).update({notes:notes}).eq('id',id).then(function(r){
+    if(r.error){ showToast('Notes save failed — run the schema update in Supabase',true); return; }
+    if(table==='enquiries'){
+      var e=data.enquiries.find(function(x){return x.id===id;}); if(e) e.notes=notes;
+      crmData.clients.concat(crmData.candidates).forEach(function(x){ if(x.id===id&&x._table==='enquiries') x.notes=notes; });
+    } else {
+      var c=data.cvs.find(function(x){return x.id===id;}); if(c) c.notes=notes;
+      crmData.candidates.forEach(function(x){ if(x.id===id&&x._table==='cv_submissions') x.notes=notes; });
+    }
+    if(activeSection==='crm') renderCRM();
+    showToast('Notes saved');
+  });
+};
+
+// ── CRM ───────────────────────────────────────────────────────
+function setupCRM(){
+  if(crmSetupDone) return;
+  crmSetupDone=true;
+  document.querySelectorAll('[data-crm-view]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      document.querySelectorAll('[data-crm-view]').forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      crmView=btn.dataset.crmView;
+      renderCRM();
+    });
+  });
+  var srch=document.getElementById('crm-search');
+  if(srch) srch.addEventListener('input',function(){ crmSearch=this.value; renderCRM(); });
+}
+
+function loadCRM(){
+  setupCRM();
+  document.getElementById('crm-tbody').innerHTML='<tr><td colspan="11" class="loading-cell">Loading…</td></tr>';
+  Promise.all([
+    db.from('enquiries').select('*').order('created_at',{ascending:false}),
+    db.from('cv_submissions').select('*').order('created_at',{ascending:false})
+  ]).then(function(rs){
+    if(rs[0].error||rs[1].error){ showToast('Failed to load CRM data',true); return; }
+    var allEnqs=rs[0].data||[];
+    var allCVs=rs[1].data||[];
+    crmData.clients=allEnqs.filter(function(e){ return e.type==='employer'; }).map(function(e){
+      return Object.assign({},e,{_table:'enquiries',_source:'enquiry'});
+    });
+    var candEnqs=allEnqs.filter(function(e){ return e.type==='candidate'; }).map(function(e){
+      return Object.assign({},e,{_table:'enquiries',_source:'enquiry'});
+    });
+    var cvSubs=allCVs.map(function(c){
+      return Object.assign({},c,{_table:'cv_submissions',_source:'cv'});
+    });
+    crmData.candidates=candEnqs.concat(cvSubs).sort(function(a,b){
+      return new Date(b.created_at)-new Date(a.created_at);
+    });
+    // Keep enquiries + cvs arrays in sync for notes updates
+    data.enquiries=allEnqs;
+    data.cvs=allCVs;
+    updateCRMStats();
+    renderCRM();
+  });
+}
+
+function updateCRMStats(){
+  document.getElementById('crm-total-clients').textContent=crmData.clients.length;
+  document.getElementById('crm-total-candidates').textContent=crmData.candidates.length;
+  var nNew=crmData.clients.filter(function(c){return c.status==='new';}).length
+    +crmData.candidates.filter(function(c){return c.status==='new';}).length;
+  document.getElementById('crm-new').textContent=nNew;
+  document.getElementById('crm-with-cv').textContent=crmData.candidates.filter(function(c){return c._source==='cv';}).length;
+}
+
+function getFilteredCRM(){
+  var arr=crmView==='clients'?crmData.clients:crmData.candidates;
+  if(!crmSearch) return arr;
+  var q=crmSearch.toLowerCase();
+  return arr.filter(function(r){
+    var hay=[r.name,r.email,r.company,r.sector,r.job_title].filter(Boolean).join(' ').toLowerCase();
+    return hay.indexOf(q)!==-1;
+  });
+}
+
+function renderCRM(){
+  var rows=getFilteredCRM();
+  var thead=document.getElementById('crm-thead');
+  var tbody=document.getElementById('crm-tbody');
+  if(crmView==='clients'){
+    thead.innerHTML='<tr><th>Date</th><th>Name</th><th>Company</th><th>Email</th><th>Phone</th><th>Sector</th><th>Roles</th><th>Status</th><th>Notes</th><th></th></tr>';
+    if(!rows.length){ tbody.innerHTML='<tr><td colspan="10" class="empty-cell">No client contacts yet.</td></tr>'; return; }
+    tbody.innerHTML=rows.map(function(r){
+      return '<tr class="data-row" onclick="openCRMDetail(\''+r.id+'\',\'enquiries\')">'
+        +'<td class="td-date">'+fmtDateShort(r.created_at)+'</td>'
+        +'<td class="td-name">'+esc(r.name)+'</td>'
+        +'<td class="td-muted">'+esc(r.company||'—')+'</td>'
+        +'<td class="td-email">'+esc(r.email)+'</td>'
+        +'<td class="td-muted">'+esc(r.phone||'—')+'</td>'
+        +'<td class="td-muted">'+esc(r.sector||'—')+'</td>'
+        +'<td class="td-muted" style="max-width:160px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">'+esc(r.roles||'—')+'</td>'
+        +'<td>'+statusBadge(r.status)+'</td>'
+        +'<td class="td-muted" style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-style:italic">'+esc(r.notes||'')+'</td>'
+        +'<td><span class="row-arr" aria-hidden="true">→</span></td>'
+        +'</tr>';
+    }).join('');
+  } else {
+    thead.innerHTML='<tr><th>Date</th><th>Name</th><th>Email</th><th>Phone</th><th>Sector</th><th>Job Title</th><th>CV</th><th>Source</th><th>Status</th><th>Notes</th><th></th></tr>';
+    if(!rows.length){ tbody.innerHTML='<tr><td colspan="11" class="empty-cell">No candidate contacts yet.</td></tr>'; return; }
+    tbody.innerHTML=rows.map(function(r){
+      var srcBadge=r._source==='cv'?badge('employer','CV Sub'):badge('candidate','Enquiry');
+      var cvCell=r.cv_url
+        ?'<button class="cv-link" onclick="viewCV(\''+esc(r.id)+'\',\''+esc(r.cv_url)+'\',\''+esc(r.cv_filename||'CV')+'\');event.stopPropagation()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download</button>'
+        :'<span class="no-cv">—</span>';
+      return '<tr class="data-row" onclick="openCRMDetail(\''+r.id+'\',\''+r._table+'\')">'
+        +'<td class="td-date">'+fmtDateShort(r.created_at)+'</td>'
+        +'<td class="td-name">'+esc(r.name)+'</td>'
+        +'<td class="td-email">'+esc(r.email)+'</td>'
+        +'<td class="td-muted">'+esc(r.phone||'—')+'</td>'
+        +'<td class="td-muted">'+esc(r.sector||'—')+'</td>'
+        +'<td class="td-muted">'+esc(r.job_title||'—')+'</td>'
+        +'<td>'+cvCell+'</td>'
+        +'<td>'+srcBadge+'</td>'
+        +'<td>'+statusBadge(r.status)+'</td>'
+        +'<td class="td-muted" style="max-width:140px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-style:italic">'+esc(r.notes||'')+'</td>'
+        +'<td><span class="row-arr" aria-hidden="true">→</span></td>'
+        +'</tr>';
+    }).join('');
+  }
+}
+
+window.openCRMDetail = function(id, table){
+  var r;
+  if(table==='enquiries'){
+    r=crmData.clients.find(function(x){return x.id===id;})
+      ||crmData.candidates.find(function(x){return x.id===id&&x._table==='enquiries';});
+  } else {
+    r=crmData.candidates.find(function(x){return x.id===id&&x._table==='cv_submissions';});
+  }
+  if(!r) return;
+  openDetailId=id;
+
+  var isEmployer=r.type==='employer';
+  var isCVSub=r._source==='cv';
+  document.getElementById('dp-title').textContent=isEmployer?'Client Record':isCVSub?'CV Submission':'Candidate Enquiry';
+
+  var html='<div class="dp-meta">'+fmtDate(r.created_at)
+    +'  ·  '+(isEmployer?badge('employer','Employer'):isCVSub?badge('employer','CV Sub'):badge('candidate','Enquiry'))+'</div>';
+
+  html+='<div class="dp-grid">';
+  html+=dpField('Name',r.name);
+  html+=dpField('Email','<a href="mailto:'+esc(r.email)+'">'+esc(r.email)+'</a>');
+  html+=dpField('Phone',r.phone||'—');
+  if(isEmployer){
+    html+=dpField('Company',r.company||'—');
+    html+=dpField('Sector',r.sector||'—');
+  } else {
+    html+=dpField('Sector',r.sector||'—');
+    html+=dpField('Job Title',r.job_title||'—');
+  }
+  html+='</div>';
+  if(isEmployer&&r.roles) html+='<div class="dp-field"><div class="dp-lbl">Roles to Fill</div><div class="dp-val">'+esc(r.roles)+'</div></div>';
+  if(r.message) html+='<div class="dp-field"><div class="dp-lbl">Message</div><div class="dp-val">'+esc(r.message)+'</div></div>';
+  if(r.cv_url) html+='<div class="dp-field"><div class="dp-lbl">CV</div><div class="dp-val"><button class="cv-link" onclick="viewCV(\''+esc(r.id)+'\',\''+esc(r.cv_url)+'\',\''+esc(r.cv_filename||'CV')+'\')"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>Download '+esc(r.cv_filename||'CV')+'</button></div></div>';
+
+  html+='<div class="dp-status-section"><div class="dp-lbl">Status</div><div class="status-btns">';
+  var statusOpts=isEmployer?['new','contacted','closed']:['new','reviewed','shortlisted','placed'];
+  var statusLabels={new:'New',contacted:'Contacted',closed:'Closed',reviewed:'Reviewed',shortlisted:'Shortlisted',placed:'Placed'};
+  var updateFn=table==='enquiries'?'updateEnquiryStatus':'updateCVStatus';
+  statusOpts.forEach(function(s){
+    var cls=r.status===s?'status-btn active-'+s:'status-btn';
+    html+='<button class="'+cls+'" onclick="'+updateFn+'(\''+r.id+'\',\''+s+'\')">'+statusLabels[s]+'</button>';
+  });
+  html+='</div></div>';
+  html+=notesSection(id, table, r.notes||'');
+  html+=deleteButton(id, table, isEmployer?'client record':isCVSub?'CV submission':'candidate enquiry');
+
+  document.getElementById('dp-body').innerHTML=html;
+  document.getElementById('detailPanel').classList.add('open');
+  document.getElementById('overlay').classList.add('show');
+};
+
+})();
+</script>
+</body>
+</html>
