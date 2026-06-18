@@ -44,7 +44,7 @@ header.nav.scrolled{background:linear-gradient(180deg,rgba(17,19,22,.96),rgba(14
 .logo-img{height:62px;width:auto;display:block;transition:opacity .2s}
 .logo:hover .logo-img{opacity:.85}
 nav.links{display:flex;gap:3px}
-nav.links a{position:relative;font-size:13.5px;font-weight:600;color:#a7adb6;padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
+nav.links a{position:relative;font-size:13.5px;font-weight:600;color:rgba(255,255,255,.82);padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
 nav.links a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
 nav.links a:hover{color:#fff;background:rgba(255,255,255,.05)}
 nav.links a:hover::after,nav.links a.active::after{transform:scaleX(1)}
@@ -796,7 +796,7 @@ nav.links a.active{color:#fff}
 <footer class="foot-strip">
   <div class="wrap">
     <div class="foot-inner">
-      <div class="foot-logo"><div class="mk" aria-hidden="true">R</div><b>RFT Recruitment</b></div>
+      <div class="foot-logo"><img class="logo-img" src="/images/RFT-logo.png" alt="RFT Recruitment" style="height:42px"></div>
       <span class="foot-copy">© 2025 RFT Recruitment · Manchester</span>
       <nav class="foot-links" aria-label="Footer"><a href="/contact.html">Contact</a><a href="/privacy-policy">Privacy</a><a href="/terms">Terms</a></nav>
     </div>
