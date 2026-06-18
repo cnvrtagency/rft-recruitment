@@ -93,7 +93,7 @@
   .sec-hero{position:relative;overflow:hidden;background:var(--char);color:var(--off);padding:90px 0 80px}
   .sec-hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:64px 64px;opacity:.55;-webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 32%,#000 35%,transparent 78%);mask-image:radial-gradient(ellipse 80% 70% at 50% 32%,#000 35%,transparent 78%)}
   .sec-hero .inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1.15fr;gap:64px;align-items:center}
-  .sec-hero-img{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--char2);border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 28px 64px -28px rgba(0,0,0,.7);position:relative;flex-shrink:0}
+  .sec-hero-img{width:100%;aspect-ratio:4/3;border-radius:20px;overflow:hidden;background:var(--char2);border:1px solid rgba(255,255,255,.07);box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 28px 64px -28px rgba(0,0,0,.7);position:relative;flex-shrink:0}
   .sec-hero-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background-image:radial-gradient(circle,rgba(255,255,255,.04) 1px,transparent 1px);background-size:22px 22px}
   .sec-hero-ph svg{width:34px;height:34px;stroke:rgba(255,255,255,.2)}
   .sec-hero-ph span{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.2)}
@@ -112,7 +112,7 @@
 
   /* OVERVIEW */
   .overview{background:#fff;padding:88px 0}
-  .overview-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:center}
+  .overview-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:72px;align-items:start}
   .overview-img{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--off2);border:1px solid var(--line);position:relative;box-shadow:0 22px 60px -24px rgba(22,24,27,.18);flex-shrink:0}
   .overview-ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background-image:radial-gradient(circle,rgba(22,24,27,.04) 1px,transparent 1px);background-size:22px 22px}
   .overview-ph svg{width:34px;height:34px;stroke:rgba(22,24,27,.22)}
@@ -317,7 +317,7 @@
   <div class="wrap">
     <div class="inner">
       <div class="sec-hero-img">
-        <img src="/images/office-support-hero.jpg" alt="Office support professional at work" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center top">
+        <img src="/images/office-support-overview.jpg" alt="Office support professional at work" loading="eager" style="width:100%;height:100%;object-fit:cover;object-position:center top">
       </div>
       <div class="sec-hero-content">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -342,7 +342,7 @@
   <div class="wrap">
     <div class="overview-grid">
       <div class="overview-img reveal">
-        <img src="/images/office-support-overview.jpg" alt="Office support team in a modern workspace" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center">
+        <img src="/images/office-support-hero.jpg" alt="Office support team in a modern workspace" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:center">
       </div>
       <div class="overview-content">
       <p class="sec-kicker reveal">About This Sector</p>
