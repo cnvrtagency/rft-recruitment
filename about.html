@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>About RFT Recruitment | Martyna Dudek | Manchester</title>
+<meta name="description" content="RFT Recruitment was founded by Martyna Dudek because volume-first recruitment is broken. We take the time to get the fit right — every role, every candidate, every time." />
+<link rel="canonical" href="https://www.rftrecruitment.co.uk/about" />
+<meta name="robots" content="index, follow" />
+<meta name="theme-color" content="#16181b" />
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%232f6bff'/%3E%3Ctext x='16' y='23' font-family='Archivo,Arial,sans-serif' font-size='21' font-weight='900' fill='%23ffffff' text-anchor='middle'%3ER%3C/text%3E%3C/svg%3E" />
+
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:site_name" content="RFT Recruitment" />
+<meta property="og:title" content="About RFT Recruitment | Manchester" />
+<meta property="og:description" content="Founded by Martyna Dudek. Built around getting the fit right, not the role filled fast." />
+<meta property="og:url" content="https://www.rftrecruitment.co.uk/about" />
+<meta property="og:image" content="https://www.rftrecruitment.co.uk/og-image.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="About RFT Recruitment | Manchester" />
+<meta name="twitter:description" content="Founded by Martyna Dudek. Built around getting the fit right, not the role filled fast." />
+<meta name="twitter:image" content="https://www.rftrecruitment.co.uk/og-image.jpg" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --char:#16181b; --char2:#1f2227; --off:#f4f2ee; --off2:#eceae4;
+    --blue:#2f6bff; --ink:#16181b; --muted:#6c727a; --line:#dad7d0; --lineD:#2c3036;
+    --sans:"Archivo",system-ui,sans-serif; --serif:"Instrument Serif",Georgia,serif;
+    --mono:"Space Mono",ui-monospace,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;background:#0a0c0e}
+  body{font-family:var(--sans);color:var(--ink);background:var(--off);-webkit-font-smoothing:antialiased;line-height:1.5}
+  h1,h2{text-wrap:balance}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+  :focus-visible{outline:3px solid var(--blue);outline-offset:3px;border-radius:4px}
+  .mono{font-family:var(--mono);text-transform:uppercase;letter-spacing:.14em;font-size:11px}
+  .wrap{max-width:1280px;margin:0 auto;padding:0 40px}
+
+  .skip{position:absolute;left:-9999px;top:0;z-index:200;background:var(--blue);color:#fff;padding:12px 18px;border-radius:0 0 10px 0;font-weight:700;font-size:14px}
+  .skip:focus{left:0}
+
+  /* NAV — frosted glass always on (not transparent like homepage) */
+  header.nav{position:sticky;top:0;z-index:60;background:linear-gradient(180deg,rgba(17,19,22,.97),rgba(14,16,19,.93));backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid rgba(255,255,255,.09);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 16px 40px -18px rgba(0,0,0,.7);transition:box-shadow .3s}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:22px;height:90px}
+  .nav-progress{position:absolute;left:0;bottom:-1px;height:2px;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,var(--blue),#7aa0ff);box-shadow:0 0 12px rgba(47,107,255,.7);will-change:transform}
+  .logo{display:flex;align-items:center}
+  .logo-img{height:62px;width:auto;display:block;transition:opacity .2s}
+  .logo:hover .logo-img{opacity:.85}
+  nav.links{display:flex;gap:3px}
+  nav.links a{position:relative;font-size:13.5px;font-weight:600;font-family:var(--sans);color:rgba(255,255,255,.82);padding:9px 13px;border-radius:9px;transition:color .2s,background .2s}
+  nav.links a::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  nav.links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+  nav.links a:hover::after,nav.links a.active::after{transform:scaleX(1)}
+  nav.links a.active{color:#fff}
+  .nav-cta{display:flex;gap:10px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:9px;font-weight:700;font-size:14px;border-radius:10px;padding:12px 20px;cursor:pointer;border:1px solid transparent;white-space:nowrap;transition:transform .18s,background .2s,color .2s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:var(--blue);color:#fff}
+  .btn-dark{background:var(--ink);color:var(--off)}
+  .btn-light{background:var(--off);color:var(--ink)}
+  .btn-light:hover{background:#fff}
+  .btn-ghost{background:transparent;border-color:var(--ink);color:var(--ink)}
+  .btn-ghost-l{background:transparent;border-color:rgba(244,242,238,.4);color:var(--off)}
+  .btn svg{width:15px;height:15px}
+
+  /* MOBILE MENU */
+  .menu-btn{display:none;position:relative;z-index:120;flex-direction:column;justify-content:center;gap:5px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.04);cursor:pointer;padding:0 12px}
+  .menu-btn span{display:block;height:2px;width:100%;background:var(--off);border-radius:2px;transition:transform .3s,opacity .2s}
+  .menu-btn[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+  .menu-btn[aria-expanded="true"] span:nth-child(2){opacity:0}
+  .menu-btn[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .mobile-panel{position:fixed;inset:0;z-index:110;background:linear-gradient(180deg,#16181b,#0d0f12);opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;display:flex;flex-direction:column;overflow:hidden}
+  .mobile-panel.open{opacity:1;visibility:visible}
+  .mobile-panel::before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--lineD) 1px,transparent 1px),linear-gradient(90deg,var(--lineD) 1px,transparent 1px);background-size:54px 54px;opacity:.4;-webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);mask-image:radial-gradient(ellipse 70% 60% at 50% 42%,#000 25%,transparent 80%);pointer-events:none}
+  .mobile-panel .m-inner{position:relative;width:100%;max-width:520px;margin:0 auto;flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:88px 30px 56px}
+  .mobile-panel a.m-link{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s cubic-bezier(.2,.7,.2,1),transform .5s cubic-bezier(.2,.7,.2,1),color .2s}
+  .mobile-panel.open a.m-link{opacity:1;transform:none}
+  .mobile-panel.open a.m-link:nth-child(1){transition-delay:.05s}
+  .mobile-panel.open a.m-link:nth-child(2){transition-delay:.10s}
+  .mobile-panel.open a.m-link:nth-child(3){transition-delay:.15s}
+  .mobile-panel.open a.m-link:nth-child(4){transition-delay:.20s}
+  .mobile-panel.open a.m-link:nth-child(5){transition-delay:.25s}
+  .mobile-panel.open a.m-link:nth-child(6){transition-delay:.30s}
+  .mobile-panel.open a.m-link:nth-child(7){transition-delay:.35s}
+  .mobile-panel a.m-link .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue)}
+  .mobile-panel a.m-link:hover,.mobile-panel a.m-link:active{color:#fff}
+  .m-close{position:absolute;top:22px;right:24px;width:46px;height:46px;border:1px solid rgba(255,255,255,.18);border-radius:11px;background:rgba(255,255,255,.06);cursor:pointer;display:grid;place-items:center;color:var(--off);transition:background .2s,border-color .2s;z-index:10}
+  .m-close:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.28)}
+  .m-close svg{width:20px;height:20px}
+  .mobile-panel .m-cta{display:flex;flex-direction:column;gap:11px;margin-top:32px;opacity:0;transform:translateY(20px);transition:opacity .5s .4s,transform .5s .4s}
+  .mobile-panel.open .m-cta{opacity:1;transform:none}
+  .mobile-panel .m-cta .btn{justify-content:center;padding:15px}
+  .m-logo{position:absolute;top:18px;left:22px;z-index:10}
+  .m-sectors-toggle{display:flex;align-items:baseline;justify-content:space-between;gap:18px;color:#cfd4da;font-size:clamp(27px,8vw,40px);font-weight:800;letter-spacing:-.035em;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.08);opacity:0;transform:translateY(20px);transition:opacity .5s .15s cubic-bezier(.2,.7,.2,1),transform .5s .15s cubic-bezier(.2,.7,.2,1),color .2s;cursor:pointer;-webkit-user-select:none;user-select:none}
+  .mobile-panel.open .m-sectors-toggle{opacity:1;transform:none}
+  .m-sectors-toggle:hover,.m-sectors-toggle:active{color:#fff}
+  .m-sectors-toggle .ix{font-family:var(--mono);font-size:12px;font-weight:400;letter-spacing:.12em;color:var(--blue);display:flex;align-items:center;gap:7px}
+  .m-sectors-toggle .ix-caret{width:13px;height:13px;flex-shrink:0;transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+  .m-sectors-wrap.open .m-sectors-toggle .ix-caret{transform:rotate(45deg)}
+  .m-sectors-sub{display:grid;grid-template-columns:1fr 1fr;gap:2px;max-height:0;overflow:hidden;transition:max-height .38s cubic-bezier(.4,0,.2,1),opacity .28s;opacity:0}
+  .m-sectors-wrap.open .m-sectors-sub{max-height:320px;opacity:1}
+  .m-sector-link{display:flex;align-items:center;gap:8px;font-size:13.5px;font-weight:600;color:#5a6270;padding:10px 12px;border-radius:8px;transition:color .15s,background .15s}
+  .m-sector-link:hover,.m-sector-link:active{color:var(--blue);background:rgba(255,255,255,.05)}
+  .m-sl-num{font-family:var(--mono);font-size:9px;color:var(--blue);opacity:.55;flex-shrink:0}
+  @media (prefers-reduced-motion: reduce){
+    .mobile-panel a.m-link,.mobile-panel .m-cta{transition:opacity .2s !important;transform:none !important;transition-delay:0s !important}
+  }
+
+  /* NAV DROPDOWN */
+  .nav-drop-wrap{position:relative;display:flex;align-items:center}
+  .nav-drop-trigger{position:relative;font-size:13.5px;font-weight:600;font-family:var(--sans);color:rgba(255,255,255,.82);padding:9px 13px;border-radius:9px;transition:color .2s,background .2s;display:flex;align-items:center;gap:5px;cursor:default;user-select:none;white-space:nowrap}
+  .nav-drop-trigger::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
+  .nav-drop-wrap:hover .nav-drop-trigger,.nav-drop-wrap:focus-within .nav-drop-trigger{color:#fff;background:rgba(255,255,255,.05)}
+  .nav-drop-wrap:hover .nav-drop-trigger::after,.nav-drop-wrap:focus-within .nav-drop-trigger::after{transform:scaleX(1)}
+  .drop-caret{width:11px;height:11px;transition:transform .22s;flex-shrink:0}
+  .nav-drop-wrap:hover .drop-caret,.nav-drop-wrap:focus-within .drop-caret{transform:rotate(180deg)}
+  .nav-drop-menu{position:absolute;top:calc(100% + 6px);left:50%;transform:translateX(-50%) translateY(-6px);background:#1a1c20;border:1px solid rgba(255,255,255,.09);border-radius:14px;padding:6px;min-width:234px;box-shadow:0 20px 44px -14px rgba(0,0,0,.8);opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;z-index:200}
+  .nav-drop-wrap:hover .nav-drop-menu,.nav-drop-wrap:focus-within .nav-drop-menu{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
+  .nav-drop-menu a{display:flex;align-items:center;gap:10px;padding:9px 12px;border-radius:8px;font-size:13px;font-weight:600;color:#aab0b8;transition:color .15s,background .15s;white-space:nowrap;text-decoration:none}
+  .nav-drop-menu a:hover{background:rgba(255,255,255,.07);color:#fff}
+  .drop-num{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:var(--blue);opacity:.7;min-width:18px}
+
+  /* ── PAGE HERO ── */
+  .about-hero{
+    background:
+      radial-gradient(ellipse 110% 70% at 60% -10%,rgba(47,107,255,.22) 0%,transparent 55%),
+      radial-gradient(ellipse 50% 50% at 10% 110%,rgba(47,107,255,.10) 0%,transparent 60%),
+      #0b0d10;
+    color:var(--off);
+    padding:100px 0 96px;
+    position:relative;
+    overflow:hidden;
+  }
+  .about-hero::before{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(circle,rgba(255,255,255,.045) 1px,transparent 1px);
+    background-size:26px 26px;pointer-events:none;z-index:0;
+    -webkit-mask-image:radial-gradient(ellipse 90% 80% at 55% 40%,#000 20%,transparent 75%);
+    mask-image:radial-gradient(ellipse 90% 80% at 55% 40%,#000 20%,transparent 75%)
+  }
+  .about-hero .wrap{position:relative;z-index:1}
+  .about-hero .eyebrow{display:inline-flex;align-items:center;gap:11px;color:#9aa3ad;margin-bottom:32px}
+  .about-hero .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 0 rgba(47,107,255,.5);animation:pulse 2.4s infinite;flex-shrink:0}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,107,255,.45)}70%{box-shadow:0 0 0 9px rgba(47,107,255,0)}100%{box-shadow:0 0 0 0 rgba(47,107,255,0)}}
+  .about-hero h1{font-size:clamp(30px,4.4vw,58px);font-weight:800;line-height:1.06;letter-spacing:-.035em;max-width:20ch}
+  .about-hero h1 em{font-family:var(--serif);font-style:italic;font-weight:400;color:rgba(244,242,238,.75)}
+  .about-hero .hero-rule{width:64px;height:2px;background:var(--blue);border-radius:2px;margin:38px 0 34px;opacity:.8}
+  .about-hero .hero-lead{font-size:17px;line-height:1.72;max-width:58ch;color:rgba(244,242,238,.78)}
+
+  /* ── SECTIONS ── */
+  section{padding:96px 0}
+
+  /* shared image placeholder */
+  .img-ph{width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;background:radial-gradient(circle at 30% 25%,rgba(47,107,255,.07),transparent 60%),var(--off2);color:var(--muted);text-align:center;padding:24px}
+  .img-ph svg{width:34px;height:34px;stroke:var(--muted);opacity:.7}
+  .img-ph span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;max-width:24ch;line-height:1.5}
+
+  /* ── FOUNDER SECTION (light, intro-grid) ── */
+  .founder{background:#fff}
+  .founder-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:72px;align-items:center}
+  .founder-img{width:100%;aspect-ratio:4/5;border-radius:20px;overflow:hidden;background:var(--off2);box-shadow:0 22px 60px -24px rgba(22,24,27,.3);flex-shrink:0}
+  .founder-body .k{color:var(--muted);margin-bottom:18px}
+  .founder-body h2{font-size:clamp(28px,3.2vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.05;max-width:18ch}
+  .founder-body h2 em{font-style:normal;color:var(--blue)}
+  .founder-body p{color:#3f454c;font-size:16px;line-height:1.72;margin-top:22px;max-width:58ch}
+  .founder-body p+p{margin-top:16px}
+  .founder-attr{display:flex;align-items:center;gap:14px;margin-top:36px;padding-top:32px;border-top:1px solid var(--line)}
+  .founder-attr-img{width:56px;height:56px;border-radius:50%;background:var(--off2);flex-shrink:0;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .founder-attr-img svg{width:24px;height:24px;stroke:var(--muted)}
+  .founder-attr-name{font-weight:800;font-size:15px;letter-spacing:-.01em}
+  .founder-attr-role{font-size:13px;color:var(--muted);margin-top:2px}
+
+  /* ── HOW WE WORK (dark, split) ── */
+  .how{background:var(--char);color:var(--off)}
+  .split{display:grid;grid-template-columns:minmax(260px,350px) 1fr;gap:60px;align-items:start}
+  .col-left{position:sticky;top:100px;align-self:start;background:#fff;border:1px solid var(--line);border-radius:18px;padding:34px 30px;color:var(--ink);box-shadow:0 16px 44px rgba(0,0,0,.30)}
+  .col-left .k{color:var(--muted);margin-bottom:16px}
+  .col-left h2{font-size:clamp(28px,3.1vw,46px);font-weight:800;letter-spacing:-.03em;line-height:1.02;color:var(--ink)}
+  .col-left h2 em{font-style:normal;color:var(--blue)}
+  .col-left p{color:var(--muted);max-width:36ch;font-size:15.5px;line-height:1.62;margin-top:18px}
+  .col-left .cta{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+  .col-right{min-width:0}
+  .how-body p{font-size:16.5px;line-height:1.75;color:#aab0b8;max-width:60ch}
+  .how-body p+p{margin-top:20px}
+  .how-body .pull{margin-top:40px;border-left:3px solid var(--blue);padding:20px 0 20px 28px}
+  .how-body .pull p{font-family:var(--serif);font-style:italic;font-size:22px;line-height:1.45;color:var(--off);opacity:.9;max-width:none}
+  .how-img{width:100%;aspect-ratio:16/10;border-radius:16px;overflow:hidden;background:var(--char2);margin-top:40px;border:1px solid var(--lineD)}
+
+  /* ── VALUES (light, 2x2 cards) ── */
+  .values{background:var(--off)}
+  .values-head{text-align:center;max-width:640px;margin:0 auto 60px}
+  .values-head .k{color:var(--muted);margin-bottom:14px}
+  .values-head h2{font-size:clamp(30px,3.4vw,50px);font-weight:800;letter-spacing:-.03em;line-height:1.04}
+  .values-head h2 em{font-style:normal;color:var(--blue)}
+  .values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden}
+  .val-card{background:#fff;padding:38px 34px;transition:background .22s}
+  .val-card:hover{background:var(--off2)}
+  .val-card .val-num{font-family:var(--mono);font-size:11px;color:var(--blue);letter-spacing:.12em;margin-bottom:22px;display:block}
+  .val-card h3{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.15;max-width:20ch}
+  .val-card p{color:#4a4f56;font-size:15.5px;line-height:1.66;margin-top:14px;max-width:44ch}
+
+  /* ── FINAL CTA ── */
+  .final{
+    background:
+      radial-gradient(ellipse 140% 55% at 50% -5%,rgba(47,107,255,.30) 0%,transparent 52%),
+      radial-gradient(ellipse 65% 45% at 88% 108%,rgba(47,107,255,.14) 0%,transparent 60%),
+      #0d0f11;
+    color:#fff;text-align:center;position:relative;overflow:hidden
+  }
+  .final::before{content:'';position:absolute;inset:0;background-image:radial-gradient(circle,rgba(255,255,255,.055) 1px,transparent 1px);background-size:28px 28px;pointer-events:none;z-index:0}
+  .final .wrap{position:relative;z-index:1}
+  .final-kicker{display:flex;align-items:center;justify-content:center;gap:16px;font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue);margin-bottom:36px}
+  .final-kicker i{display:block;width:36px;height:1px;background:var(--blue);opacity:.55;font-style:normal}
+  .final h2{font-size:clamp(28px,4.2vw,58px);font-weight:800;letter-spacing:-.035em;line-height:1.06;margin:0 auto;max-width:20ch}
+  .final-sub{margin:22px auto 0;max-width:52ch;font-size:17px;line-height:1.72;color:rgba(255,255,255,.8)}
+  .final .acts{display:flex;gap:14px;justify-content:center;margin-top:40px;flex-wrap:wrap}
+  .final .btn-dark{background:var(--ink);color:#fff}
+  .final .btn-dark:hover{background:#000}
+  .final .note{margin-top:48px;display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+  .final .note span{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.38);border:1px solid rgba(255,255,255,.1);padding:5px 13px;border-radius:5px}
+
+  /* FOOTER */
+  footer{background:#0e1013;color:#aab0b8;padding:64px 0 40px}
+  footer .grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+  footer h5{color:#fff;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin-bottom:18px}
+  footer a{display:block;font-size:14px;margin-bottom:11px;color:#aab0b8;transition:color .2s}
+  footer a:hover{color:#fff}
+  footer .logo{color:#fff;margin-bottom:16px}
+  footer .bot{display:flex;justify-content:space-between;border-top:1px solid #23262b;margin-top:46px;padding-top:26px;font-size:12.5px;flex-wrap:wrap;gap:12px}
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  .reveal.in{opacity:1;transform:none}
+  .values-grid .reveal:nth-child(2){transition-delay:.08s}
+  .values-grid .reveal:nth-child(3){transition-delay:.14s}
+  .values-grid .reveal:nth-child(4){transition-delay:.20s}
+  @media (prefers-reduced-motion: reduce){.reveal{opacity:1 !important;transform:none !important;transition:none !important}}
+
+  /* RESPONSIVE */
+  @media(max-width:1000px){
+    .split{grid-template-columns:1fr;gap:34px}
+    .col-left{position:static;top:auto}
+    .founder-grid{grid-template-columns:1fr;gap:40px}
+    .founder-img{aspect-ratio:16/10}
+    nav.links{display:none}
+    .nav-cta .btn{display:none}
+    .menu-btn{display:flex}
+    .values-grid{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:768px){
+    footer .grid{grid-template-columns:1fr 1fr;gap:28px}
+  }
+  @media(max-width:640px){
+    .wrap{padding:0 22px}
+    section{padding:64px 0}
+    .about-hero{padding:72px 0 68px}
+    .values-grid{grid-template-columns:1fr}
+    .val-card{padding:28px 24px}
+    footer .grid{grid-template-columns:1fr}
+    .founder-img{aspect-ratio:4/3}
+  }
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="siteNav">
+  <div class="wrap">
+    <a class="logo" href="/" aria-label="RFT Recruitment home">
+      <img class="logo-img" src="/images/RFT-logo.png" alt="RFT Recruitment">
+    </a>
+    <nav class="links" aria-label="Primary">
+      <a href="/">Home</a><a href="/about" class="active">About</a><div class="nav-drop-wrap"><span class="nav-drop-trigger" tabindex="0">Sectors <svg class="drop-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></span><div class="nav-drop-menu"><a href="/sectors/digital-marketing.html"><span class="drop-num">01</span>Digital &amp; Marketing</a><a href="/sectors/office-support.html"><span class="drop-num">02</span>Office Support</a><a href="/sectors/sales.html"><span class="drop-num">03</span>Sales</a><a href="/sectors/commercial.html"><span class="drop-num">04</span>Commercial</a><a href="/sectors/rec2rec.html"><span class="drop-num">05</span>Rec2Rec</a><a href="/sectors/construction.html"><span class="drop-num">06</span>White Collar Construction</a></div></div><a href="/jobs/">Jobs</a><a href="/employers">Employers</a><a href="/contact.html">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-ghost-l" href="/submit-cv">Submit CV</a>
+      <a class="btn btn-primary" href="/employers">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <span class="nav-progress" id="navProgress" aria-hidden="true"></span>
+</header>
+
+<div class="mobile-panel" id="mobilePanel" aria-label="Mobile navigation">
+  <a class="logo m-logo" href="/" aria-label="RFT Recruitment home">
+    <img class="logo-img" src="/images/RFT-logo.png" alt="RFT Recruitment">
+  </a>
+  <button class="m-close" id="mobileClose" aria-label="Close menu">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg>
+  </button>
+  <div class="m-inner">
+    <a class="m-link" href="/"><span>Home</span><span class="ix">01</span></a>
+    <a class="m-link" href="/about"><span>About</span><span class="ix">02</span></a>
+    <div class="m-sectors-wrap" id="mobileSectorsWrap">
+      <div class="m-sectors-toggle" id="mobileSectorsToggle">
+        <span>Sectors</span>
+        <span class="ix">03 <svg class="ix-caret" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></span>
+      </div>
+      <div class="m-sectors-sub">
+        <a class="m-sector-link" href="/sectors/digital-marketing.html"><span class="m-sl-num">01</span>Digital &amp; Marketing</a>
+        <a class="m-sector-link" href="/sectors/office-support.html"><span class="m-sl-num">02</span>Office Support</a>
+        <a class="m-sector-link" href="/sectors/sales.html"><span class="m-sl-num">03</span>Sales</a>
+        <a class="m-sector-link" href="/sectors/commercial.html"><span class="m-sl-num">04</span>Commercial</a>
+        <a class="m-sector-link" href="/sectors/rec2rec.html"><span class="m-sl-num">05</span>Rec2Rec</a>
+        <a class="m-sector-link" href="/sectors/construction.html"><span class="m-sl-num">06</span>White Collar Construction</a>
+      </div>
+    </div>
+    <a class="m-link" href="/jobs/"><span>Jobs</span><span class="ix">04</span></a>
+    <a class="m-link" href="/employers"><span>Employers</span><span class="ix">05</span></a>
+    <a class="m-link" href="/submit-cv"><span>Submit CV</span><span class="ix">06</span></a>
+    <a class="m-link" href="/contact.html"><span>Contact</span><span class="ix">07</span></a>
+    <div class="m-cta">
+      <a class="btn btn-primary" href="/employers">Hire Talent</a>
+      <a class="btn btn-ghost-l" href="/submit-cv">Submit Your CV</a>
+    </div>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- PAGE HERO -->
+<div class="about-hero">
+  <div class="wrap">
+    <p class="eyebrow mono reveal"><span class="dot" aria-hidden="true"></span> About RFT &nbsp;&middot;&nbsp; Manchester</p>
+    <h1 class="reveal">We built RFT because getting it right matters<br><em>more than getting it done fast.</em></h1>
+    <div class="hero-rule reveal" aria-hidden="true"></div>
+    <p class="hero-lead reveal">Most recruitment agencies are built around volume. Fill the role, meet the deadline, move on. When the placement does not work out, the cycle starts again. Martyna Dudek founded RFT Recruitment because she had seen that model up close and knew there was a better way.</p>
+  </div>
+</div>
+
+<!-- FOUNDER STORY -->
+<section class="founder">
+  <div class="wrap">
+    <div class="founder-grid">
+
+      <div class="founder-img reveal" aria-label="Image placeholder: Martyna Dudek, Founder of RFT Recruitment">
+        <div class="img-ph" style="height:100%">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="12" cy="9" r="3"/><path d="M6 21c0-3 2.7-5 6-5s6 2 6 5"/></svg>
+          <span>Martyna Dudek<br>Founder, RFT Recruitment</span>
+        </div>
+      </div>
+
+      <div class="founder-body">
+        <p class="k mono reveal">Founded by Martyna Dudek</p>
+        <h2 class="reveal">A different approach<br><em>from day one.</em></h2>
+        <p class="reveal">After years working in recruitment, Martyna grew frustrated with the pressure to place candidates quickly over placing them correctly. Deadlines drove decisions. CVs went to clients before candidates were properly understood. Roles were filled and then refilled because the fit was never right in the first place.</p>
+        <p class="reveal">RFT was founded to fix that. The agency is built around a simple principle. A placement should only ever need to happen once. That means taking the time to properly understand every role, every business and every candidate before anything else happens.</p>
+        <div class="founder-attr reveal" aria-label="Martyna Dudek, Founder &amp; Managing Director">
+          <div class="founder-attr-img" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          </div>
+          <div>
+            <div class="founder-attr-name">Martyna Dudek</div>
+            <div class="founder-attr-role">Founder &amp; Managing Director, RFT Recruitment</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- HOW WE WORK -->
+<section class="how">
+  <div class="wrap split">
+
+    <div class="col-left reveal">
+      <p class="k mono">How We Work</p>
+      <h2>Rigorous before we ever pick up <em>the phone.</em></h2>
+      <p>Before a CV reaches a decision maker's desk, RFT has already done the work.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="/employers">Send a Brief <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+
+    <div class="col-right">
+      <div class="how-body">
+        <p class="reveal">Candidates are interviewed in depth, assessed against the role and briefed thoroughly. Employers receive a shortlist of people who have been properly vetted, not a pile of profiles to sift through.</p>
+        <p class="reveal">It takes longer to do it this way. That is the point.</p>
+        <div class="pull reveal" role="blockquote">
+          <p>"A placement should only ever need to happen once."</p>
+        </div>
+        <div class="how-img reveal" aria-label="Image placeholder: RFT team at work">
+          <div class="img-ph" style="height:100%;background:radial-gradient(circle at 60% 30%,rgba(47,107,255,.09),transparent 55%),#1a1c20">
+            <svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,.25)" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="20" height="14" rx="3"/><path d="M8 21h8M12 17v4"/></svg>
+            <span style="color:rgba(255,255,255,.4)">RFT team in action<br>Manchester office</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="wrap">
+    <div class="values-head">
+      <p class="k mono reveal">What We Stand For</p>
+      <h2 class="reveal">Four principles.<br><em>Every placement.</em></h2>
+    </div>
+    <div class="values-grid">
+
+      <div class="val-card reveal">
+        <span class="val-num">01</span>
+        <h3>Right fit over fast fill</h3>
+        <p>A placement that does not work costs everyone time, money and momentum. RFT prioritises getting the fit right over getting the role filled quickly every time.</p>
+      </div>
+
+      <div class="val-card reveal">
+        <span class="val-num">02</span>
+        <h3>Extended candidate assessment</h3>
+        <p>Every candidate goes through a proper interview process with RFT before being put forward. No CV reaches a client until we are confident the fit is right.</p>
+      </div>
+
+      <div class="val-card reveal">
+        <span class="val-num">03</span>
+        <h3>One placement, done properly</h3>
+        <p>The goal is not to fill a role and move on. The goal is to make a placement that sticks. RFT measures success by performance, not by roles closed.</p>
+      </div>
+
+      <div class="val-card reveal">
+        <span class="val-num">04</span>
+        <h3>Honest communication throughout</h3>
+        <p>If a candidate is not right, RFT will say so. If a brief needs refining, RFT will say that too. Clear, direct communication makes good placements happen.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final">
+  <div class="wrap">
+    <div class="final-kicker reveal" aria-hidden="true"><i></i>Get In Touch<i></i></div>
+    <h2 class="reveal">Ready to work with a recruitment agency that takes it seriously?</h2>
+    <p class="final-sub reveal">Whether you are hiring or looking, RFT gives you the time and attention the process deserves.</p>
+    <div class="acts reveal">
+      <a class="btn btn-primary" href="/employers">Find Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-dark" href="/submit-cv">Submit Your CV <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <p class="note reveal">
+      <span>Manchester</span>
+      <span>Right First Time</span>
+      <span>Founded by Martyna Dudek</span>
+      <span>6 Sectors</span>
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="grid">
+      <div>
+        <div class="logo"><img class="logo-img" src="/images/RFT-logo.png" alt="RFT Recruitment"></div>
+        <p style="max-width:34ch;font-size:14px;line-height:1.6">Manchester-based recruitment for employers and candidates across six specialist sectors. Permanent and contract.</p>
+      </div>
+      <div><h5>Recruit</h5><a href="/employers">Hire Talent</a><a href="/employers">Send Hiring Brief</a><a href="/#spec">Our Sectors</a><a href="/contact.html">Speak to RFT</a></div>
+      <div><h5>Candidates</h5><a href="/jobs/">Browse Jobs</a><a href="/submit-cv">Submit CV</a><a href="/submit-cv">Register Interest</a><a href="/jobs/">Job Alerts</a></div>
+      <div><h5>Company</h5><a href="/about">About</a><a href="/contact.html">Contact</a><a href="/privacy-policy">Privacy Policy</a><a href="/terms">Terms</a></div>
+    </div>
+    <div class="bot"><span>© 2026 RFT Recruitment Ltd · Manchester,&nbsp;UK</span><span class="mono">RFT · Right First Time</span></div>
+  </div>
+</footer>
+
+<script>
+  // MOBILE NAV
+  (function(){
+    var btn=document.getElementById('menuBtn'),
+        panel=document.getElementById('mobilePanel'),
+        close=document.getElementById('mobileClose'),
+        body=document.body;
+    function open(){panel.classList.add('open');btn.setAttribute('aria-expanded','true');body.style.overflow='hidden'}
+    function shut(){panel.classList.remove('open');btn.setAttribute('aria-expanded','false');body.style.overflow=''}
+    btn.addEventListener('click',open);
+    close.addEventListener('click',shut);
+    panel.addEventListener('click',function(e){if(e.target===panel)shut()});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')shut()});
+    // sectors sub-toggle
+    var sw=document.getElementById('mobileSectorsWrap'),
+        st=document.getElementById('mobileSectorsToggle');
+    if(st)st.addEventListener('click',function(){sw.classList.toggle('open')});
+  })();
+
+  // SCROLL PROGRESS
+  (function(){
+    var bar=document.getElementById('navProgress');
+    if(!bar)return;
+    function upd(){
+      var total=document.documentElement.scrollHeight-window.innerHeight;
+      bar.style.transform='scaleX('+(total>0?window.scrollY/total:0)+')';
+    }
+    window.addEventListener('scroll',upd,{passive:true});
+    upd();
+  })();
+
+  // REVEAL ON SCROLL
+  (function(){
+    if(!('IntersectionObserver' in window)){
+      document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});
+      return;
+    }
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}
+      });
+    },{threshold:.10,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+  })();
+</script>
+
+</body>
+</html>
