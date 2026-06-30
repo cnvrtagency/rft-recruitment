@@ -977,8 +977,9 @@
             var ext=cvFile.name.split('.').pop();
             var cvPath=String(Date.now())+'-'+Math.random().toString(36).slice(2)+'.'+ext;
             __db.storage.from('cvs').upload(cvPath,cvFile).then(function(uploadR){
-              var cvUrl=uploadR.error?null:cvPath;
-              var cvFn=uploadR.error?null:cvFile.name;
+              if(uploadR.error){ onErr(); return; }
+              var cvUrl=cvPath;
+              var cvFn=cvFile.name;
               __db.from('enquiries').insert(enqPayload);
               __db.from('cv_submissions').insert({
                 name:fullName,email:fv('email'),phone:fv('phone'),
@@ -1242,7 +1243,14 @@
       var ext=cvFile.name.split('.').pop();
       var path=String(Date.now())+'-'+Math.random().toString(36).slice(2)+'.'+ext;
       __db.storage.from('cvs').upload(path,cvFile).then(function(r){
-        insertRecord(r.error?null:path, r.error?null:cvFile.name);
+        if(r.error){
+          submitBtn.disabled=false;
+          submitBtn.textContent='Submit CV';
+          errEl.textContent='CV upload failed. Please try again.';
+          errEl.style.display='block';
+          return;
+        }
+        insertRecord(path, cvFile.name);
       });
     } else {
       insertRecord(null,null);

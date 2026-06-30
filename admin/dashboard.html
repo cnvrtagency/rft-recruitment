@@ -841,19 +841,25 @@ function loadOverview(){
   Promise.all([
     db.from('enquiries').select('id,name,type,status,company,sector,created_at').order('created_at',{ascending:false}).limit(20),
     db.from('cv_submissions').select('id,name,sector,job_title,status,created_at').order('created_at',{ascending:false}).limit(20),
-    db.from('job_listings').select('id').eq('published',true)
+    db.from('job_listings').select('id').eq('published',true),
+    db.from('enquiries').select('id',{count:'exact',head:true}).eq('status','new'),
+    db.from('cv_submissions').select('id',{count:'exact',head:true}).eq('status','new'),
+    db.from('enquiries').select('id',{count:'exact',head:true}),
+    db.from('cv_submissions').select('id',{count:'exact',head:true})
   ]).then(function(rs){
     var enqs = rs[0].data||[];
     var cvs  = rs[1].data||[];
     var jobs = rs[2].data||[];
 
-    var newEnqs = enqs.filter(function(e){return e.status==='new';}).length;
-    var newCVs  = cvs.filter(function(c){return c.status==='new';}).length;
+    var newEnqs = rs[3].count==null ? enqs.filter(function(e){return e.status==='new';}).length : rs[3].count;
+    var newCVs  = rs[4].count==null ? cvs.filter(function(c){return c.status==='new';}).length : rs[4].count;
+    var totalEnqs = rs[5].count==null ? enqs.length : rs[5].count;
+    var totalCVs = rs[6].count==null ? cvs.length : rs[6].count;
 
     var el = document.getElementById('ov-new-enqs'); if(el) el.textContent = newEnqs;
     el = document.getElementById('ov-new-cvs');  if(el) el.textContent = newCVs;
     el = document.getElementById('ov-live-jobs'); if(el) el.textContent = jobs.length;
-    el = document.getElementById('ov-total');    if(el) el.textContent = enqs.length + cvs.length;
+    el = document.getElementById('ov-total');    if(el) el.textContent = totalEnqs + totalCVs;
 
     updateBadge('enquiries', newEnqs);
     updateBadge('cvs', newCVs);
