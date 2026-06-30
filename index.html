@@ -6,7 +6,7 @@
 
 <!-- Primary SEO -->
 <title>RFT Recruitment | Recruitment Agency in Manchester</title>
-<meta name="description" content="RFT Recruitment is a Manchester-based recruitment agency placing permanent and contract talent across Digital &amp; Marketing, Office Support, Sales, Commercial, Rec2Rec and White Collar Construction. Sharp shortlists, straight advice, the right match." />
+<meta name="description" content="Manchester recruitment agency placing permanent and contract talent across Digital, Marketing, Sales, Office Support, Commercial, Rec2Rec and Construction." />
 <link rel="canonical" href="https://www.rftrecruitment.co.uk/" />
 <meta name="robots" content="index, follow" />
 <meta name="theme-color" content="#16181b" />
@@ -31,6 +31,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="image" href="/images/manchester-team.jpeg" fetchpriority="high" />
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
 
 <!-- LocalBusiness / EmploymentAgency structured data -->
@@ -440,8 +441,7 @@
     .wrap{padding:0 22px}
     .why-grid,.job-grid{grid-template-columns:1fr}
     .hero{aspect-ratio:800/1200;height:auto;min-height:unset;margin-top:-90px}
-    .hero-video{display:none}
-    .hero-video-mobile{display:block}
+    .hero-video{display:block}
     .hero .inner{padding:160px 22px 64px;text-align:left;align-items:flex-start}
     .hero .eyebrow{flex-wrap:wrap;justify-content:flex-start;text-align:left;gap:8px;font-size:10px}
     .cf-grid{grid-template-columns:1fr}
@@ -534,11 +534,9 @@
 
 <!-- HERO centred -->
 <div class="hero" id="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto">
-    <source src="/images/recruitment-video.mp4" type="video/mp4">
-  </video>
-  <video class="hero-video hero-video-mobile" autoplay muted loop playsinline preload="auto">
-    <source src="/images/recruitment-video-mobile.mp4" type="video/mp4">
+  <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/manchester-team.jpeg" fetchpriority="high">
+    <source src="/images/recruitment-video-mobile.mp4" type="video/mp4" media="(max-width: 700px)">
+    <source src="/images/recruitment-video.mp4" type="video/mp4" media="(min-width: 701px)">
   </video>
   <div class="inner">
     <p class="eyebrow mono"><svg class="eye-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 13-8 13s-8-7-8-13a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg> Manchester, UK</p>
