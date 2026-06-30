@@ -385,12 +385,12 @@
         </div>
       </div>
       <a href="/jobs/">Jobs</a>
-      <a href="/employers">Employers</a>
+      <a href="/contact/#ct-section">Employers</a>
       <a href="/contact/" class="active">Contact</a>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-ghost-l" href="/submit-cv">Submit CV</a>
-      <a class="btn btn-primary" href="/employers">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn-ghost-l" href="/contact/?type=candidate#ct-section">Submit CV</a>
+      <a class="btn btn-primary" href="/contact/#ct-section">Hire Talent <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-controls="mobilePanel" aria-expanded="false">
       <span></span><span></span><span></span>
@@ -425,12 +425,12 @@
       </div>
     </div>
     <a class="m-link" href="/jobs/"><span>Jobs</span><span class="ix">04</span></a>
-    <a class="m-link" href="/employers"><span>Employers</span><span class="ix">05</span></a>
-    <a class="m-link" href="/submit-cv"><span>Submit CV</span><span class="ix">06</span></a>
+    <a class="m-link" href="/contact/#ct-section"><span>Employers</span><span class="ix">05</span></a>
+    <a class="m-link" href="/contact/?type=candidate#ct-section"><span>Submit CV</span><span class="ix">06</span></a>
     <a class="m-link" href="/contact/"><span>Contact</span><span class="ix">07</span></a>
     <div class="m-cta">
-      <a class="btn btn-primary" href="/employers">Hire Talent</a>
-      <a class="btn btn-ghost-l" href="/submit-cv">Submit Your CV</a>
+      <a class="btn btn-primary" href="/contact/#ct-section">Hire Talent</a>
+      <a class="btn btn-ghost-l" href="/contact/?type=candidate#ct-section">Submit Your CV</a>
     </div>
   </div>
 </div>
@@ -459,8 +459,8 @@
         <div class="ci-grid">
           <div class="ci-card reveal">
             <div class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.61 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6.29 6.29l.95-.95a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-            <p class="ci-lbl">Phone</p>
-            <p class="ci-val"><a href="tel:01610000000">0161 000 0000</a></p>
+            <p class="ci-lbl">Response</p>
+            <p class="ci-val">Within one business day</p>
           </div>
           <div class="ci-card reveal" style="transition-delay:.06s">
             <div class="ci-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></div>
@@ -675,24 +675,24 @@
       </div>
       <div>
         <h5>Recruit</h5>
-        <a href="/employers">Hire Talent</a>
-        <a href="/employers">Send Hiring Brief</a>
+        <a href="/contact/#ct-section">Hire Talent</a>
+        <a href="/contact/#ct-section">Send Hiring Brief</a>
         <a href="/#spec">Our Sectors</a>
         <a href="/contact/">Speak to RFT</a>
       </div>
       <div>
         <h5>Candidates</h5>
-        <a href="/jobs">Browse Jobs</a>
-        <a href="/submit-cv">Submit CV</a>
-        <a href="/submit-cv">Register Interest</a>
-        <a href="/jobs">Job Alerts</a>
+        <a href="/jobs/">Browse Jobs</a>
+        <a href="/contact/?type=candidate#ct-section">Submit CV</a>
+        <a href="/contact/?type=candidate#ct-section">Register Interest</a>
+        <a href="/jobs/">Job Alerts</a>
       </div>
       <div>
         <h5>Company</h5>
         <a href="/about/">About</a>
         <a href="/contact/">Contact</a>
-        <a href="/privacy-policy">Privacy Policy</a>
-        <a href="/terms">Terms</a>
+        <a href="/privacy-policy/">Privacy Policy</a>
+        <a href="/terms/">Terms</a>
       </div>
     </div>
     <div class="bot">
@@ -796,6 +796,11 @@
     heroReg.addEventListener('click',function(){
       setTimeout(function(){switchTo('candidate')},50);
     });
+  }
+
+  if(new URLSearchParams(window.location.search).get('type')==='candidate'){
+    switchTo('candidate');
+    if(location.hash==='#ct-section') setTimeout(function(){section.scrollIntoView({block:'start'});},80);
   }
 
   /* reposition on resize */
