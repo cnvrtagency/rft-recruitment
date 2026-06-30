@@ -460,6 +460,7 @@
 
   /* NAV DROPDOWN */
   .nav-drop-wrap{position:relative;display:flex;align-items:center}
+  .nav-drop-wrap::after{content:"";position:absolute;left:-12px;right:-12px;top:100%;height:14px}
   .nav-drop-trigger{position:relative;font-size:13.5px;font-weight:600;font-family:var(--sans);color:rgba(255,255,255,.82);padding:9px 13px;border-radius:9px;transition:color .2s,background .2s;display:flex;align-items:center;gap:5px;cursor:default;user-select:none;white-space:nowrap}
   .nav-drop-trigger::after{content:"";position:absolute;left:13px;right:13px;bottom:4px;height:2px;background:var(--blue);border-radius:2px;transform:scaleX(0);transform-origin:center;transition:transform .28s cubic-bezier(.2,.7,.2,1)}
   .nav-drop-wrap:hover .nav-drop-trigger,.nav-drop-wrap:focus-within .nav-drop-trigger{color:#fff;background:rgba(255,255,255,.05)}
